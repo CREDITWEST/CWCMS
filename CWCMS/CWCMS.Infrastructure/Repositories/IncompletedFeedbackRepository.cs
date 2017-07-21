@@ -8,25 +8,25 @@ namespace CWCMS.Infrastructure.Repositories
     {
         private Database CWDB = new Database("CWCMSConnection");
 
-        public void Add(CWCMS.Core.Models.IncompletedFeedback incompletedFeedbackRecord)
+        public void Add(Core.Models.IncompletedFeedback incompletedFeedbackRecord)
         {
             CWDB.Insert(incompletedFeedbackRecord);
         }
 
-        public void Edit(CWCMS.Core.Models.IncompletedFeedback incompletedFeedbackRecord)
+        public void Edit(Core.Models.IncompletedFeedback incompletedFeedbackRecord)
         {
             CWDB.Update(incompletedFeedbackRecord);
         }
 
-        public CWCMS.Core.Models.IncompletedFeedback FindIncompletedRecordByID(int incompletedFeedbackID)
+        public Core.Models.IncompletedFeedback FindIncompletedRecordByID(int incompletedFeedbackID)
         {
-            var record = CWDB.Single<CWCMS.Core.Models.IncompletedFeedback>(incompletedFeedbackID);
+            var record = CWDB.Single<Core.Models.IncompletedFeedback>(incompletedFeedbackID);
             return record;
         }
 
         public IEnumerable<dynamic> ListIncompletedFeedback()
         {
-            var list = CWDB.Query<CWCMS.Core.Models.IncompletedFeedback>("SELECT * FROM IncompletedFeedback");
+            var list = CWDB.Query<Core.Models.IncompletedFeedback>("SELECT * FROM IncompletedFeedback");
             return list;
         }
 

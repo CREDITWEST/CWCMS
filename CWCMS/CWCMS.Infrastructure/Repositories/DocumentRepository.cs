@@ -9,43 +9,43 @@ namespace CWCMS.Infrastructure.Repositories
     {
         private Database CWDB = new Database("CWCMSConnection");
 
-        public void Add(CWCMS.Core.Models.Document documentRecord)
+        public void Add(Core.Models.Document documentRecord)
         {
             CWDB.Insert(documentRecord);
         }
 
-        public void Edit(CWCMS.Core.Models.Document documentRecord)
+        public void Edit(Core.Models.Document documentRecord)
         {
             CWDB.Update(documentRecord);
         }
 
-        public CWCMS.Core.Models.Document FindDocumentByID(Guid documentRecordID)
+        public Core.Models.Document FindDocumentByID(Guid documentRecordID)
         {
-            var record = CWDB.Single<CWCMS.Core.Models.Document>(documentRecordID);
+            var record = CWDB.Single<Core.Models.Document>(documentRecordID);
             return record;
         }
 
-        public CWCMS.Core.Models.Document FindDocumentByReferenceNumber(string referenceNumber)
+        public Core.Models.Document FindDocumentByReferenceNumber(string referenceNumber)
         {
-            var record = CWDB.Single<CWCMS.Core.Models.Document>("WHERE ReferenceNumber = @0", referenceNumber);
+            var record = CWDB.Single<Core.Models.Document>("WHERE ReferenceNumber = @0", referenceNumber);
             return record;
         }
 
         public IEnumerable<dynamic> ListDocument()
         {
-            var list = CWDB.Query<CWCMS.Core.Models.Document>("SELECT * FROM Document");
+            var list = CWDB.Query<Core.Models.Document>("SELECT * FROM Document");
             return list;
         }
 
         public IEnumerable<dynamic> ListDocumentByPublishDate(DateTime publishDateTime)
         {
-            var list = CWDB.Fetch<CWCMS.Core.Models.Document>("WHERE PublishDate = @0", publishDateTime);
+            var list = CWDB.Fetch<Core.Models.Document>("WHERE PublishDate = @0", publishDateTime);
             return list;
         }
 
         public IEnumerable<dynamic> ListDocumentByPublisherID(Guid publisherId)
         {
-            var list = CWDB.Fetch<CWCMS.Core.Models.Document>("WHERE PublisherID = @0", publisherId);
+            var list = CWDB.Fetch<Core.Models.Document>("WHERE PublisherID = @0", publisherId);
             return list;
         }
 

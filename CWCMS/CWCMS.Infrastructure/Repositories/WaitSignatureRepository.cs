@@ -9,31 +9,31 @@ namespace CWCMS.Infrastructure.Repositories
     {
         private Database CWDB = new Database("CWCMSConnection");
 
-        public void Add(CWCMS.Core.Models.WaitSignature waitSignatureRecord)
+        public void Add(Core.Models.WaitSignature waitSignatureRecord)
         {
             CWDB.Insert(waitSignatureRecord);
         }
 
-        public void Edit(CWCMS.Core.Models.WaitSignature waitSignatureRecord)
+        public void Edit(Core.Models.WaitSignature waitSignatureRecord)
         {
             CWDB.Update(waitSignatureRecord);
         }
 
-        public CWCMS.Core.Models.WaitSignature FindWaitSignatureByDocument(Guid documentGUID)
+        public Core.Models.WaitSignature FindWaitSignatureByDocument(Guid documentGUID)
         {
-            var record = CWDB.Single<CWCMS.Core.Models.WaitSignature>("WHERE DocumentID = @0", documentGUID);
+            var record = CWDB.Single<Core.Models.WaitSignature>("WHERE DocumentID = @0", documentGUID);
             return record;
         }
 
-        public CWCMS.Core.Models.WaitSignature FindWaitSignatureByID(int waitSignatureID)
+        public Core.Models.WaitSignature FindWaitSignatureByID(int waitSignatureID)
         {
-            var record = CWDB.Single<CWCMS.Core.Models.WaitSignature>(waitSignatureID);
+            var record = CWDB.Single<Core.Models.WaitSignature>(waitSignatureID);
             return record;
         }
 
         public IEnumerable<dynamic> ListWaitSignature()
         {
-            var list = CWDB.Query<CWCMS.Core.Models.WaitSignature>("SELECT * FROM WaitSignature");
+            var list = CWDB.Query<Core.Models.WaitSignature>("SELECT * FROM WaitSignature");
             return list;
         }
 

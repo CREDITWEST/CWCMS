@@ -9,31 +9,31 @@ namespace CWCMS.Infrastructure.Repositories
     {
         private Database CWDB = new Database("CWCMSConnection");
 
-        public void Add(CWCMS.Core.Models.QueuedSignatures queuedSignaturesRecord)
+        public void Add(Core.Models.QueuedSignatures queuedSignaturesRecord)
         {
             CWDB.Insert(queuedSignaturesRecord);
         }
 
-        public void Edit(CWCMS.Core.Models.QueuedSignatures queuedSignaturesRecord)
+        public void Edit(Core.Models.QueuedSignatures queuedSignaturesRecord)
         {
             CWDB.Update(queuedSignaturesRecord);
         }
 
         public IEnumerable<dynamic> FindQueuedSignaturesByDocument(Guid documentGUID)
         {
-            var list = CWDB.Fetch<CWCMS.Core.Models.QueuedSignatures>("WHERE DocumentID = @0", documentGUID);
+            var list = CWDB.Fetch<Core.Models.QueuedSignatures>("WHERE DocumentID = @0", documentGUID);
             return list;
         }
 
-        public CWCMS.Core.Models.QueuedSignatures FindQueuedSignaturesByID(int queuedSignatureID)
+        public Core.Models.QueuedSignatures FindQueuedSignaturesByID(int queuedSignatureID)
         {
-            var record = CWDB.Single<CWCMS.Core.Models.QueuedSignatures>(queuedSignatureID);
+            var record = CWDB.Single<Core.Models.QueuedSignatures>(queuedSignatureID);
             return record;
         }
 
         public IEnumerable<dynamic> ListQueuedSignatures()
         {
-            var list = CWDB.Query<CWCMS.Core.Models.QueuedSignatures>("SELECT * FROM QueuedSignatures");
+            var list = CWDB.Query<Core.Models.QueuedSignatures>("SELECT * FROM QueuedSignatures");
             return list;
         }
 

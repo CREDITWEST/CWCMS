@@ -9,12 +9,12 @@ namespace CWCMS.Infrastructure.Repositories
     {
         private Database CWDB = new Database("CWCMSConnection");
 
-        public void Add(CWCMS.Core.Models.Active activeRecord)
+        public void Add(Core.Models.Active activeRecord)
         {
             CWDB.Insert(activeRecord);
         }
 
-        public void Edit(CWCMS.Core.Models.Active activeRecord)
+        public void Edit(Core.Models.Active activeRecord)
         {
             CWDB.Update(activeRecord);
         }
@@ -26,19 +26,19 @@ namespace CWCMS.Infrastructure.Repositories
 
         IEnumerable<dynamic> IActiveRepository.ListActive()
         {
-            var list = CWDB.Query<CWCMS.Core.Models.Active>("SELECT * FROM Active");
+            var list = CWDB.Query<Core.Models.Active>("SELECT * FROM Active");
             return list;
         }
 
-        CWCMS.Core.Models.Active IActiveRepository.FindActiveByID(int activeID)
+        Core.Models.Active IActiveRepository.FindActiveByID(int activeID)
         {
-            var record = CWDB.Single<CWCMS.Core.Models.Active>(activeID);
+            var record = CWDB.Single<Core.Models.Active>(activeID);
             return record;
         }
 
-        CWCMS.Core.Models.Active IActiveRepository.FindActiveByDocument(Guid documentGUID)
+        Core.Models.Active IActiveRepository.FindActiveByDocument(Guid documentGUID)
         {
-            var record = CWDB.Single<CWCMS.Core.Models.Active>("WHERE DocumentID = @0", documentGUID);
+            var record = CWDB.Single<Core.Models.Active>("WHERE DocumentID = @0", documentGUID);
             return record;
         }
     }

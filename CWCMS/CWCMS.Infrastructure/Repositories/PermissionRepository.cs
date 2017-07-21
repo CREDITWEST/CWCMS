@@ -8,25 +8,25 @@ namespace CWCMS.Infrastructure.Repositories
     {
         private Database CWDB = new Database("CWCMSConnection");
 
-        public void Add(CWCMS.Core.Models.Permission permissionRecord)
+        public void Add(Core.Models.Permission permissionRecord)
         {
             CWDB.Insert(permissionRecord);
         }
 
-        public void Edit(CWCMS.Core.Models.Permission permissionRecord)
+        public void Edit(Core.Models.Permission permissionRecord)
         {
             CWDB.Update(permissionRecord);
         }
 
-        public CWCMS.Core.Models.Permission FindPermissionByID(int permissionID)
+        public Core.Models.Permission FindPermissionByID(int permissionID)
         {
-            var record = CWDB.Single<CWCMS.Core.Models.Permission>(permissionID);
+            var record = CWDB.Single<Core.Models.Permission>(permissionID);
             return record;
         }
 
         public IEnumerable<dynamic> ListPermission()
         {
-            var list = CWDB.Query<CWCMS.Core.Models.Permission>("SELECT * FROM Permission");
+            var list = CWDB.Query<Core.Models.Permission>("SELECT * FROM Permission");
             return list;
         }
 

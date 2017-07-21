@@ -9,31 +9,31 @@ namespace CWCMS.Infrastructure.Repositories
     {
         private Database CWDB = new Database("CWCMSConnection");
 
-        public void Add(CWCMS.Core.Models.Revised revisedRecord)
+        public void Add(Core.Models.Revised revisedRecord)
         {
             CWDB.Insert(revisedRecord);
         }
 
-        public void Edit(CWCMS.Core.Models.Revised revisedRecord)
+        public void Edit(Core.Models.Revised revisedRecord)
         {
             CWDB.Update(revisedRecord);
         }
 
-        public CWCMS.Core.Models.Revised FindRevisedByDocument(Guid documentGUID)
+        public Core.Models.Revised FindRevisedByDocument(Guid documentGUID)
         {
-            var record = CWDB.Single<CWCMS.Core.Models.Revised>("WHERE DocumentID = @0", documentGUID);
+            var record = CWDB.Single<Core.Models.Revised>("WHERE DocumentID = @0", documentGUID);
             return record;
         }
 
-        public CWCMS.Core.Models.Revised FindRevisedByID(int revisedID)
+        public Core.Models.Revised FindRevisedByID(int revisedID)
         {
-            var record = CWDB.Single<CWCMS.Core.Models.Revised>(revisedID);
+            var record = CWDB.Single<Core.Models.Revised>(revisedID);
             return record;
         }
 
         public IEnumerable<dynamic> ListRevised()
         {
-            var list = CWDB.Query<CWCMS.Core.Models.Revised>("SELECT * FROM Revised");
+            var list = CWDB.Query<Core.Models.Revised>("SELECT * FROM Revised");
             return list;
         }
 

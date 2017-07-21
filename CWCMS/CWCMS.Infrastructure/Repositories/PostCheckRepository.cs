@@ -9,31 +9,31 @@ namespace CWCMS.Infrastructure.Repositories
     {
         private Database CWDB = new Database("CWCMSConnection");
 
-        public void Add(CWCMS.Core.Models.PostCheck postCheckRecord)
+        public void Add(Core.Models.PostCheck postCheckRecord)
         {
             CWDB.Insert(postCheckRecord);
         }
 
-        public void Edit(CWCMS.Core.Models.PostCheck postCheckRecord)
+        public void Edit(Core.Models.PostCheck postCheckRecord)
         {
             CWDB.Update(postCheckRecord);
         }
 
-        public CWCMS.Core.Models.PostCheck FindPostCheckByDocument(Guid documentGUID)
+        public Core.Models.PostCheck FindPostCheckByDocument(Guid documentGUID)
         {
-            var record = CWDB.Single<CWCMS.Core.Models.PostCheck>("WHERE DocumentID = @0", documentGUID);
+            var record = CWDB.Single<Core.Models.PostCheck>("WHERE DocumentID = @0", documentGUID);
             return record;
         }
 
-        public CWCMS.Core.Models.PostCheck FindPostCheckByID(int postCheckID)
+        public Core.Models.PostCheck FindPostCheckByID(int postCheckID)
         {
-            var record = CWDB.Single<CWCMS.Core.Models.PostCheck>(postCheckID);
+            var record = CWDB.Single<Core.Models.PostCheck>(postCheckID);
             return record;
         }
 
         public IEnumerable<dynamic> ListPostCheck()
         {
-            var list = CWDB.Query<CWCMS.Core.Models.PostCheck>("SELECT * FROM PostCheck");
+            var list = CWDB.Query<Core.Models.PostCheck>("SELECT * FROM PostCheck");
             return list;
         }
 

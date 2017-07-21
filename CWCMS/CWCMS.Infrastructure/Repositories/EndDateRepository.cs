@@ -9,31 +9,31 @@ namespace CWCMS.Infrastructure.Repositories
     {
         private Database CWDB = new Database("CWCMSConnection");
 
-        public void Add(CWCMS.Core.Models.EndDate endDateRecord)
+        public void Add(Core.Models.EndDate endDateRecord)
         {
             CWDB.Insert(endDateRecord);
         }
 
-        public void Edit(CWCMS.Core.Models.EndDate endDateRecord)
+        public void Edit(Core.Models.EndDate endDateRecord)
         {
             CWDB.Update(endDateRecord);
         }
 
-        public CWCMS.Core.Models.EndDate FindEndDateRecordByID(int endDateRecordID)
+        public Core.Models.EndDate FindEndDateRecordByID(int endDateRecordID)
         {
-            var record = CWDB.Single<CWCMS.Core.Models.EndDate>(endDateRecordID);
+            var record = CWDB.Single<Core.Models.EndDate>(endDateRecordID);
             return record;
         }
 
         public IEnumerable<dynamic> ListEndDate()
         {
-            var list = CWDB.Query<CWCMS.Core.Models.EndDate>("SELECT * FROM EndDate");
+            var list = CWDB.Query<Core.Models.EndDate>("SELECT * FROM EndDate");
             return list;
         }
 
         public IEnumerable<dynamic> ListEndDateByDate(DateTime endDate)
         {
-            var list = CWDB.Fetch<CWCMS.Core.Models.EndDate>("WHERE ExpirationDate = @0", endDate);
+            var list = CWDB.Fetch<Core.Models.EndDate>("WHERE ExpirationDate = @0", endDate);
             return list;
         }
 

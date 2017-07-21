@@ -1,6 +1,5 @@
 ﻿using CWCMS.Core.Interfaces;
 using PetaPoco;
-using System;
 
 namespace CWCMS.Infrastructure.Repositories
 {
@@ -8,31 +7,31 @@ namespace CWCMS.Infrastructure.Repositories
     {
         private Database CWDB = new Database("CWCMSConnection");
 
-        public void Add(CWCMS.Core.Models.FileSequence fileSequenceRecord)
+        public void Add(Core.Models.FileSequence fileSequenceRecord)
         {
             CWDB.Insert(fileSequenceRecord);
         }
 
-        public void Edit(CWCMS.Core.Models.FileSequence fileSequenceRecord)
+        public void Edit(Core.Models.FileSequence fileSequenceRecord)
         {
             CWDB.Update(fileSequenceRecord);
         }
 
-        public CWCMS.Core.Models.FileSequence FindFileSequenceByID(int fileSequenceRecordID)
+        public Core.Models.FileSequence FindFileSequenceByID(int fileSequenceRecordID)
         {
-            var record = CWDB.Single<CWCMS.Core.Models.FileSequence>(fileSequenceRecordID);
+            var record = CWDB.Single<Core.Models.FileSequence>(fileSequenceRecordID);
             return record;
         }
 
         public System.Collections.Generic.IEnumerable<dynamic> ListFileSequence()
         {
-            var list = CWDB.Query<CWCMS.Core.Models.FileSequence>("SELECT * FROM FileSequence");
+            var list = CWDB.Query<Core.Models.FileSequence>("SELECT * FROM FileSequence");
             return list;
         }
 
         public System.Collections.Generic.IEnumerable<dynamic> ListFileSequenceByDocumentType(string documentTypeCode)
         {
-            var list = CWDB.Fetch<CWCMS.Core.Models.FileSequence>("WHERE FileType = @0", documentTypeCode);
+            var list = CWDB.Fetch<Core.Models.FileSequence>("WHERE FileType = @0", documentTypeCode);
             return list;
         }
 

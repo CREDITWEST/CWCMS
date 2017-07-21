@@ -8,25 +8,25 @@ namespace CWCMS.Infrastructure.Repositories
     {
         private Database CWDB = new Database("CWCMSConnection");
 
-        public void Add(CWCMS.Core.Models.Role roleRecord)
+        public void Add(Core.Models.Role roleRecord)
         {
             CWDB.Insert(roleRecord);
         }
 
-        public void Edit(CWCMS.Core.Models.Role roleRecord)
+        public void Edit(Core.Models.Role roleRecord)
         {
             CWDB.Update(roleRecord);
         }
 
-        public CWCMS.Core.Models.Role FindRoleByID(int roleID)
+        public Core.Models.Role FindRoleByID(int roleID)
         {
-            var record = CWDB.Single<CWCMS.Core.Models.Role>(roleID);
+            var record = CWDB.Single<Core.Models.Role>(roleID);
             return record;
         }
 
         public IEnumerable<dynamic> ListRole()
         {
-            var list = CWDB.Query<CWCMS.Core.Models.Role>("SELECT * FROM Role");
+            var list = CWDB.Query<Core.Models.Role>("SELECT * FROM Role");
             return list;
         }
 
