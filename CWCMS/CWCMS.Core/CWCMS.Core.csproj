@@ -40,6 +40,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IActiveRepository.cs" />
+    <Compile Include="Interfaces\ICancelledRepository.cs" />
+    <Compile Include="Interfaces\ICompletedFeedbackRepository.cs" />
+    <Compile Include="Interfaces\IConfirmedSignaturesRepository.cs" />
+    <Compile Include="Interfaces\IDeletedRepository.cs" />
+    <Compile Include="Interfaces\IDependencyRepository.cs" />
+    <Compile Include="Interfaces\IDocumentRepository.cs" />
+    <Compile Include="Interfaces\IEndDateRepository.cs" />
+    <Compile Include="Interfaces\IFeedbackRepository.cs" />
+    <Compile Include="Interfaces\IFileRevisionsRepository.cs" />
+    <Compile Include="Interfaces\IFileSequenceRepository.cs" />
+    <Compile Include="Interfaces\IIncompletedFeedbackRepository.cs" />
+    <Compile Include="Interfaces\ILinkRolePermissionRepository.cs" />
+    <Compile Include="Interfaces\ILinkUserFileRepository.cs" />
+    <Compile Include="Interfaces\ILinkUserRoleRepository.cs" />
+    <Compile Include="Interfaces\IPermissionRepository.cs" />
+    <Compile Include="Interfaces\IPostCheckRepository.cs" />
+    <Compile Include="Interfaces\IPreCheckRepository.cs" />
+    <Compile Include="Interfaces\IQueuedSignaturesRepository.cs" />
+    <Compile Include="Interfaces\IRevisedRepository.cs" />
+    <Compile Include="Interfaces\IRoleRepository.cs" />
+    <Compile Include="Interfaces\ISubFileRevisionsRepository.cs" />
+    <Compile Include="Interfaces\ISubFileSequenceRepository.cs" />
+    <Compile Include="Interfaces\IValidDateRepository.cs" />
+    <Compile Include="Interfaces\IWaitingForFeedbackRepository.cs" />
+    <Compile Include="Interfaces\IWaitingSignaturesRepository.cs" />
+    <Compile Include="Interfaces\IWaitSignatureRepository.cs" />
     <Compile Include="Models\Active.cs" />
     <Compile Include="Models\Cancelled.cs" />
     <Compile Include="Models\CompletedFeedback.cs" />
@@ -69,8 +96,6 @@
     <Compile Include="Models\WaitSignature.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
