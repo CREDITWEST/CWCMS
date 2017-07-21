@@ -38,7 +38,8 @@ namespace CWCMS.Infrastructure.Repositories
 
         CWCMS.Core.Models.Active IActiveRepository.FindActiveByDocument(Guid documentGUID)
         {
-            throw new NotImplementedException();
+            var record = CWDB.Single<CWCMS.Core.Models.Active>("WHERE DocumentID = @0", documentGUID);
+            return record;
         }
     }
 }

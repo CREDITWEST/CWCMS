@@ -21,7 +21,8 @@ namespace CWCMS.Infrastructure.Repositories
 
         public CWCMS.Core.Models.Revised FindRevisedByDocument(Guid documentGUID)
         {
-            throw new NotImplementedException();
+            var record = CWDB.Single<CWCMS.Core.Models.Revised>("WHERE DocumentID = @0", documentGUID);
+            return record;
         }
 
         public CWCMS.Core.Models.Revised FindRevisedByID(int revisedID)

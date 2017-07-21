@@ -33,7 +33,8 @@ namespace CWCMS.Infrastructure.Repositories
 
         public IEnumerable<dynamic> ListValidDateByDate(DateTime validDate)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.ValidDate>("WHERE ValidationDate = @0", validDate);
+            return list;
         }
 
         public void Remove(int validDateRecordID)

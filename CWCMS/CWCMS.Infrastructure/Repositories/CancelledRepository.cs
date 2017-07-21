@@ -27,7 +27,8 @@ namespace CWCMS.Infrastructure.Repositories
 
         CWCMS.Core.Models.Cancelled ICancelledRepository.FindCancelledByDocument(Guid documentGUID)
         {
-            throw new NotImplementedException();
+            var record = CWDB.Single<CWCMS.Core.Models.Cancelled>("WHERE DocumentID = @0", documentGUID);
+            return record;
         }
 
         public void Remove(int cancelledRecordID)

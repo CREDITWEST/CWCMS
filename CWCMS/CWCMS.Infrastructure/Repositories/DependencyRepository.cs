@@ -33,12 +33,14 @@ namespace CWCMS.Infrastructure.Repositories
 
         public IEnumerable<dynamic> ListDependencyByDependedID(Guid dependedDocID)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.ConfirmedSignatures>("WHERE DocumentID1 = @0", dependedDocID);
+            return list;
         }
 
         public IEnumerable<dynamic> ListDependencyByDependingID(Guid dependingDocID)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.ConfirmedSignatures>("WHERE DocumentID2 = @0", dependingDocID);
+            return list;
         }
 
         public void Remove(int dependencyRecordID)

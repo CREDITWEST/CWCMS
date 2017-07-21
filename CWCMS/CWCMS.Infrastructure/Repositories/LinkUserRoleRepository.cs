@@ -33,12 +33,14 @@ namespace CWCMS.Infrastructure.Repositories
 
         public IEnumerable<dynamic> ListLinkUserRoleByRole(int roleId)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.LinkUserRole>("WHERE RoleID = @0", roleId);
+            return list;
         }
 
         public IEnumerable<dynamic> ListLinkUserRoleByUser(Guid userId)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.LinkUserRole>("WHERE UserID = @0", userId);
+            return list;
         }
 
         public void Remove(int linkUserRoleRecordID)

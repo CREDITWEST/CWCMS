@@ -21,7 +21,8 @@ namespace CWCMS.Infrastructure.Repositories
 
         public IEnumerable<dynamic> FindWaitingSignaturesByDocument(Guid documentGUID)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.WaitingSignatures>("WHERE DocumentID = @0", documentGUID);
+            return list;
         }
 
         public CWCMS.Core.Models.WaitingSignatures FindWaitingSignaturesByID(int waitingSignatureID)

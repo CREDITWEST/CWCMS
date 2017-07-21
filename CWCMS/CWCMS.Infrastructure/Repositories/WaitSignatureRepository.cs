@@ -21,7 +21,8 @@ namespace CWCMS.Infrastructure.Repositories
 
         public CWCMS.Core.Models.WaitSignature FindWaitSignatureByDocument(Guid documentGUID)
         {
-            throw new NotImplementedException();
+            var record = CWDB.Single<CWCMS.Core.Models.WaitSignature>("WHERE DocumentID = @0", documentGUID);
+            return record;
         }
 
         public CWCMS.Core.Models.WaitSignature FindWaitSignatureByID(int waitSignatureID)

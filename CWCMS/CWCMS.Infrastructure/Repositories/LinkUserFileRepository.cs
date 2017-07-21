@@ -33,12 +33,14 @@ namespace CWCMS.Infrastructure.Repositories
 
         public IEnumerable<dynamic> ListLinkUserFileByFile(Guid documentId)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.LinkUserFile>("WHERE DocumentID = @0", documentId);
+            return list;
         }
 
         public IEnumerable<dynamic> ListLinkUserFileByUser(Guid userId)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.LinkUserFile>("WHERE UserID = @0", userId);
+            return list;
         }
 
         public void Remove(int linkUserFileRecordID)

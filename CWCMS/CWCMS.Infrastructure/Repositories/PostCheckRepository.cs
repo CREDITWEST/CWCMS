@@ -21,7 +21,8 @@ namespace CWCMS.Infrastructure.Repositories
 
         public CWCMS.Core.Models.PostCheck FindPostCheckByDocument(Guid documentGUID)
         {
-            throw new NotImplementedException();
+            var record = CWDB.Single<CWCMS.Core.Models.PostCheck>("WHERE DocumentID = @0", documentGUID);
+            return record;
         }
 
         public CWCMS.Core.Models.PostCheck FindPostCheckByID(int postCheckID)

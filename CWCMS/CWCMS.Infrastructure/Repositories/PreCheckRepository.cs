@@ -21,7 +21,8 @@ namespace CWCMS.Infrastructure.Repositories
 
         public CWCMS.Core.Models.PreCheck FindPreCheckByDocument(Guid documentGUID)
         {
-            throw new NotImplementedException();
+            var record = CWDB.Single<CWCMS.Core.Models.PreCheck>("WHERE DocumentID = @0", documentGUID);
+            return record;
         }
 
         public CWCMS.Core.Models.PreCheck FindPreCheckByID(int preCheckID)

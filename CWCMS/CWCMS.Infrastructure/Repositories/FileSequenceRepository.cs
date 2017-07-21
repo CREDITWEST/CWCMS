@@ -32,7 +32,8 @@ namespace CWCMS.Infrastructure.Repositories
 
         public System.Collections.Generic.IEnumerable<dynamic> ListFileSequenceByDocumentType(string documentTypeCode)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.FileSequence>("WHERE FileType = @0", documentTypeCode);
+            return list;
         }
 
         public void Remove(int fileSequenceRecordID)

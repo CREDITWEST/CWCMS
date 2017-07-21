@@ -33,17 +33,20 @@ namespace CWCMS.Infrastructure.Repositories
 
         public IEnumerable<dynamic> ListFeedbackRecordsByDocumentID(Guid documentRecordID)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.Feedback>("WHERE DocumentID = @0", documentRecordID);
+            return list;
         }
 
         public IEnumerable<dynamic> ListFeedbackRecordsBySendDate(DateTime sendingDate)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.Feedback>("WHERE SendDate = @0", sendingDate);
+            return list;
         }
 
         public IEnumerable<dynamic> ListFeedbackRecordsByUserID(Guid userRecordID)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.Feedback>("WHERE UserID = @0", userRecordID);
+            return list;
         }
 
         public void Remove(int feedbackRecordID)

@@ -33,12 +33,14 @@ namespace CWCMS.Infrastructure.Repositories
 
         public IEnumerable<dynamic> ListLinkRolePermissionByPermission(int permissionId)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.LinkRolePermission>("WHERE PersmissionID = @0", permissionId);
+            return list;
         }
 
         public IEnumerable<dynamic> ListLinkRolePermissionByRole(int roleId)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.LinkRolePermission>("WHERE RoleID = @0", roleId);
+            return list;
         }
 
         public void Remove(int linkRolePermissionRecordID)

@@ -33,7 +33,8 @@ namespace CWCMS.Infrastructure.Repositories
 
         public IEnumerable<dynamic> ListSubFileSequenceByDocumentType(string documentTypeCode)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.SubFileSequence>("WHERE SubFileType = @0", documentTypeCode);
+            return list;
         }
 
         public void Remove(int subFileSequenceRecordID)

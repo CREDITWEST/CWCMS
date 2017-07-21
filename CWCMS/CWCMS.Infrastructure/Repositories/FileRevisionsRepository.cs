@@ -33,7 +33,8 @@ namespace CWCMS.Infrastructure.Repositories
 
         public IEnumerable<dynamic> ListFileRevisionsByDocumentType(string documentTypeCode)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.FileRevisions>("WHERE FileType = @0", documentTypeCode);
+            return list;
         }
 
         public void Remove(int fileRevisionRecordID)

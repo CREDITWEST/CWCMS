@@ -20,7 +20,8 @@ namespace CWCMS.Infrastructure.Repositories
 
         public System.Collections.Generic.IEnumerable<dynamic> FindConfirmedSignaturesByDocument(Guid documentGUID)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.ConfirmedSignatures>("WHERE DocumentID = @0",documentGUID);
+            return list;
         }
 
         public CWCMS.Core.Models.ConfirmedSignatures FindConfirmedSignaturesByID(int confirmedSignatureID)

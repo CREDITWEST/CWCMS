@@ -33,7 +33,8 @@ namespace CWCMS.Infrastructure.Repositories
 
         public IEnumerable<dynamic> ListEndDateByDate(DateTime endDate)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.EndDate>("WHERE ExpirationDate = @0", endDate);
+            return list;
         }
 
         public void Remove(int endDateRecordID)

@@ -27,7 +27,8 @@ namespace CWCMS.Infrastructure.Repositories
 
         public CWCMS.Core.Models.Document FindDocumentByReferenceNumber(string referenceNumber)
         {
-            throw new NotImplementedException();
+            var record = CWDB.Single<CWCMS.Core.Models.Document>("WHERE ReferenceNumber = @0", referenceNumber);
+            return record;
         }
 
         public IEnumerable<dynamic> ListDocument()
@@ -38,12 +39,14 @@ namespace CWCMS.Infrastructure.Repositories
 
         public IEnumerable<dynamic> ListDocumentByPublishDate(DateTime publishDateTime)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.Document>("WHERE PublishDate = @0", publishDateTime);
+            return list;
         }
 
         public IEnumerable<dynamic> ListDocumentByPublisherID(Guid publisherId)
         {
-            throw new NotImplementedException();
+            var list = CWDB.Fetch<CWCMS.Core.Models.Document>("WHERE PublisherID = @0", publisherId);
+            return list;
         }
 
         public void Remove(Guid documentRecordID)
