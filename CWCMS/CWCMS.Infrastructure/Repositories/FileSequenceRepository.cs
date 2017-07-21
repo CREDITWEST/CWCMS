@@ -6,7 +6,7 @@ namespace CWCMS.Infrastructure.Repositories
 {
     public class FileSequenceRepository : IFileSequenceRepository
     {
-        private Database CWDB = new Database(Properties.Settings.CWCMS);
+        private Database CWDB = new Database("CWCMSConnection");
 
         public void Add(CWCMS.Core.Models.FileSequence fileSequenceRecord)
         {

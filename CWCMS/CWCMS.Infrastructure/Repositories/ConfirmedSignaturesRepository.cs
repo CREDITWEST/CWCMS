@@ -6,7 +6,7 @@ namespace CWCMS.Infrastructure.Repositories
 {
     public class ConfirmedSignaturesRepository : IConfirmedSignaturesRepository
     {
-        private Database CWDB = new Database(Properties.Settings.CWCMS);
+        private Database CWDB = new Database("CWCMSConnection");
 
         public void Add(CWCMS.Core.Models.ConfirmedSignatures confirmedSignaturesRecord)
         {

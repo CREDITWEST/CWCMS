@@ -7,7 +7,7 @@ namespace CWCMS.Infrastructure.Repositories
 {
     internal class WaitSignatureRepository : IWaitSignatureRepository
     {
-        private Database CWDB = new Database(Properties.Settings.CWCMS);
+        private Database CWDB = new Database("CWCMSConnection");
 
         public void Add(CWCMS.Core.Models.WaitSignature waitSignatureRecord)
         {

@@ -7,7 +7,7 @@ namespace CWCMS.Infrastructure.Repositories
 {
     public class CancelledRepository : ICancelledRepository
     {
-        private Database CWDB = new Database(Properties.Settings.CWCMS);
+        private Database CWDB = new Database("CWCMSConnection");
 
         public void Add(CWCMS.Core.Models.Cancelled cancelledRecord)
         {

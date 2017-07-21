@@ -7,7 +7,7 @@ namespace CWCMS.Infrastructure.Repositories
 {
     internal class FileRevisionsRepository : IFileRevisionsRepository
     {
-        private Database CWDB = new Database(Properties.Settings.CWCMS);
+        private Database CWDB = new Database("CWCMSConnection");
 
         public void Add(CWCMS.Core.Models.FileRevisions fileRevisionRecord)
         {

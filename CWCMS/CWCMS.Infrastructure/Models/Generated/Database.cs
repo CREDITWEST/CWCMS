@@ -24,7 +24,7 @@
 // 
 // The following connection settings were used to generate this file
 // 
-//     Connection String Name: `CWCMS.Infrastructure.Properties.Settings.CWCMS`
+//     Connection String Name: `CWCMSConnection`
 //     Provider:               `System.Data.SqlClient`
 //     Connection String:      `Data Source=192.168.100.101;Initial Catalog=CreditwestDocSystemDB;Persist Security Info=True;User ID=cwsoftgenious;Password=c36en105!`
 //     Schema:                 ``
@@ -38,18 +38,18 @@ using System.Linq;
 using System.Web;
 using PetaPoco;
 
-namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
+namespace CWCMSConnection
 {
 
-	public partial class CWCMS.Infrastructure.Properties.Settings.CWCMSDB : Database
+	public partial class CWCMSConnectionDB : Database
 	{
-		public CWCMS.Infrastructure.Properties.Settings.CWCMSDB() 
-			: base("CWCMS.Infrastructure.Properties.Settings.CWCMS")
+		public CWCMSConnectionDB() 
+			: base("CWCMSConnection")
 		{
 			CommonConstruct();
 		}
 
-		public CWCMS.Infrastructure.Properties.Settings.CWCMSDB(string connectionStringName) 
+		public CWCMSConnectionDB(string connectionStringName) 
 			: base(connectionStringName)
 		{
 			CommonConstruct();
@@ -59,11 +59,11 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 		
 		public interface IFactory
 		{
-			CWCMS.Infrastructure.Properties.Settings.CWCMSDB GetInstance();
+			CWCMSConnectionDB GetInstance();
 		}
 		
 		public static IFactory Factory { get; set; }
-        public static CWCMS.Infrastructure.Properties.Settings.CWCMSDB GetInstance()
+        public static CWCMSConnectionDB GetInstance()
         {
 			if (_instance!=null)
 				return _instance;
@@ -71,10 +71,10 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 			if (Factory!=null)
 				return Factory.GetInstance();
 			else
-				return new CWCMS.Infrastructure.Properties.Settings.CWCMSDB();
+				return new CWCMSConnectionDB();
         }
 
-		[ThreadStatic] static CWCMS.Infrastructure.Properties.Settings.CWCMSDB _instance;
+		[ThreadStatic] static CWCMSConnectionDB _instance;
 		
 		public override void OnBeginTransaction()
 		{
@@ -91,7 +91,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 		public class Record<T> where T:new()
 		{
-			public static CWCMS.Infrastructure.Properties.Settings.CWCMSDB repo { get { return CWCMS.Infrastructure.Properties.Settings.CWCMSDB.GetInstance(); } }
+			public static CWCMSConnectionDB repo { get { return CWCMSConnectionDB.GetInstance(); } }
 			public bool IsNew() { return repo.IsNew(this); }
 			public object Insert() { return repo.Insert(this); }
 
@@ -146,7 +146,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class Active : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<Active>  
+    public partial class Active : CWCMSConnectionDB.Record<Active>  
     {
 
 
@@ -174,7 +174,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class Cancelled : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<Cancelled>  
+    public partial class Cancelled : CWCMSConnectionDB.Record<Cancelled>  
     {
 
 
@@ -208,7 +208,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class CompletedFeedback : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<CompletedFeedback>  
+    public partial class CompletedFeedback : CWCMSConnectionDB.Record<CompletedFeedback>  
     {
 
 
@@ -236,7 +236,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class ConfirmedSignature : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<ConfirmedSignature>  
+    public partial class ConfirmedSignature : CWCMSConnectionDB.Record<ConfirmedSignature>  
     {
 
 
@@ -276,7 +276,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class Deleted : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<Deleted>  
+    public partial class Deleted : CWCMSConnectionDB.Record<Deleted>  
     {
 
 
@@ -304,7 +304,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class Dependency : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<Dependency>  
+    public partial class Dependency : CWCMSConnectionDB.Record<Dependency>  
     {
 
 
@@ -338,7 +338,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class Document : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<Document>  
+    public partial class Document : CWCMSConnectionDB.Record<Document>  
     {
 
 
@@ -408,7 +408,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class EndDate : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<EndDate>  
+    public partial class EndDate : CWCMSConnectionDB.Record<EndDate>  
     {
 
 
@@ -442,7 +442,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class Feedback : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<Feedback>  
+    public partial class Feedback : CWCMSConnectionDB.Record<Feedback>  
     {
 
 
@@ -500,7 +500,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class FileRevision : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<FileRevision>  
+    public partial class FileRevision : CWCMSConnectionDB.Record<FileRevision>  
     {
 
 
@@ -540,7 +540,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class FileSequence : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<FileSequence>  
+    public partial class FileSequence : CWCMSConnectionDB.Record<FileSequence>  
     {
 
 
@@ -574,7 +574,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class IncompletedFeedback : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<IncompletedFeedback>  
+    public partial class IncompletedFeedback : CWCMSConnectionDB.Record<IncompletedFeedback>  
     {
 
 
@@ -604,7 +604,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class LinkRolePermission : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<LinkRolePermission>  
+    public partial class LinkRolePermission : CWCMSConnectionDB.Record<LinkRolePermission>  
     {
 
 
@@ -638,7 +638,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class LinkUserFile : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<LinkUserFile>  
+    public partial class LinkUserFile : CWCMSConnectionDB.Record<LinkUserFile>  
     {
 
 
@@ -672,7 +672,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class LinkUserRole : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<LinkUserRole>  
+    public partial class LinkUserRole : CWCMSConnectionDB.Record<LinkUserRole>  
     {
 
 
@@ -706,7 +706,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class Permission : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<Permission>  
+    public partial class Permission : CWCMSConnectionDB.Record<Permission>  
     {
 
 
@@ -734,7 +734,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class PostCheck : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<PostCheck>  
+    public partial class PostCheck : CWCMSConnectionDB.Record<PostCheck>  
     {
 
 
@@ -762,7 +762,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class PreCheck : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<PreCheck>  
+    public partial class PreCheck : CWCMSConnectionDB.Record<PreCheck>  
     {
 
 
@@ -796,7 +796,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class QueuedSignature : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<QueuedSignature>  
+    public partial class QueuedSignature : CWCMSConnectionDB.Record<QueuedSignature>  
     {
 
 
@@ -836,7 +836,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class Revised : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<Revised>  
+    public partial class Revised : CWCMSConnectionDB.Record<Revised>  
     {
 
 
@@ -864,7 +864,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class Role : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<Role>  
+    public partial class Role : CWCMSConnectionDB.Record<Role>  
     {
 
 
@@ -892,7 +892,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class SubFileRevision : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<SubFileRevision>  
+    public partial class SubFileRevision : CWCMSConnectionDB.Record<SubFileRevision>  
     {
 
 
@@ -944,7 +944,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class SubFileSequence : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<SubFileSequence>  
+    public partial class SubFileSequence : CWCMSConnectionDB.Record<SubFileSequence>  
     {
 
 
@@ -992,7 +992,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class sysdiagram : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<sysdiagram>  
+    public partial class sysdiagram : CWCMSConnectionDB.Record<sysdiagram>  
     {
 
 
@@ -1038,7 +1038,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class ValidDate : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<ValidDate>  
+    public partial class ValidDate : CWCMSConnectionDB.Record<ValidDate>  
     {
 
 
@@ -1072,7 +1072,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class WaitingForFeedback : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<WaitingForFeedback>  
+    public partial class WaitingForFeedback : CWCMSConnectionDB.Record<WaitingForFeedback>  
     {
 
 
@@ -1100,7 +1100,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class WaitingSignature : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<WaitingSignature>  
+    public partial class WaitingSignature : CWCMSConnectionDB.Record<WaitingSignature>  
     {
 
 
@@ -1140,7 +1140,7 @@ namespace CWCMS.Infrastructure.Properties.Settings.CWCMS
 
 	[ExplicitColumns]
 
-    public partial class WaitSignature : CWCMS.Infrastructure.Properties.Settings.CWCMSDB.Record<WaitSignature>  
+    public partial class WaitSignature : CWCMSConnectionDB.Record<WaitSignature>  
     {
 
 

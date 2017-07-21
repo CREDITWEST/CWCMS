@@ -6,7 +6,7 @@ namespace CWCMS.Infrastructure.Repositories
 {
     internal class RoleRepository : IRoleRepository
     {
-        private Database CWDB = new Database(Properties.Settings.CWCMS);
+        private Database CWDB = new Database("CWCMSConnection");
 
         public void Add(CWCMS.Core.Models.Role roleRecord)
         {
