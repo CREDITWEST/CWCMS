@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CWCMS.Core.Interfaces;
-using CWCMS.Core.Models;
+﻿using CWCMS.Core.Interfaces;
 using PetaPoco;
+using System.Collections.Generic;
 
 namespace CWCMS.Infrastructure.Repositories
 {
-    class IncompletedFeedbackRepository : IIncompletedFeedbackRepository
+    internal class IncompletedFeedbackRepository : IIncompletedFeedbackRepository
     {
-
-
-        Database CWDB = new Database(CWCMS.Infrastructure.Properties.Settings.CWCMS);
+        private Database CWDB = new Database(Properties.Settings.CWCMS);
 
         public void Add(CWCMS.Core.Models.IncompletedFeedback incompletedFeedbackRecord)
         {

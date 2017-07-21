@@ -1,14 +1,12 @@
-﻿using System;
-using CWCMS.Core.Interfaces;
-using CWCMS.Core.Models;
+﻿using CWCMS.Core.Interfaces;
 using PetaPoco;
+using System;
 
 namespace CWCMS.Infrastructure.Repositories
 {
     public class ConfirmedSignaturesRepository : IConfirmedSignaturesRepository
     {
-
-        Database CWDB = new Database(CWCMS.Infrastructure.Properties.Settings.CWCMS);
+        private Database CWDB = new Database(Properties.Settings.CWCMS);
 
         public void Add(CWCMS.Core.Models.ConfirmedSignatures confirmedSignaturesRecord)
         {

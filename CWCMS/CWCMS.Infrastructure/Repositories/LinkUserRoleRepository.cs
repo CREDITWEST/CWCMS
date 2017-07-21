@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CWCMS.Core.Interfaces;
-using CWCMS.Core.Models;
+﻿using CWCMS.Core.Interfaces;
 using PetaPoco;
+using System;
+using System.Collections.Generic;
 
 namespace CWCMS.Infrastructure.Repositories
 {
-    class LinkUserRoleRepository : ILinkUserRoleRepository
+    internal class LinkUserRoleRepository : ILinkUserRoleRepository
     {
-
-
-        Database CWDB = new Database(CWCMS.Infrastructure.Properties.Settings.CWCMS);
+        private Database CWDB = new Database(Properties.Settings.CWCMS);
 
         public void Add(CWCMS.Core.Models.LinkUserRole linkUserRoleRecord)
         {

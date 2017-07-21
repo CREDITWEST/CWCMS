@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace CWCMS.Core.Interfaces;
+namespace CWCMS.Core.Interfaces
 {
     public interface IConfirmedSignaturesRepository
     {

@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using CWCMS.Core.Interfaces;
-using CWCMS.Core.Models;
+﻿using CWCMS.Core.Interfaces;
 using PetaPoco;
+using System;
+using System.Collections.Generic;
 
 namespace CWCMS.Infrastructure.Repositories
 {
-    class ActiveRepository:IActiveRepository
+    internal class ActiveRepository : IActiveRepository
     {
-        
-        Database CWDB = new Database(CWCMS.Infrastructure.Properties.Settings.CWCMS); 
+        private Database CWDB = new Database(Properties.Settings.CWCMS);
 
         public void Add(CWCMS.Core.Models.Active activeRecord)
         {
@@ -42,6 +35,7 @@ namespace CWCMS.Infrastructure.Repositories
             var record = CWDB.Single<CWCMS.Core.Models.Active>(activeID);
             return record;
         }
+
         CWCMS.Core.Models.Active IActiveRepository.FindActiveByDocument(Guid documentGUID)
         {
             throw new NotImplementedException();
