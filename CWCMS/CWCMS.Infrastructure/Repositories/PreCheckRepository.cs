@@ -7,7 +7,7 @@ namespace CWCMS.Infrastructure.Repositories
 {
     internal class PreCheckRepository : IPreCheckRepository
     {
-        private Database CWDB = new Database("CWCMSConnection");
+        public Database CWDB = new Database("CWCMSConnection");
 
         public void Add(CWCMS.Core.Models.PreCheck preCheckRecord)
         {

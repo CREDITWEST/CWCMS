@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CWCMS.Infrastructure.Repositories
 {
-    internal class PermissionRepository : IPermissionRepository
+    public class PermissionRepository : IPermissionRepository
     {
         private Database CWDB = new Database("CWCMSConnection");
 

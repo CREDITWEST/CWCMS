@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CWCMS.Infrastructure.Repositories
 {
-    internal class CompletedFeedbackRepository : ICompletedFeedbackRepository
+    public class CompletedFeedbackRepository : ICompletedFeedbackRepository
     {
         private Database CWDB = new Database("CWCMSConnection");
 

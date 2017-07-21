@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CWCMS.Infrastructure.Repositories
 {
-    internal class WaitingForFeedbackRepository : IWaitingForFeedbackRepository
+    public class WaitingForFeedbackRepository : IWaitingForFeedbackRepository
     {
         private Database CWDB = new Database("CWCMSConnection");
 

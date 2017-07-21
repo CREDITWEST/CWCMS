@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CWCMS.Infrastructure.Repositories
 {
-    internal class SubFileSequenceRepository : ISubFileSequenceRepository
+    public class SubFileSequenceRepository : ISubFileSequenceRepository
     {
         private Database CWDB = new Database("CWCMSConnection");
 

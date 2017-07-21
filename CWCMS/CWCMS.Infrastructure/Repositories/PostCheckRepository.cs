@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CWCMS.Infrastructure.Repositories
 {
-    internal class PostCheckRepository : IPostCheckRepository
+    public class PostCheckRepository : IPostCheckRepository
     {
         private Database CWDB = new Database("CWCMSConnection");
 

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CWCMS.Infrastructure.Repositories
 {
-    internal class LinkUserRoleRepository : ILinkUserRoleRepository
+    public class LinkUserRoleRepository : ILinkUserRoleRepository
     {
         private Database CWDB = new Database("CWCMSConnection");
 

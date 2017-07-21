@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CWCMS.Infrastructure.Repositories
 {
-    internal class RoleRepository : IRoleRepository
+    public class RoleRepository : IRoleRepository
     {
         private Database CWDB = new Database("CWCMSConnection");
 

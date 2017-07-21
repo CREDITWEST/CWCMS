@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CWCMS.Infrastructure.Repositories
 {
-    internal class DeletedRepository : IDeletedRepository
+    public class DeletedRepository : IDeletedRepository
     {
         private Database CWDB = new Database("CWCMSConnection");
 

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CWCMS.Infrastructure.Repositories
 {
-    internal class QueuedSignaturesRepository : IQueuedSignaturesRepository
+    public class QueuedSignaturesRepository : IQueuedSignaturesRepository
     {
         private Database CWDB = new Database("CWCMSConnection");
 

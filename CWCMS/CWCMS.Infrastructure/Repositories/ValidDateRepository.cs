@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CWCMS.Infrastructure.Repositories
 {
-    internal class ValidDateRepository : IValidDateRepository
+    public class ValidDateRepository : IValidDateRepository
     {
         private Database CWDB = new Database("CWCMSConnection");
 
