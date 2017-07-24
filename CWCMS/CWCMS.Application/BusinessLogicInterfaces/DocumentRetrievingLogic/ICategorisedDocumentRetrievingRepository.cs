@@ -7,13 +7,13 @@ namespace CWCMS.Application.BusinessLogicInterfaces.DocumentRetrievingLogic
     {
         /* Getting categorised grouped data */
 
-        // Active Document Listing By Category -> Under Construction
+        // Active Document Listing By Category -> Done , Not Tested
         IEnumerable<Document> GetActiveListByCategory(int categoryCode);
 
-        // Revised Document Listing By Category -> Under Construction
+        // Revised Document Listing By Category -> Done , Not Tested
         IEnumerable<Document> GetRevisedListByCategory(int categoryCode);
 
-        // Cancelled Document Listing By Category -> Under Construction
+        // Cancelled Document Listing By Category -> Done , Not Tested
         IEnumerable<Document> GetCancelledListByCategory(int categoryCode);
     }
 }

@@ -12,25 +12,25 @@ namespace CWCMS.Application.BusinessLogicInterfaces.DocumentRetrievingLogic
         //------------------------------------//
         // Get Document By Reference Number
 
-        // Active Documents -> Under Construction
+        // Active Documents -> Done , Not Tested
         Document GetActiveDocumentByReferenceCode(string referenceCode);
 
-        // Revised Documents -> Under Construction
+        // Revised Documents -> Done , Not Tested
         Document GetRevisedDocumentByReferenceCode(string referenceCode);
 
-        // Cancelled Documents -> Under Construction
+        // Cancelled Documents -> Done , Not Tested
         Document GetCancelledDocumentByReferenceCode(string referenceCode);
 
         //------------------------------------//
         // Get Document By Guid Number
 
-        // Active Documents -> Under Construction
+        // Active Documents -> Done , Not Tested
         Document GetActiveDocumentByGuid(Guid documentGuid);
 
-        // Revised Documents -> Under Construction
+        // Revised Documents -> Done , Not Tested
         Document GetRevisedDocumentByGuid(Guid documentGuid);
 
-        // Cancelled Documents -> Under Construction
+        // Cancelled Documents -> Done , Not Tested
         Document GetCancelledDocumentByGuid(Guid documentGuid);
     }
 }

@@ -7,13 +7,13 @@ namespace CWCMS.Application.BusinessLogicInterfaces.DocumentRetrievingLogic
     {
         /* Getting data as a whole */
 
-        // Get Active Documents as a Whole -> Under Construction
+        // Get Active Documents as a Whole -> Done , Not Tested
         IEnumerable<Document> GetWholeActiveList();
 
-        // Get Revised Documents as a Whole -> Under Construction
+        // Get Revised Documents as a Whole -> Done , Not Tested
         IEnumerable<Document> GetWholeRevisedList();
 
-        // Get Cancelled Documents as a Whole -> Under Construction
+        // Get Cancelled Documents as a Whole -> Done , Not Tested
         IEnumerable<Document> GetWholeCancelledList();
     }
 }
