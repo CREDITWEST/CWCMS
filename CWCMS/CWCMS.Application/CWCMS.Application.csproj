@@ -40,10 +40,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLServices\DocumentServices.cs" />
+    <Compile Include="BLServices\FeedbackServices.cs" />
+    <Compile Include="BLServices\RoleBasedAccessServices.cs" />
+    <Compile Include="BLServices\SignatureServices.cs" />
+    <Compile Include="BLServices\UserServices.cs" />
+    <Compile Include="DocumentRepositoryLogic\DocumentCancellingRepository.cs" />
+    <Compile Include="DocumentRepositoryLogic\DocumentCreatingRepository.cs" />
+    <Compile Include="DocumentRepositoryLogic\DocumentDeletingRepository.cs" />
+    <Compile Include="DocumentRepositoryLogic\DocumentEditingRepository.cs" />
+    <Compile Include="DocumentRepositoryLogic\DocumentViewingRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
+    <Folder Include="BLInterfaces\" />
+    <Folder Include="FeedbackLogic\" />
+    <Folder Include="RolePermissionLogic\" />
+    <Folder Include="SignatureLogic\" />
+    <Folder Include="UserLogic\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
