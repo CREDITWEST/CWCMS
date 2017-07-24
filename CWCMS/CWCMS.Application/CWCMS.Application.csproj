@@ -40,18 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogicInterfaces\IDocumentRetrievingRepository.cs" />
-    <Compile Include="BusinessLogicInterfaces\IDocumentViewingRepository.cs" />
+    <Compile Include="BusinessLogicInterfaces\DocumentRetrievingLogic\ICategorisedDocumentRetrievingRepository.cs" />
+    <Compile Include="BusinessLogicInterfaces\DocumentRetrievingLogic\ISpecificDocumentReturnRepository.cs" />
+    <Compile Include="BusinessLogicInterfaces\DocumentRetrievingLogic\IBulkDocumentRetrievingRepository.cs" />
     <Compile Include="BusinessLogicServices\DocumentServices.cs" />
     <Compile Include="BusinessLogicServices\FeedbackServices.cs" />
     <Compile Include="BusinessLogicServices\RoleBasedAccessServices.cs" />
     <Compile Include="BusinessLogicServices\SignatureServices.cs" />
     <Compile Include="BusinessLogicServices\UserServices.cs" />
-    <Compile Include="DocumentLogic\DocumentCancellingRepository.cs" />
-    <Compile Include="DocumentLogic\DocumentCreatingRepository.cs" />
-    <Compile Include="DocumentLogic\DocumentDeletingRepository.cs" />
-    <Compile Include="DocumentLogic\DocumentEditingRepository.cs" />
-    <Compile Include="DocumentLogic\DocumentViewingRepository.cs" />
+    <Compile Include="DocumentLogic\DocumentRetrievingRepositories\BulkDocumentRetrievingRepository.cs" />
+    <Compile Include="DocumentLogic\DocumentRetrievingRepositories\CategorisedDocumentRetrievingRepository.cs" />
+    <Compile Include="DocumentLogic\DocumentRetrievingRepositories\SpecificDocumentReturnRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
