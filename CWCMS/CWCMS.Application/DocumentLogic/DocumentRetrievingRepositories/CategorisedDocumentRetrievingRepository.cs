@@ -11,7 +11,7 @@ namespace CWCMS.Application.DocumentLogic.DocumentRetrievingRepositories
 
         public CategorisedDocumentRetrievingRepository()
         {
-            _documentRepository = new DocumentRepository();
+            this._documentRepository = new DocumentRepository();
         }
 
         public IEnumerable<Document> GetActiveListByCategory(int categoryCode)

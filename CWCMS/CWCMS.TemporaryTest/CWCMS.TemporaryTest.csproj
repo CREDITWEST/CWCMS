@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{204EB834-7350-4462-9C3B-699FBC1B5FD6}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CWCMS.Application</RootNamespace>
-    <AssemblyName>CWCMS.Application</AssemblyName>
+    <ProjectGuid>{0085108B-9994-4913-9C6D-508E50556258}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CWCMS.TemporaryTest</RootNamespace>
+    <AssemblyName>CWCMS.TemporaryTest</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,35 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogicInterfaces\DocumentRetrievingLogic\ICategorisedDocumentRetrievingRepository.cs" />
-    <Compile Include="BusinessLogicInterfaces\DocumentRetrievingLogic\ISpecificDocumentReturnRepository.cs" />
-    <Compile Include="BusinessLogicInterfaces\DocumentRetrievingLogic\IBulkDocumentRetrievingRepository.cs" />
-    <Compile Include="BusinessLogicServices\DocumentServices.cs" />
-    <Compile Include="BusinessLogicServices\FeedbackServices.cs" />
-    <Compile Include="BusinessLogicServices\RoleBasedAccessServices.cs" />
-    <Compile Include="BusinessLogicServices\SignatureServices.cs" />
-    <Compile Include="BusinessLogicServices\UserServices.cs" />
-    <Compile Include="DocumentLogic\DocumentRetrievingRepositories\BulkDocumentRetrievingRepository.cs" />
-    <Compile Include="DocumentLogic\DocumentRetrievingRepositories\CategorisedDocumentRetrievingRepository.cs" />
-    <Compile Include="DocumentLogic\DocumentRetrievingRepositories\SpecificDocumentReturnRepository.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BusinessLogicInterfaces\DocumentReferencingLogic\" />
-    <Folder Include="DocumentLogic\DocumentReferencingRepositories\" />
-    <Folder Include="FeedbackLogic\" />
-    <Folder Include="RolePermissionLogic\" />
-    <Folder Include="SignatureLogic\" />
-    <Folder Include="UserLogic\" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CWCMS.Application\CWCMS.Application.csproj">
+      <Project>{204eb834-7350-4462-9c3b-699fbc1b5fd6}</Project>
+      <Name>CWCMS.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CWCMS.Core\CWCMS.Core.csproj">
       <Project>{00a2068d-2ca4-4a69-be2b-9a397b1516cf}</Project>
       <Name>CWCMS.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CWCMS.Infrastructure\CWCMS.Infrastructure.csproj">
-      <Project>{36df5f0d-3e47-413a-848c-0207c3f14efe}</Project>
-      <Name>CWCMS.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
