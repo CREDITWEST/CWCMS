@@ -40,20 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLServices\DocumentServices.cs" />
-    <Compile Include="BLServices\FeedbackServices.cs" />
-    <Compile Include="BLServices\RoleBasedAccessServices.cs" />
-    <Compile Include="BLServices\SignatureServices.cs" />
-    <Compile Include="BLServices\UserServices.cs" />
-    <Compile Include="DocumentRepositoryLogic\DocumentCancellingRepository.cs" />
-    <Compile Include="DocumentRepositoryLogic\DocumentCreatingRepository.cs" />
-    <Compile Include="DocumentRepositoryLogic\DocumentDeletingRepository.cs" />
-    <Compile Include="DocumentRepositoryLogic\DocumentEditingRepository.cs" />
-    <Compile Include="DocumentRepositoryLogic\DocumentViewingRepository.cs" />
+    <Compile Include="BusinessLogicServices\DocumentServices.cs" />
+    <Compile Include="BusinessLogicServices\FeedbackServices.cs" />
+    <Compile Include="BusinessLogicServices\RoleBasedAccessServices.cs" />
+    <Compile Include="BusinessLogicServices\SignatureServices.cs" />
+    <Compile Include="BusinessLogicServices\UserServices.cs" />
+    <Compile Include="DocumentLogic\DocumentCancellingRepository.cs" />
+    <Compile Include="DocumentLogic\DocumentCreatingRepository.cs" />
+    <Compile Include="DocumentLogic\DocumentDeletingRepository.cs" />
+    <Compile Include="DocumentLogic\DocumentEditingRepository.cs" />
+    <Compile Include="DocumentLogic\DocumentViewingRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BLInterfaces\" />
+    <Folder Include="BusinessLogicInterfaces\" />
     <Folder Include="FeedbackLogic\" />
     <Folder Include="RolePermissionLogic\" />
     <Folder Include="SignatureLogic\" />
