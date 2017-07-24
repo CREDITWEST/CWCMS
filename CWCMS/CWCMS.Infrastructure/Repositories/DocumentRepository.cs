@@ -49,6 +49,12 @@ namespace CWCMS.Infrastructure.Repositories
             return list;
         }
 
+        public IEnumerable<dynamic> ListDocumentByDocumentTypeID(int documentTypeID)
+        {
+            var list = CWDB.Fetch<Core.Models.Document>("WHERE DocumentTypeID = @0", documentTypeID);
+            return list;
+        }
+
         public void Remove(Guid documentRecordID)
         {
             CWDB.Delete(documentRecordID);

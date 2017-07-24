@@ -47,6 +47,7 @@
     <Compile Include="Interfaces\IDeletedRepository.cs" />
     <Compile Include="Interfaces\IDependencyRepository.cs" />
     <Compile Include="Interfaces\IDocumentRepository.cs" />
+    <Compile Include="Interfaces\IDocumentTypeRepository.cs" />
     <Compile Include="Interfaces\IEndDateRepository.cs" />
     <Compile Include="Interfaces\IFeedbackRepository.cs" />
     <Compile Include="Interfaces\IFileRevisionsRepository.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Models\Deleted.cs" />
     <Compile Include="Models\Dependency.cs" />
     <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\DocumentType.cs" />
     <Compile Include="Models\EndDate.cs" />
     <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\FileRevisions.cs" />

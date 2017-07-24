@@ -395,6 +395,42 @@ namespace CWCMSConnection
 
 
 
+
+
+		[Column] public int DocumentTypeID { get; set; }
+
+
+
+	}
+
+    
+
+	[TableName("dbo.DocumentType")]
+
+
+
+	[PrimaryKey("DocumentTypeID")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class DocumentType : CWCMSConnectionDB.Record<DocumentType>  
+    {
+
+
+
+		[Column] public int DocumentTypeID { get; set; }
+
+
+
+
+
+		[Column] public string TypeName { get; set; }
+
+
+
 	}
 
     

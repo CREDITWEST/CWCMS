@@ -16,6 +16,9 @@ namespace CWCMS.Core.Models
         // Path of the file which will be attached to the record in pdf form
         public String FilePath { get; set; }
 
+        // Type of the Document
+        public int DocumentTypeID { get; set; }
+
         // ID of the Personel who originally publish the document
         public Guid PublisherID { get; set; }
 

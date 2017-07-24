@@ -60,6 +60,7 @@
     <Compile Include="Repositories\DeletedRepository.cs" />
     <Compile Include="Repositories\DependencyRepository.cs" />
     <Compile Include="Repositories\DocumentRepository.cs" />
+    <Compile Include="Repositories\DocumentTypeRepository.cs" />
     <Compile Include="Repositories\EndDateRepository.cs" />
     <Compile Include="Repositories\FeedbackRepository.cs" />
     <Compile Include="Repositories\FileRevisionsRepository.cs" />
