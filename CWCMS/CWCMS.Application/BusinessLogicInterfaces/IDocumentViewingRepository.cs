@@ -1,19 +1,20 @@
-﻿using System;
+﻿using CWCMS.Core.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CWCMS.Core.Models;
 
 namespace CWCMS.Application.BusinessLogicInterfaces
 {
-    interface IDocumentViewingRepository
+    public interface IDocumentViewingRepository
     {
-        IEnumerable<Document> ListDocuments();
+        // Listing documents according to their catgories which is active
+        IEnumerable<Document> ListActiveDocumentsByCategory(int documentTypeID);
 
+        // Listing documents according to their catgories which is cancelled
+        IEnumerable<Document> ListCancelledDocumentsByCategory(int documentTypeID);
 
+        // Listing documents according to their catgories which is revised
+        IEnumerable<Document> ListRevisedDocumentsByCategory(int documentTypeID);
 
-
-
+        // Retrieving document by its reference code
+        Document searchDocumentByReferenceCode(string referenceNumber);
     }
 }

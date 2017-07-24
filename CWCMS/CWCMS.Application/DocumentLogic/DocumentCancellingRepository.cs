@@ -8,6 +8,5 @@ namespace CWCMS.Application.DocumentRepositoryLogic
 {
     class DocumentCancellingRepository
     {
-
     }
 }

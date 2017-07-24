@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicInterfaces\IDocumentRetrievingRepository.cs" />
     <Compile Include="BusinessLogicInterfaces\IDocumentViewingRepository.cs" />
     <Compile Include="BusinessLogicServices\DocumentServices.cs" />
     <Compile Include="BusinessLogicServices\FeedbackServices.cs" />
