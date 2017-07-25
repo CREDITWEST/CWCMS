@@ -1,19 +1,23 @@
 ﻿using CWCMS.Application.DocumentLogic.DocumentRetrievingRepositories;
 using CWCMS.Application.DocumentLogic.DocumentUploadingRepositories;
+using CWCMS.Infrastructure.Repositories;
 using CWCMS.Core.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CWCMS.DBAccessTest
 {
-    internal class Program
+    public static class Program
     {
         private static void Main(string[] args)
         {
             Document _testDoc = new Document();
-
+            DocumentRepository _docRepo = new DocumentRepository();
             DocumentUploadRepository _documentUpload = new DocumentUploadRepository();
             BulkDocumentRetrievingRepository _bulkRetrieve = new BulkDocumentRetrievingRepository();
+            DateTime testDT;
 
-            /*
             _testDoc.DocumentID = Guid.NewGuid();
             _testDoc.Title = "Test Doc";
             _testDoc.Content = "I am testing fetaure";
@@ -27,17 +31,33 @@ namespace CWCMS.DBAccessTest
 
             _documentUpload.UploadToServerDocument(_testDoc);
 
-            IEnumerable<Document> docList = _bulkRetrieve.GetWholeActiveList();
-            Console.WriteLine();
+            testDT = _testDoc.PublishDate;
+
+            IEnumerable<Document> docList = _docRepo.ListDocumentByPublishDate(testDT);
+
+
+
+            if (IsNullOrEmpty(docList))
+            {
+                Console.WriteLine("Empty");
+            }
+
+
+            
 
             foreach (Document item in docList)
             {
                 Console.WriteLine();
-                Console.WriteLine("Guid is : " + item.DocumentID + " Title is " + item.Title + " Content is " + item.Content + "date is " + item.PublishDate);
+                Console.WriteLine("Guid is : " + item.DocumentID);
             }
 
             Console.Read();
-            */
+            
+        }
+
+        public static bool IsNullOrEmpty<T>(this IEnumerable<T> enumerable)
+        {
+            return enumerable == null || !enumerable.Any();
         }
     }
 }

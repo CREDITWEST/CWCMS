@@ -22,5 +22,8 @@ namespace CWCMS.Core.Interfaces
 
         // Listing File Sequence same type documents
         IEnumerable<dynamic> ListFileSequenceByDocumentType(string documentTypeCode);
+
+        // Getting the last sequence number of specific type
+        int LastSequenceNumberOfSpecificType(string typeCode);
     }
 }

@@ -57,6 +57,10 @@
       <Project>{00a2068d-2ca4-4a69-be2b-9a397b1516cf}</Project>
       <Name>CWCMS.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CWCMS.Infrastructure\CWCMS.Infrastructure.csproj">
+      <Project>{36df5f0d-3e47-413a-848c-0207c3f14efe}</Project>
+      <Name>CWCMS.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

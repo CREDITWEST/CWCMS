@@ -16,7 +16,7 @@ namespace CWCMS.Core.Interfaces
         void Remove(Guid documentRecordID);
 
         // Getting the all Document Records from the DB
-        IEnumerable<dynamic> ListDocument();
+        IEnumerable<Document> ListDocument();
 
         // Finding specific record by ID
         Document FindDocumentByID(Guid documentRecordID);
@@ -25,13 +25,13 @@ namespace CWCMS.Core.Interfaces
         Document FindDocumentByReferenceNumber(string referenceNumber);
 
         // Listing Documents from the same publisher
-        IEnumerable<dynamic> ListDocumentByPublisherID(Guid publisherId);
+        IEnumerable<Document> ListDocumentByPublisherID(Guid publisherId);
 
         // Listing Documents according to their category
-        IEnumerable<dynamic> ListDocumentByDocumentTypeID(int documentTypeID);
+        IEnumerable<Document> ListDocumentByDocumentTypeID(int documentTypeID);
 
         // Listing Documents with publish date
-        IEnumerable<dynamic> ListDocumentByPublishDate(DateTime publishDateTime);
+        IEnumerable<Document> ListDocumentByPublishDate(DateTime publishDateTime);
 
 
 

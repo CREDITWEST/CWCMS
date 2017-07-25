@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicInterfaces\DocumentReferencingLogic\IDocumentMainTypeReferencingRepository.cs" />
+    <Compile Include="BusinessLogicInterfaces\DocumentReferencingLogic\IDocumentSubTypeReferencingRepository.cs" />
     <Compile Include="BusinessLogicInterfaces\DocumentRetrievingLogic\ICategorisedDocumentRetrievingRepository.cs" />
     <Compile Include="BusinessLogicInterfaces\DocumentRetrievingLogic\ISpecificDocumentReturnRepository.cs" />
     <Compile Include="BusinessLogicInterfaces\DocumentRetrievingLogic\IBulkDocumentRetrievingRepository.cs" />
@@ -56,7 +58,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BusinessLogicInterfaces\DocumentReferencingLogic\" />
     <Folder Include="DocumentLogic\DocumentReferencingRepositories\" />
     <Folder Include="FeedbackLogic\" />
     <Folder Include="RolePermissionLogic\" />

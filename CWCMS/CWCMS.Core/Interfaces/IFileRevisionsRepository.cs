@@ -22,5 +22,8 @@ namespace CWCMS.Core.Interfaces
 
         // Listing File Revisions same type documents
         IEnumerable<dynamic> ListFileRevisionsByDocumentType(string documentTypeCode);
+
+        // Getting the last sequence number of specific type
+        int LastRevisionNumberOfSpecificDocument(string typeCode, int sequenceNumber);
     }
 }

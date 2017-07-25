@@ -37,25 +37,25 @@ namespace CWCMS.Infrastructure.Repositories
             return record;
         }
 
-        public IEnumerable<dynamic> ListDocument()
+        public IEnumerable<Document> ListDocument()
         {
             var list = _CWDB.Query<Core.Models.Document>("SELECT * FROM Document");
             return list;
         }
 
-        public IEnumerable<dynamic> ListDocumentByPublishDate(DateTime publishDateTime)
+        public IEnumerable<Document> ListDocumentByPublishDate(DateTime publishDateTime)
         {
             var list = _CWDB.Fetch<Core.Models.Document>("WHERE PublishDate = @0", publishDateTime);
             return list;
         }
 
-        public IEnumerable<dynamic> ListDocumentByPublisherID(Guid publisherId)
+        public IEnumerable<Document> ListDocumentByPublisherID(Guid publisherId)
         {
             var list = _CWDB.Fetch<Core.Models.Document>("WHERE PublisherID = @0", publisherId);
             return list;
         }
 
-        public IEnumerable<dynamic> ListDocumentByDocumentTypeID(int documentTypeID)
+        public IEnumerable<Document> ListDocumentByDocumentTypeID(int documentTypeID)
         {
             var list = _CWDB.Fetch<Core.Models.Document>("WHERE DocumentTypeID = @0", documentTypeID);
             return list;
@@ -143,5 +143,7 @@ namespace CWCMS.Infrastructure.Repositories
             var record = _CWDB.Single<Document>("SELECT * FROM Document AS Doc  INNER JOIN Cancelled AS Can ON Can.DocumentID = Doc.DocumentID  WHERE Doc.DocumentID = @0", documentGuid);
             return record;
         }
+
+        
     }
 }
