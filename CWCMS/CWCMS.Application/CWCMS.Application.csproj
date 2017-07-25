@@ -43,6 +43,7 @@
     <Compile Include="BusinessLogicInterfaces\DocumentRetrievingLogic\ICategorisedDocumentRetrievingRepository.cs" />
     <Compile Include="BusinessLogicInterfaces\DocumentRetrievingLogic\ISpecificDocumentReturnRepository.cs" />
     <Compile Include="BusinessLogicInterfaces\DocumentRetrievingLogic\IBulkDocumentRetrievingRepository.cs" />
+    <Compile Include="BusinessLogicInterfaces\DocumentUploadingLogic\IDocumentUploadRepository.cs" />
     <Compile Include="BusinessLogicServices\DocumentServices.cs" />
     <Compile Include="BusinessLogicServices\FeedbackServices.cs" />
     <Compile Include="BusinessLogicServices\RoleBasedAccessServices.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="DocumentLogic\DocumentRetrievingRepositories\BulkDocumentRetrievingRepository.cs" />
     <Compile Include="DocumentLogic\DocumentRetrievingRepositories\CategorisedDocumentRetrievingRepository.cs" />
     <Compile Include="DocumentLogic\DocumentRetrievingRepositories\SpecificDocumentReturnRepository.cs" />
+    <Compile Include="DocumentLogic\DocumentUploadingRepositories\DocumentUploadRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
