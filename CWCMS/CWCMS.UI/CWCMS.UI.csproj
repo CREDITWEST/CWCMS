@@ -126,6 +126,13 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Default\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CWCMS.Core\CWCMS.Core.csproj">
+      <Project>{00a2068d-2ca4-4a69-be2b-9a397b1516cf}</Project>
+      <Name>CWCMS.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
