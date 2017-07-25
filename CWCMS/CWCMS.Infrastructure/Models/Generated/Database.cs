@@ -141,7 +141,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("ActiveID", AutoIncrement=false)]
+	[PrimaryKey("ActiveID")]
+
+
 
 
 	[ExplicitColumns]
@@ -151,13 +153,13 @@ namespace CWCMSConnection
 
 
 
-		[Column] public int ActiveID { get; set; }
-
-
-
-
-
 		[Column] public Guid DocumentID { get; set; }
+
+
+
+
+
+		[Column] public int ActiveID { get; set; }
 
 
 
@@ -169,19 +171,15 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("CancelledID", AutoIncrement=false)]
+	[PrimaryKey("CancelledID")]
+
+
 
 
 	[ExplicitColumns]
 
     public partial class Cancelled : CWCMSConnectionDB.Record<Cancelled>  
     {
-
-
-
-		[Column] public int CancelledID { get; set; }
-
-
 
 
 
@@ -192,6 +190,12 @@ namespace CWCMSConnection
 
 
 		[Column] public string Feedback { get; set; }
+
+
+
+
+
+		[Column] public int CancelledID { get; set; }
 
 
 
@@ -231,19 +235,15 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("ConfirmedSignatureID", AutoIncrement=false)]
+	[PrimaryKey("ConfirmedSignatureID")]
+
+
 
 
 	[ExplicitColumns]
 
     public partial class ConfirmedSignature : CWCMSConnectionDB.Record<ConfirmedSignature>  
     {
-
-
-
-		[Column] public int ConfirmedSignatureID { get; set; }
-
-
 
 
 
@@ -263,6 +263,12 @@ namespace CWCMSConnection
 
 
 
+
+
+		[Column] public int ConfirmedSignatureID { get; set; }
+
+
+
 	}
 
     
@@ -271,7 +277,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("DeletedID", AutoIncrement=false)]
+	[PrimaryKey("DeletedID")]
+
+
 
 
 	[ExplicitColumns]
@@ -281,13 +289,13 @@ namespace CWCMSConnection
 
 
 
-		[Column] public int DeletedID { get; set; }
-
-
-
-
-
 		[Column] public Guid DocumentID { get; set; }
+
+
+
+
+
+		[Column] public int DeletedID { get; set; }
 
 
 
@@ -299,19 +307,15 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("DependID", AutoIncrement=false)]
+	[PrimaryKey("DependID")]
+
+
 
 
 	[ExplicitColumns]
 
     public partial class Dependency : CWCMSConnectionDB.Record<Dependency>  
     {
-
-
-
-		[Column] public int DependID { get; set; }
-
-
 
 
 
@@ -322,6 +326,12 @@ namespace CWCMSConnection
 
 
 		[Column] public Guid DocumentID2 { get; set; }
+
+
+
+
+
+		[Column] public int DependID { get; set; }
 
 
 
@@ -439,19 +449,15 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("EndDateID", AutoIncrement=false)]
+	[PrimaryKey("EndDateID")]
+
+
 
 
 	[ExplicitColumns]
 
     public partial class EndDate : CWCMSConnectionDB.Record<EndDate>  
     {
-
-
-
-		[Column] public int EndDateID { get; set; }
-
-
 
 
 
@@ -465,6 +471,12 @@ namespace CWCMSConnection
 
 
 
+
+
+		[Column] public int EndDateID { get; set; }
+
+
+
 	}
 
     
@@ -473,7 +485,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("FeedbackID", AutoIncrement=false)]
+	[PrimaryKey("FeedbackID")]
+
+
 
 
 	[ExplicitColumns]
@@ -531,7 +545,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("FileReID", AutoIncrement=false)]
+	[PrimaryKey("FileReID")]
+
+
 
 
 	[ExplicitColumns]
@@ -571,7 +587,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("FileSeqID", AutoIncrement=false)]
+	[PrimaryKey("FileSeqID")]
+
+
 
 
 	[ExplicitColumns]
@@ -605,7 +623,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("IncFeedID", AutoIncrement=false)]
+	[PrimaryKey("IncFeedID")]
+
+
 
 
 	[ExplicitColumns]
@@ -669,7 +689,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("LinkUserFileID", AutoIncrement=false)]
+	[PrimaryKey("LinkUserFileID")]
+
+
 
 
 	[ExplicitColumns]
@@ -703,7 +725,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("LurID", AutoIncrement=false)]
+	[PrimaryKey("LurID")]
+
+
 
 
 	[ExplicitColumns]
@@ -737,7 +761,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("PermissionID", AutoIncrement=false)]
+	[PrimaryKey("PermissionID")]
+
+
 
 
 	[ExplicitColumns]
@@ -765,7 +791,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("PostID", AutoIncrement=false)]
+	[PrimaryKey("PostID")]
+
+
 
 
 	[ExplicitColumns]
@@ -793,7 +821,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("PrecheckID", AutoIncrement=false)]
+	[PrimaryKey("PrecheckID")]
+
+
 
 
 	[ExplicitColumns]
@@ -827,7 +857,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("QueuedSignatureID", AutoIncrement=false)]
+	[PrimaryKey("QueuedSignatureID")]
+
+
 
 
 	[ExplicitColumns]
@@ -867,7 +899,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("RevisedID", AutoIncrement=false)]
+	[PrimaryKey("RevisedID")]
+
+
 
 
 	[ExplicitColumns]
@@ -895,7 +929,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("RoleID", AutoIncrement=false)]
+	[PrimaryKey("RoleID")]
+
+
 
 
 	[ExplicitColumns]
@@ -923,7 +959,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("SubFileRevID", AutoIncrement=false)]
+	[PrimaryKey("SubFileRevID")]
+
+
 
 
 	[ExplicitColumns]
@@ -975,7 +1013,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("SubFileSeqID", AutoIncrement=false)]
+	[PrimaryKey("SubFileSeqID")]
+
+
 
 
 	[ExplicitColumns]
@@ -1069,7 +1109,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("ValidDateID", AutoIncrement=false)]
+	[PrimaryKey("ValidDateID")]
+
+
 
 
 	[ExplicitColumns]
@@ -1103,7 +1145,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("WFFID", AutoIncrement=false)]
+	[PrimaryKey("WFFID")]
+
+
 
 
 	[ExplicitColumns]
@@ -1131,7 +1175,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("WaitingSignatureID", AutoIncrement=false)]
+	[PrimaryKey("WaitingSignatureID")]
+
+
 
 
 	[ExplicitColumns]
@@ -1159,7 +1205,7 @@ namespace CWCMSConnection
 
 
 
-		[Column] public int? LineNumber { get; set; }
+		[Column] public int LineNumber { get; set; }
 
 
 
@@ -1193,7 +1239,7 @@ namespace CWCMSConnection
 
 
 
-		[Column] public int? SignatureCount { get; set; }
+		[Column] public int SignatureCount { get; set; }
 
 
 
