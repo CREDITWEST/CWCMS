@@ -7,39 +7,44 @@ namespace CWCMS.Infrastructure.Repositories
 {
     public class WaitingSignaturesRepository : IWaitingSignaturesRepository
     {
-        private Database CWDB = new Database("CWCMSConnection");
+        private Database _CWDB;
+
+        public WaitingSignaturesRepository()
+        {
+            this._CWDB = new Database("CWCMSConnection");
+        }
 
         public void Add(Core.Models.WaitingSignatures waitingSignaturesRecord)
         {
-            CWDB.Insert(waitingSignaturesRecord);
+            _CWDB.Insert(waitingSignaturesRecord);
         }
 
         public void Edit(Core.Models.WaitingSignatures waitingSignaturesRecord)
         {
-            CWDB.Update(waitingSignaturesRecord);
+            _CWDB.Update(waitingSignaturesRecord);
         }
 
         public IEnumerable<dynamic> FindWaitingSignaturesByDocument(Guid documentGUID)
         {
-            var list = CWDB.Fetch<Core.Models.WaitingSignatures>("WHERE DocumentID = @0", documentGUID);
+            var list = _CWDB.Fetch<Core.Models.WaitingSignatures>("WHERE DocumentID = @0", documentGUID);
             return list;
         }
 
         public Core.Models.WaitingSignatures FindWaitingSignaturesByID(int waitingSignatureID)
         {
-            var record = CWDB.Single<Core.Models.WaitingSignatures>(waitingSignatureID);
+            var record = _CWDB.Single<Core.Models.WaitingSignatures>(waitingSignatureID);
             return record;
         }
 
         public IEnumerable<dynamic> ListWaitingSignatures()
         {
-            var list = CWDB.Query<Core.Models.WaitingSignatures>("SELECT * FROM WaitingSignatures");
+            var list = _CWDB.Query<Core.Models.WaitingSignatures>("SELECT * FROM WaitingSignatures");
             return list;
         }
 
         public void Remove(int waitingSignatureRecordID)
         {
-            CWDB.Delete(waitingSignatureRecordID);
+            _CWDB.Delete(waitingSignatureRecordID);
         }
     }
 }

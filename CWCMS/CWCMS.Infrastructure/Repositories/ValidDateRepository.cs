@@ -7,39 +7,44 @@ namespace CWCMS.Infrastructure.Repositories
 {
     public class ValidDateRepository : IValidDateRepository
     {
-        private Database CWDB = new Database("CWCMSConnection");
+        private Database _CWDB;
+
+        public ValidDateRepository()
+        {
+            this._CWDB = new Database("CWCMSConnection");
+        }
 
         public void Add(Core.Models.ValidDate validDateRecord)
         {
-            CWDB.Insert(validDateRecord);
+            _CWDB.Insert(validDateRecord);
         }
 
         public void Edit(Core.Models.ValidDate validDateRecord)
         {
-            CWDB.Update(validDateRecord);
+            _CWDB.Update(validDateRecord);
         }
 
         public Core.Models.ValidDate FindValidDateRecordByID(int validDateRecordID)
         {
-            var record = CWDB.Single<Core.Models.ValidDate>(validDateRecordID);
+            var record = _CWDB.Single<Core.Models.ValidDate>(validDateRecordID);
             return record;
         }
 
         public IEnumerable<dynamic> ListValidDate()
         {
-            var list = CWDB.Query<Core.Models.ValidDate>("SELECT * FROM ValidDate");
+            var list = _CWDB.Query<Core.Models.ValidDate>("SELECT * FROM ValidDate");
             return list;
         }
 
         public IEnumerable<dynamic> ListValidDateByDate(DateTime validDate)
         {
-            var list = CWDB.Fetch<Core.Models.ValidDate>("WHERE ValidationDate = @0", validDate);
+            var list = _CWDB.Fetch<Core.Models.ValidDate>("WHERE ValidationDate = @0", validDate);
             return list;
         }
 
         public void Remove(int validDateRecordID)
         {
-            CWDB.Delete(validDateRecordID);
+            _CWDB.Delete(validDateRecordID);
         }
     }
 }

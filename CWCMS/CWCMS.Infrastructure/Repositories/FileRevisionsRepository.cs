@@ -1,14 +1,12 @@
 ﻿using CWCMS.Core.Interfaces;
 using PetaPoco;
 using System.Collections.Generic;
-using System;
 
 namespace CWCMS.Infrastructure.Repositories
 {
     public class FileRevisionsRepository : IFileRevisionsRepository
     {
         private Database _CWDB;
-
 
         public FileRevisionsRepository()
         {

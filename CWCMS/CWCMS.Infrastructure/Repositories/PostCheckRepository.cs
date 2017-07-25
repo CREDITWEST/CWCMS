@@ -7,39 +7,44 @@ namespace CWCMS.Infrastructure.Repositories
 {
     public class PostCheckRepository : IPostCheckRepository
     {
-        private Database CWDB = new Database("CWCMSConnection");
+        private Database _CWDB;
+
+        public PostCheckRepository()
+        {
+            this._CWDB = new Database("CWCMSConnection");
+        }
 
         public void Add(Core.Models.PostCheck postCheckRecord)
         {
-            CWDB.Insert(postCheckRecord);
+            _CWDB.Insert(postCheckRecord);
         }
 
         public void Edit(Core.Models.PostCheck postCheckRecord)
         {
-            CWDB.Update(postCheckRecord);
+            _CWDB.Update(postCheckRecord);
         }
 
         public Core.Models.PostCheck FindPostCheckByDocument(Guid documentGUID)
         {
-            var record = CWDB.Single<Core.Models.PostCheck>("WHERE DocumentID = @0", documentGUID);
+            var record = _CWDB.Single<Core.Models.PostCheck>("WHERE DocumentID = @0", documentGUID);
             return record;
         }
 
         public Core.Models.PostCheck FindPostCheckByID(int postCheckID)
         {
-            var record = CWDB.Single<Core.Models.PostCheck>(postCheckID);
+            var record = _CWDB.Single<Core.Models.PostCheck>(postCheckID);
             return record;
         }
 
         public IEnumerable<dynamic> ListPostCheck()
         {
-            var list = CWDB.Query<Core.Models.PostCheck>("SELECT * FROM PostCheck");
+            var list = _CWDB.Query<Core.Models.PostCheck>("SELECT * FROM PostCheck");
             return list;
         }
 
         public void Remove(int postCheckRecordID)
         {
-            CWDB.Delete(postCheckRecordID);
+            _CWDB.Delete(postCheckRecordID);
         }
     }
 }

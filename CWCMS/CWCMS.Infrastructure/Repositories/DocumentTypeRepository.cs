@@ -1,44 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CWCMS.Core.Interfaces;
+﻿using CWCMS.Core.Interfaces;
 using CWCMS.Core.Models;
 using PetaPoco;
+using System.Collections.Generic;
 
 namespace CWCMS.Infrastructure.Repositories
 {
-    class DocumentTypeRepository : IDocumentTypeRepository
+    internal class DocumentTypeRepository : IDocumentTypeRepository
     {
+        private Database _CWDB;
 
-        private Database CWDB = new Database("CWCMSConnection");
+        public DocumentTypeRepository()
+        {
+            this._CWDB = new Database("CWCMSConnection");
+        }
 
         public void Add(DocumentType documentTypeRecord)
         {
-            CWDB.Insert(documentTypeRecord);
+            _CWDB.Insert(documentTypeRecord);
         }
 
         public void Edit(DocumentType documentTypeRecord)
         {
-            CWDB.Update(documentTypeRecord);
+            _CWDB.Update(documentTypeRecord);
         }
 
         public DocumentType FindDocumentTypeByID(int documentTypeID)
         {
-            var record = CWDB.Single<Core.Models.DocumentType>(documentTypeID);
+            var record = _CWDB.Single<Core.Models.DocumentType>(documentTypeID);
             return record;
         }
 
         public IEnumerable<dynamic> ListDocumentType()
         {
-            var list = CWDB.Query<Core.Models.DocumentType>("SELECT * FROM DocumentType");
+            var list = _CWDB.Query<Core.Models.DocumentType>("SELECT * FROM DocumentType");
             return list;
         }
 
         public void Remove(int documentTypeRecordID)
         {
-            CWDB.Delete(documentTypeRecordID);
+            _CWDB.Delete(documentTypeRecordID);
         }
     }
 }

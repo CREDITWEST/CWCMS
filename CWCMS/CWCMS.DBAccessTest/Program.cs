@@ -12,46 +12,46 @@ namespace CWCMS.DBAccessTest
     {
         private static void Main(string[] args)
         {
-            Document _testDoc = new Document();
-            DocumentRepository _docRepo = new DocumentRepository();
-            DocumentUploadRepository _documentUpload = new DocumentUploadRepository();
-            BulkDocumentRetrievingRepository _bulkRetrieve = new BulkDocumentRetrievingRepository();
-            DateTime testDT;
+            //Document _testDoc = new Document();
+            //DocumentRepository _docRepo = new DocumentRepository();
+            //DocumentUploadRepository _documentUpload = new DocumentUploadRepository();
+            //BulkDocumentRetrievingRepository _bulkRetrieve = new BulkDocumentRetrievingRepository();
+            //DateTime testDT;
 
-            _testDoc.DocumentID = Guid.NewGuid();
-            _testDoc.Title = "Test Doc";
-            _testDoc.Content = "I am testing fetaure";
-            _testDoc.FilePath = "github.com";
-            _testDoc.PublisherID = Guid.NewGuid();
-            _testDoc.PublishDate = DateTime.Now;
-            _testDoc.SystemUpdateDate = DateTime.Now;
-            _testDoc.ReferenceNumber = "StStSt";
-            _testDoc.isSigned = false;
-            _testDoc.DocumentTypeID = 1;
+            //_testDoc.DocumentID = Guid.NewGuid();
+            //_testDoc.Title = "Test Doc";
+            //_testDoc.Content = "I am testing fetaure";
+            //_testDoc.FilePath = "github.com";
+            //_testDoc.PublisherID = Guid.NewGuid();
+            //_testDoc.PublishDate = DateTime.Now;
+            //_testDoc.SystemUpdateDate = DateTime.Now;
+            //_testDoc.ReferenceNumber = "StStSt";
+            //_testDoc.isSigned = false;
+            //_testDoc.DocumentTypeID = 1;
 
-            _documentUpload.UploadToServerDocument(_testDoc);
+            //_documentUpload.UploadToServerDocument(_testDoc);
 
-            testDT = _testDoc.PublishDate;
+            //testDT = _testDoc.PublishDate;
 
-            IEnumerable<Document> docList = _docRepo.ListDocumentByPublishDate(testDT);
+            //IEnumerable<Document> docList = _docRepo.ListDocumentByPublishDate(testDT);
 
 
 
-            if (IsNullOrEmpty(docList))
-            {
-                Console.WriteLine("Empty");
-            }
+            //if (IsNullOrEmpty(docList))
+            //{
+            //    Console.WriteLine("Empty");
+            //}
 
 
             
 
-            foreach (Document item in docList)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Guid is : " + item.DocumentID);
-            }
+            //foreach (Document item in docList)
+            //{
+            //    Console.WriteLine();
+            //    Console.WriteLine("Guid is : " + item.DocumentID);
+            //}
 
-            Console.Read();
+            //Console.Read();
             
         }
 

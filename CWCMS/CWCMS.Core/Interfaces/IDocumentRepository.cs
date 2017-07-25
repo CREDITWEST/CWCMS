@@ -33,8 +33,6 @@ namespace CWCMS.Core.Interfaces
         // Listing Documents with publish date
         IEnumerable<Document> ListDocumentByPublishDate(DateTime publishDateTime);
 
-
-
         /* Bulk Data Listings */
 
         // Get Active Documents as a Whole -> Done , Not Tested
@@ -46,8 +44,6 @@ namespace CWCMS.Core.Interfaces
         // Get Cancelled Documents as a Whole -> Done , Not Tested
         IEnumerable<Document> GetWholeCancelledList();
 
-
-
         /* Categorised Data Listings */
 
         // Active Document Listing By Category -> Done , Not Tested
@@ -58,8 +54,6 @@ namespace CWCMS.Core.Interfaces
 
         // Cancelled Document Listing By Category -> Done , Not Tested
         IEnumerable<Document> GetCancelledListByCategory(int categoryCode);
-
-
 
         /* Specific Document Listing */
 

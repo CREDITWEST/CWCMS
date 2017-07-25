@@ -143,7 +143,5 @@ namespace CWCMS.Infrastructure.Repositories
             var record = _CWDB.Single<Document>("SELECT * FROM Document AS Doc  INNER JOIN Cancelled AS Can ON Can.DocumentID = Doc.DocumentID  WHERE Doc.DocumentID = @0", documentGuid);
             return record;
         }
-
-        
     }
 }

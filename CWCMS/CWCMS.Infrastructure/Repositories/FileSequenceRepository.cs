@@ -1,5 +1,4 @@
-﻿using System;
-using CWCMS.Core.Interfaces;
+﻿using CWCMS.Core.Interfaces;
 using PetaPoco;
 
 namespace CWCMS.Infrastructure.Repositories
@@ -7,7 +6,6 @@ namespace CWCMS.Infrastructure.Repositories
     public class FileSequenceRepository : IFileSequenceRepository
     {
         private Database _CWDB;
-
 
         public FileSequenceRepository()
         {
