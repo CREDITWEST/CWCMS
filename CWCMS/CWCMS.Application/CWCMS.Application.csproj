@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogicInterfaces\DocumentReferencingLogic\IDocumentMainTypeReferencingRepository.cs" />
-    <Compile Include="BusinessLogicInterfaces\DocumentReferencingLogic\IDocumentSubTypeReferencingRepository.cs" />
+    <Compile Include="BusinessLogicInterfaces\DocumentReferencingLogic\AdditionReferencing\IAdditionReferencingMainTypeLogic.cs" />
+    <Compile Include="BusinessLogicInterfaces\DocumentReferencingLogic\AdditionReferencing\IAdditionReferencingSubTypeLogic.cs.cs" />
+    <Compile Include="BusinessLogicInterfaces\DocumentReferencingLogic\EditionReferencing\IEditionReferencingMainTypeLogic.cs.cs" />
+    <Compile Include="BusinessLogicInterfaces\DocumentReferencingLogic\EditionReferencing\IEditionReferencingSubTypeLogic.cs.cs" />
     <Compile Include="BusinessLogicInterfaces\DocumentRetrievingLogic\ICategorisedDocumentRetrievingRepository.cs" />
     <Compile Include="BusinessLogicInterfaces\DocumentRetrievingLogic\ISpecificDocumentReturnRepository.cs" />
     <Compile Include="BusinessLogicInterfaces\DocumentRetrievingLogic\IBulkDocumentRetrievingRepository.cs" />
@@ -58,7 +60,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DocumentLogic\DocumentReferencingRepositories\" />
+    <Folder Include="DocumentLogic\DocumentReferencingRepositories\AdditionReferencing\" />
+    <Folder Include="DocumentLogic\DocumentReferencingRepositories\EditionReferencing\" />
     <Folder Include="FeedbackLogic\" />
     <Folder Include="RolePermissionLogic\" />
     <Folder Include="SignatureLogic\" />
