@@ -4,7 +4,7 @@ using CWCMS.Infrastructure.Repositories;
 
 namespace CWCMS.Application.DocumentLogic.DocumentUploadingRepositories
 {
-    internal class DocumentUploadRepository : IDocumentUploadRepository
+    public class DocumentUploadRepository : IDocumentUploadRepository
     {
         private DocumentRepository _documentRepository;
 

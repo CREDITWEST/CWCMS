@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CWCMS.UI", "CWCMS.UI\CWCMS.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CWCMS.Test", "CWCMS.Test\CWCMS.Test.csproj", "{6A510CD4-9E18-48B3-8308-9EBAEA8A03A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CWCMS.DBAccessTest", "CWCMS.DBAccessTest\CWCMS.DBAccessTest.csproj", "{39265124-CC16-41F4-BB6B-1FF5EB436122}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6A510CD4-9E18-48B3-8308-9EBAEA8A03A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A510CD4-9E18-48B3-8308-9EBAEA8A03A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A510CD4-9E18-48B3-8308-9EBAEA8A03A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39265124-CC16-41F4-BB6B-1FF5EB436122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39265124-CC16-41F4-BB6B-1FF5EB436122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39265124-CC16-41F4-BB6B-1FF5EB436122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39265124-CC16-41F4-BB6B-1FF5EB436122}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
