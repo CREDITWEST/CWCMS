@@ -207,7 +207,9 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("CompFeedID", AutoIncrement=false)]
+	[PrimaryKey("CompFeedID")]
+
+
 
 
 	[ExplicitColumns]
