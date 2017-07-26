@@ -23,5 +23,8 @@ namespace CWCMS.Core.Interfaces
 
         // List End Date records according to date
         IEnumerable<dynamic> ListEndDateByDate(DateTime endDate);
+
+        // List End Date Records by Document ID
+        IEnumerable<dynamic> ListEndDateByGuid(Guid documentID);
     }
 }

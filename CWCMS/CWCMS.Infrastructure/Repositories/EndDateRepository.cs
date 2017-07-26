@@ -42,6 +42,12 @@ namespace CWCMS.Infrastructure.Repositories
             return list;
         }
 
+        public IEnumerable<dynamic> ListEndDateByGuid(Guid documentID)
+        {
+            var list = _CWDB.Fetch<Core.Models.EndDate>("WHERE DocumentID = @0", documentID);
+            return list;
+        }
+
         public void Remove(int endDateRecordID)
         {
             _CWDB.Delete(endDateRecordID);

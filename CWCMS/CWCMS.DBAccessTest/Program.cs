@@ -12,23 +12,23 @@ namespace CWCMS.DBAccessTest
     {
         private static void Main(string[] args)
         {
-            //Document _testDoc = new Document();
+            Document _testDoc = new Document();
 
-            //AdditionReferencingMainTypeLogic _referencing = new AdditionReferencingMainTypeLogic();
+            AdditionReferencingMainTypeLogic _referencing = new AdditionReferencingMainTypeLogic();
 
-            //FileSequenceRepository _fileSeqRepo = new FileSequenceRepository();
+            FileSequenceRepository _fileSeqRepo = new FileSequenceRepository();
 
-            //FileSequence newSeq = new FileSequence();
-
-
-            //newSeq.FileType = "Y";
-            //newSeq.SequenceNumber = 2;
+            FileSequence newSeq = new FileSequence();
 
 
+            newSeq.FileType = "Y";
+            newSeq.SequenceNumber = 2;
 
-            //DocumentServices _docService = new DocumentServices();
 
-            //IEnumerable<Document> doclist;
+
+            DocumentServices _docService = new DocumentServices();
+
+            IEnumerable<Document> doclist;
 
             //_testDoc.DocumentID = Guid.NewGuid();
             //_testDoc.Title = "Test Doc";
@@ -37,7 +37,7 @@ namespace CWCMS.DBAccessTest
             //_testDoc.PublisherID = Guid.NewGuid();
             //_testDoc.PublishDate = DateTime.Now;
             //_testDoc.SystemUpdateDate = DateTime.Now;
-            //_testDoc.ReferenceNumber =_referencing.GenerateReferenceForAddingMainType(1, Guid.NewGuid());
+            //_testDoc.ReferenceNumber = "testReference"; //_referencing.GenerateReferenceForAddingMainType(1, Guid.NewGuid());
             //_testDoc.isSigned = false;
             //_testDoc.DocumentTypeID = 1;
 
