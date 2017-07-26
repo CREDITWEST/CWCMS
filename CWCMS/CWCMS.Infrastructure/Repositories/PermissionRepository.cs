@@ -10,7 +10,7 @@ namespace CWCMS.Infrastructure.Repositories
 
         public PermissionRepository()
         {
-            this._CWDB = new Database("CWCMSConnection");
+            this._CWDB = new Database("CWCMSConnSecVers");
         }
 
         public void Add(Core.Models.Permission permissionRecord)

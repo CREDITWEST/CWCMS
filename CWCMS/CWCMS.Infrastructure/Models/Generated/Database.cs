@@ -24,9 +24,9 @@
 // 
 // The following connection settings were used to generate this file
 // 
-//     Connection String Name: `CWCMSConnection`
+//     Connection String Name: `CWCMSConnSecVers`
 //     Provider:               `System.Data.SqlClient`
-//     Connection String:      `Data Source=192.168.100.101;Initial Catalog=CreditwestDocSystemDB;Persist Security Info=True;User ID=cwsoftgenious;Password=c36en105!`
+//     Connection String:      `Data Source=192.168.100.101;Initial Catalog=CreditwestDocSystemDBVersion2;Persist Security Info=True;User ID=cwsoftgenious;Password=c36en105!`
 //     Schema:                 ``
 //     Include Views:          `False`
 
@@ -38,18 +38,18 @@ using System.Linq;
 using System.Web;
 using PetaPoco;
 
-namespace CWCMSConnection
+namespace CWCMSConnSecVers
 {
 
-	public partial class CWCMSConnectionDB : Database
+	public partial class CWCMSConnSecVersDB : Database
 	{
-		public CWCMSConnectionDB() 
-			: base("CWCMSConnection")
+		public CWCMSConnSecVersDB() 
+			: base("CWCMSConnSecVers")
 		{
 			CommonConstruct();
 		}
 
-		public CWCMSConnectionDB(string connectionStringName) 
+		public CWCMSConnSecVersDB(string connectionStringName) 
 			: base(connectionStringName)
 		{
 			CommonConstruct();
@@ -59,11 +59,11 @@ namespace CWCMSConnection
 		
 		public interface IFactory
 		{
-			CWCMSConnectionDB GetInstance();
+			CWCMSConnSecVersDB GetInstance();
 		}
 		
 		public static IFactory Factory { get; set; }
-        public static CWCMSConnectionDB GetInstance()
+        public static CWCMSConnSecVersDB GetInstance()
         {
 			if (_instance!=null)
 				return _instance;
@@ -71,10 +71,10 @@ namespace CWCMSConnection
 			if (Factory!=null)
 				return Factory.GetInstance();
 			else
-				return new CWCMSConnectionDB();
+				return new CWCMSConnSecVersDB();
         }
 
-		[ThreadStatic] static CWCMSConnectionDB _instance;
+		[ThreadStatic] static CWCMSConnSecVersDB _instance;
 		
 		public override void OnBeginTransaction()
 		{
@@ -91,7 +91,7 @@ namespace CWCMSConnection
 
 		public class Record<T> where T:new()
 		{
-			public static CWCMSConnectionDB repo { get { return CWCMSConnectionDB.GetInstance(); } }
+			public static CWCMSConnSecVersDB repo { get { return CWCMSConnSecVersDB.GetInstance(); } }
 			public bool IsNew() { return repo.IsNew(this); }
 			public object Insert() { return repo.Insert(this); }
 
@@ -141,25 +141,25 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("ActiveID")]
+	[PrimaryKey("AcitveID")]
 
 
 
 
 	[ExplicitColumns]
 
-    public partial class Active : CWCMSConnectionDB.Record<Active>  
+    public partial class Active : CWCMSConnSecVersDB.Record<Active>  
     {
 
 
 
+		[Column] public int AcitveID { get; set; }
+
+
+
+
+
 		[Column] public Guid DocumentID { get; set; }
-
-
-
-
-
-		[Column] public int ActiveID { get; set; }
 
 
 
@@ -178,8 +178,14 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class Cancelled : CWCMSConnectionDB.Record<Cancelled>  
+    public partial class Cancelled : CWCMSConnSecVersDB.Record<Cancelled>  
     {
+
+
+
+		[Column] public int CancelledID { get; set; }
+
+
 
 
 
@@ -190,12 +196,6 @@ namespace CWCMSConnection
 
 
 		[Column] public string Feedback { get; set; }
-
-
-
-
-
-		[Column] public int CancelledID { get; set; }
 
 
 
@@ -214,7 +214,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class CompletedFeedback : CWCMSConnectionDB.Record<CompletedFeedback>  
+    public partial class CompletedFeedback : CWCMSConnSecVersDB.Record<CompletedFeedback>  
     {
 
 
@@ -225,7 +225,7 @@ namespace CWCMSConnection
 
 
 
-		[Column] public int FeedbackID { get; set; }
+		[Column] public int? FeedbackID { get; set; }
 
 
 
@@ -244,8 +244,14 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class ConfirmedSignature : CWCMSConnectionDB.Record<ConfirmedSignature>  
+    public partial class ConfirmedSignature : CWCMSConnSecVersDB.Record<ConfirmedSignature>  
     {
+
+
+
+		[Column] public int ConfirmedSignatureID { get; set; }
+
+
 
 
 
@@ -265,12 +271,6 @@ namespace CWCMSConnection
 
 
 
-
-
-		[Column] public int ConfirmedSignatureID { get; set; }
-
-
-
 	}
 
     
@@ -286,18 +286,18 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class Deleted : CWCMSConnectionDB.Record<Deleted>  
+    public partial class Deleted : CWCMSConnSecVersDB.Record<Deleted>  
     {
 
 
 
-		[Column] public Guid DocumentID { get; set; }
-
-
-
-
-
 		[Column] public int DeletedID { get; set; }
+
+
+
+
+
+		[Column] public Guid DocumentID { get; set; }
 
 
 
@@ -316,8 +316,14 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class Dependency : CWCMSConnectionDB.Record<Dependency>  
+    public partial class Dependency : CWCMSConnSecVersDB.Record<Dependency>  
     {
+
+
+
+		[Column] public int DependID { get; set; }
+
+
 
 
 
@@ -328,12 +334,6 @@ namespace CWCMSConnection
 
 
 		[Column] public Guid DocumentID2 { get; set; }
-
-
-
-
-
-		[Column] public int DependID { get; set; }
 
 
 
@@ -350,7 +350,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class Document : CWCMSConnectionDB.Record<Document>  
+    public partial class Document : CWCMSConnSecVersDB.Record<Document>  
     {
 
 
@@ -379,13 +379,19 @@ namespace CWCMSConnection
 
 
 
+		[Column] public int DocumentTypeID { get; set; }
+
+
+
+
+
 		[Column] public Guid PublisherID { get; set; }
 
 
 
 
 
-		[Column] public DateTime PublishDate { get; set; }
+		[Column] public DateTime? PublishDate { get; set; }
 
 
 
@@ -407,12 +413,6 @@ namespace CWCMSConnection
 
 
 
-
-
-		[Column] public int DocumentTypeID { get; set; }
-
-
-
 	}
 
     
@@ -428,7 +428,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class DocumentType : CWCMSConnectionDB.Record<DocumentType>  
+    public partial class DocumentType : CWCMSConnSecVersDB.Record<DocumentType>  
     {
 
 
@@ -458,8 +458,14 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class EndDate : CWCMSConnectionDB.Record<EndDate>  
+    public partial class EndDate : CWCMSConnSecVersDB.Record<EndDate>  
     {
+
+
+
+		[Column] public int EndDateID { get; set; }
+
+
 
 
 
@@ -469,13 +475,7 @@ namespace CWCMSConnection
 
 
 
-		[Column] public DateTime? ExpirationDate { get; set; }
-
-
-
-
-
-		[Column] public int EndDateID { get; set; }
+		[Column] public DateTime ExpirationDate { get; set; }
 
 
 
@@ -494,7 +494,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class Feedback : CWCMSConnectionDB.Record<Feedback>  
+    public partial class Feedback : CWCMSConnSecVersDB.Record<Feedback>  
     {
 
 
@@ -505,13 +505,13 @@ namespace CWCMSConnection
 
 
 
-		[Column] public Guid UserID { get; set; }
-
-
-
-
-
 		[Column] public Guid DocumentID { get; set; }
+
+
+
+
+
+		[Column] public Guid UserID { get; set; }
 
 
 
@@ -554,7 +554,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class FileRevision : CWCMSConnectionDB.Record<FileRevision>  
+    public partial class FileRevision : CWCMSConnSecVersDB.Record<FileRevision>  
     {
 
 
@@ -571,7 +571,7 @@ namespace CWCMSConnection
 
 
 
-		[Column] public int SequenceNumber { get; set; }
+		[Column] public int? SequenceNumber { get; set; }
 
 
 
@@ -596,7 +596,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class FileSequence : CWCMSConnectionDB.Record<FileSequence>  
+    public partial class FileSequence : CWCMSConnSecVersDB.Record<FileSequence>  
     {
 
 
@@ -613,7 +613,7 @@ namespace CWCMSConnection
 
 
 
-		[Column] public int SequenceNumber { get; set; }
+		[Column] public int? SequenceNumber { get; set; }
 
 
 
@@ -632,7 +632,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class IncompletedFeedback : CWCMSConnectionDB.Record<IncompletedFeedback>  
+    public partial class IncompletedFeedback : CWCMSConnSecVersDB.Record<IncompletedFeedback>  
     {
 
 
@@ -643,7 +643,7 @@ namespace CWCMSConnection
 
 
 
-		[Column] public int FeedbackID { get; set; }
+		[Column] public int? FeedbackID { get; set; }
 
 
 
@@ -655,19 +655,19 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("LinkRolePermissonID")]
+	[PrimaryKey("LinkRolePermissionID")]
 
 
 
 
 	[ExplicitColumns]
 
-    public partial class LinkRolePermission : CWCMSConnectionDB.Record<LinkRolePermission>  
+    public partial class LinkRolePermission : CWCMSConnSecVersDB.Record<LinkRolePermission>  
     {
 
 
 
-		[Column] public int LinkRolePermissonID { get; set; }
+		[Column] public int LinkRolePermissionID { get; set; }
 
 
 
@@ -698,7 +698,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class LinkUserFile : CWCMSConnectionDB.Record<LinkUserFile>  
+    public partial class LinkUserFile : CWCMSConnSecVersDB.Record<LinkUserFile>  
     {
 
 
@@ -709,13 +709,13 @@ namespace CWCMSConnection
 
 
 
-		[Column] public Guid UserID { get; set; }
-
-
-
-
-
 		[Column] public Guid DocumentID { get; set; }
+
+
+
+
+
+		[Column] public Guid UserID { get; set; }
 
 
 
@@ -727,31 +727,31 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("LurID")]
+	[PrimaryKey("LurlID")]
 
 
 
 
 	[ExplicitColumns]
 
-    public partial class LinkUserRole : CWCMSConnectionDB.Record<LinkUserRole>  
+    public partial class LinkUserRole : CWCMSConnSecVersDB.Record<LinkUserRole>  
     {
 
 
 
-		[Column] public int LurID { get; set; }
-
-
-
-
-
-		[Column] public Guid UserID { get; set; }
+		[Column] public int LurlID { get; set; }
 
 
 
 
 
 		[Column] public int RoleID { get; set; }
+
+
+
+
+
+		[Column] public Guid UserID { get; set; }
 
 
 
@@ -770,7 +770,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class Permission : CWCMSConnectionDB.Record<Permission>  
+    public partial class Permission : CWCMSConnSecVersDB.Record<Permission>  
     {
 
 
@@ -800,7 +800,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class PostCheck : CWCMSConnectionDB.Record<PostCheck>  
+    public partial class PostCheck : CWCMSConnSecVersDB.Record<PostCheck>  
     {
 
 
@@ -830,7 +830,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class PreCheck : CWCMSConnectionDB.Record<PreCheck>  
+    public partial class PreCheck : CWCMSConnSecVersDB.Record<PreCheck>  
     {
 
 
@@ -866,7 +866,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class QueuedSignature : CWCMSConnectionDB.Record<QueuedSignature>  
+    public partial class QueuedSignature : CWCMSConnSecVersDB.Record<QueuedSignature>  
     {
 
 
@@ -889,7 +889,7 @@ namespace CWCMSConnection
 
 
 
-		[Column] public int? LineNumber { get; set; }
+		[Column] public int LineNumber { get; set; }
 
 
 
@@ -908,7 +908,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class Revised : CWCMSConnectionDB.Record<Revised>  
+    public partial class Revised : CWCMSConnSecVersDB.Record<Revised>  
     {
 
 
@@ -938,7 +938,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class Role : CWCMSConnectionDB.Record<Role>  
+    public partial class Role : CWCMSConnSecVersDB.Record<Role>  
     {
 
 
@@ -968,7 +968,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class SubFileRevision : CWCMSConnectionDB.Record<SubFileRevision>  
+    public partial class SubFileRevision : CWCMSConnSecVersDB.Record<SubFileRevision>  
     {
 
 
@@ -985,7 +985,7 @@ namespace CWCMSConnection
 
 
 
-		[Column] public int SequenceNumber { get; set; }
+		[Column] public int? SequenceNumber { get; set; }
 
 
 
@@ -997,7 +997,7 @@ namespace CWCMSConnection
 
 
 
-		[Column] public int SubFileSequence { get; set; }
+		[Column] public int? SubFileSequence { get; set; }
 
 
 
@@ -1022,7 +1022,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class SubFileSequence : CWCMSConnectionDB.Record<SubFileSequence>  
+    public partial class SubFileSequence : CWCMSConnSecVersDB.Record<SubFileSequence>  
     {
 
 
@@ -1059,54 +1059,6 @@ namespace CWCMSConnection
 
     
 
-	[TableName("dbo.sysdiagrams")]
-
-
-
-	[PrimaryKey("diagram_id")]
-
-
-
-
-	[ExplicitColumns]
-
-    public partial class sysdiagram : CWCMSConnectionDB.Record<sysdiagram>  
-    {
-
-
-
-		[Column] public string name { get; set; }
-
-
-
-
-
-		[Column] public int principal_id { get; set; }
-
-
-
-
-
-		[Column] public int diagram_id { get; set; }
-
-
-
-
-
-		[Column] public int? version { get; set; }
-
-
-
-
-
-		[Column] public byte[] definition { get; set; }
-
-
-
-	}
-
-    
-
 	[TableName("dbo.ValidDate")]
 
 
@@ -1118,7 +1070,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class ValidDate : CWCMSConnectionDB.Record<ValidDate>  
+    public partial class ValidDate : CWCMSConnSecVersDB.Record<ValidDate>  
     {
 
 
@@ -1154,7 +1106,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class WaitingForFeedback : CWCMSConnectionDB.Record<WaitingForFeedback>  
+    public partial class WaitingForFeedback : CWCMSConnSecVersDB.Record<WaitingForFeedback>  
     {
 
 
@@ -1184,7 +1136,7 @@ namespace CWCMSConnection
 
 	[ExplicitColumns]
 
-    public partial class WaitingSignature : CWCMSConnectionDB.Record<WaitingSignature>  
+    public partial class WaitingSignature : CWCMSConnSecVersDB.Record<WaitingSignature>  
     {
 
 
@@ -1219,12 +1171,14 @@ namespace CWCMSConnection
 
 
 
-	[PrimaryKey("WaitSignID", AutoIncrement=false)]
+	[PrimaryKey("WaitSignID")]
+
+
 
 
 	[ExplicitColumns]
 
-    public partial class WaitSignature : CWCMSConnectionDB.Record<WaitSignature>  
+    public partial class WaitSignature : CWCMSConnSecVersDB.Record<WaitSignature>  
     {
 
 

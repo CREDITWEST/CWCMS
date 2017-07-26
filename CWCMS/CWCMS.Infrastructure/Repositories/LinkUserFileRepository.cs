@@ -11,7 +11,7 @@ namespace CWCMS.Infrastructure.Repositories
 
         public LinkUserFileRepository()
         {
-            this._CWDB = new Database("CWCMSConnection");
+            this._CWDB = new Database("CWCMSConnSecVers");
         }
 
         public void Add(Core.Models.LinkUserFile linkUserFileRecord)

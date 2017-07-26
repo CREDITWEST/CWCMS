@@ -1,7 +1,7 @@
 <#@ include file="PetaPoco.Core.ttinclude" #>
 <#
 	// Settings
-    ConnectionStringName = "CWCMSConnection";			// Uses last connection string in config if not specified
+    ConnectionStringName = "CWCMSConnSecVers";			// Uses last connection string in config if not specified
     Namespace = "";
     RepoName = "";
     GenerateOperations = true;

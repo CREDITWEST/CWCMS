@@ -11,7 +11,7 @@ namespace CWCMS.Infrastructure.Repositories
 
         public ValidDateRepository()
         {
-            this._CWDB = new Database("CWCMSConnection");
+            this._CWDB = new Database("CWCMSConnSecVers");
         }
 
         public void Add(Core.Models.ValidDate validDateRecord)

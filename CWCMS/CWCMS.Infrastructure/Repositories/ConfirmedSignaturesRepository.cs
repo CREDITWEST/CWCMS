@@ -10,7 +10,7 @@ namespace CWCMS.Infrastructure.Repositories
 
         public ConfirmedSignaturesRepository()
         {
-            this._CWDB = new Database("CWCMSConnection");
+            this._CWDB = new Database("CWCMSConnSecVers");
         }
 
         public void Add(Core.Models.ConfirmedSignatures confirmedSignaturesRecord)

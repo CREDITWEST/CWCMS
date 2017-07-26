@@ -10,7 +10,7 @@ namespace CWCMS.Infrastructure.Repositories
 
         public SubFileRevisionsRepository()
         {
-            this._CWDB = new Database("CWCMSConnection");
+            this._CWDB = new Database("CWCMSConnSecVers");
         }
 
         public void Add(Core.Models.SubFileRevisions subFileRevisionRecord)

@@ -11,7 +11,7 @@ namespace CWCMS.Infrastructure.Repositories
 
         public WaitingSignaturesRepository()
         {
-            this._CWDB = new Database("CWCMSConnection");
+            this._CWDB = new Database("CWCMSConnSecVers");
         }
 
         public void Add(Core.Models.WaitingSignatures waitingSignaturesRecord)

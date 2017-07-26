@@ -10,7 +10,7 @@ namespace CWCMS.Infrastructure.Repositories
 
         public RoleRepository()
         {
-            this._CWDB = new Database("CWCMSConnection");
+            this._CWDB = new Database("CWCMSConnSecVers");
         }
 
         public void Add(Core.Models.Role roleRecord)

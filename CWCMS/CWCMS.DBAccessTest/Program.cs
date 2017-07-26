@@ -12,60 +12,82 @@ namespace CWCMS.DBAccessTest
     {
         private static void Main(string[] args)
         {
-            Document _testDoc = new Document();
+            //Document _testDoc = new Document();
 
-            AdditionReferencingMainTypeLogic _referencing = new AdditionReferencingMainTypeLogic();
+            //AdditionReferencingMainTypeLogic _referencing = new AdditionReferencingMainTypeLogic();
 
-            FileSequenceRepository _fileSeqRepo = new FileSequenceRepository();
+            //FileSequenceRepository _fileSeqRepo = new FileSequenceRepository();
 
-            FileSequence newSeq = new FileSequence();
-
-
-            newSeq.FileType = "Y";
-            newSeq.SequenceNumber = 2;
+            //FileSequence newSeq = new FileSequence();
 
 
-
-            DocumentServices _docService = new DocumentServices();
-
-            IEnumerable<Document> doclist;
-
-            _testDoc.DocumentID = Guid.NewGuid();
-            _testDoc.Title = "Test Doc";
-            _testDoc.Content = "I am testing fetaure";
-            _testDoc.FilePath = "github.com";
-            _testDoc.PublisherID = Guid.NewGuid();
-            _testDoc.PublishDate = DateTime.Now;
-            _testDoc.SystemUpdateDate = DateTime.Now;
-            _testDoc.ReferenceNumber =_referencing.GenerateReferenceForAddingMainType(1, Guid.NewGuid());
-            _testDoc.isSigned = false;
-            _testDoc.DocumentTypeID = 1;
-
-            _docService.UploadDocument(_testDoc);
+            //newSeq.FileType = "Y";
+            //newSeq.SequenceNumber = 2;
 
 
 
-            doclist = _docService.BulkRetrievingActiveDocuments();
+            //DocumentServices _docService = new DocumentServices();
+
+            //IEnumerable<Document> doclist;
+
+            //_testDoc.DocumentID = Guid.NewGuid();
+            //_testDoc.Title = "Test Doc";
+            //_testDoc.Content = "I am testing fetaure";
+            //_testDoc.FilePath = "github.com";
+            //_testDoc.PublisherID = Guid.NewGuid();
+            //_testDoc.PublishDate = DateTime.Now;
+            //_testDoc.SystemUpdateDate = DateTime.Now;
+            //_testDoc.ReferenceNumber =_referencing.GenerateReferenceForAddingMainType(1, Guid.NewGuid());
+            //_testDoc.isSigned = false;
+            //_testDoc.DocumentTypeID = 1;
+
+            //_docService.UploadDocument(_testDoc);
 
 
 
-            if (IsNullOrEmpty(doclist))
-            {
-                Console.WriteLine("Empty");
-            }
+            //doclist = _docService.BulkRetrievingActiveDocuments();
+
+
+
+            //if (IsNullOrEmpty(doclist))
+            //{
+            //    Console.WriteLine("Empty");
+            //}
 
 
             //_fileSeqRepo.Add(newSeq);
 
-            foreach (Document item in doclist)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Guid is : " + item.DocumentID);
-            }
+            //foreach (Document item in doclist)
+            //{
+            //    Console.WriteLine();
+            //    Console.WriteLine("Guid is : " + item.DocumentID);
+            //}
 
-            Console.Read();
+            //Console.Read();
 
-            
+
+
+
+
+
+            FileSequence fileSeq = new FileSequence();
+
+            fileSeq.FileType = "T";
+            fileSeq.SequenceNumber = 45;
+
+            FileSequenceRepository repo = new FileSequenceRepository();
+
+            repo.Add(fileSeq);
+
+
+            //Active act = new Active();
+
+            //act.DocumentID = Guid.NewGuid();
+
+            //ActiveRepository asd = new ActiveRepository();
+
+            //asd.Add(act);
+
 
         }
 

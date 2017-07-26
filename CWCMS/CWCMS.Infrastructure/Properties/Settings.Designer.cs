@@ -26,11 +26,11 @@ namespace CWCMS.Infrastructure.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.100.101;Initial Catalog=CreditwestDocSystemDB;Persist Securit" +
-            "y Info=True;User ID=cwsoftgenious;Password=c36en105!")]
-        public string CWCMS {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.100.101;Initial Catalog=CreditwestDocSystemDBVersion2;Persist" +
+            " Security Info=True;User ID=cwsoftgenious;Password=c36en105!")]
+        public string CWCMSConnSecVers {
             get {
-                return ((string)(this["CWCMS"]));
+                return ((string)(this["CWCMSConnSecVers"]));
             }
         }
     }

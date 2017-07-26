@@ -11,7 +11,7 @@ namespace CWCMS.Infrastructure.Repositories
 
         public DependencyRepository()
         {
-            this._CWDB = new Database("CWCMSConnection");
+            this._CWDB = new Database("CWCMSConnSecVers");
         }
 
         public void Add(Core.Models.Dependency dependencyRecord)
