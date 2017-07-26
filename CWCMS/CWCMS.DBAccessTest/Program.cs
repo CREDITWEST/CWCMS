@@ -11,47 +11,47 @@ namespace CWCMS.DBAccessTest
     {
         private static void Main(string[] args)
         {
-            //Document _testDoc = new Document();
-            //DocumentRepository _docRepo = new DocumentRepository();
-            //DocumentUploadRepository _documentUpload = new DocumentUploadRepository();
-            //BulkDocumentRetrievingRepository _bulkRetrieve = new BulkDocumentRetrievingRepository();
-            //DateTime testDT;
+            Document _testDoc = new Document();
 
-            //_testDoc.DocumentID = Guid.NewGuid();
-            //_testDoc.Title = "Test Doc";
-            //_testDoc.Content = "I am testing fetaure";
-            //_testDoc.FilePath = "github.com";
-            //_testDoc.PublisherID = Guid.NewGuid();
-            //_testDoc.PublishDate = DateTime.Now;
-            //_testDoc.SystemUpdateDate = DateTime.Now;
-            //_testDoc.ReferenceNumber = "StStSt";
-            //_testDoc.isSigned = false;
-            //_testDoc.DocumentTypeID = 1;
+            DocumentServices _docService = new DocumentServices();
 
-            //_documentUpload.UploadToServerDocument(_testDoc);
+            IEnumerable<Document> doclist;
 
-            //testDT = _testDoc.PublishDate;
+            _testDoc.DocumentID = Guid.NewGuid();
+            _testDoc.Title = "Test Doc";
+            _testDoc.Content = "I am testing fetaure";
+            _testDoc.FilePath = "github.com";
+            _testDoc.PublisherID = Guid.NewGuid();
+            _testDoc.PublishDate = DateTime.Now;
+            _testDoc.SystemUpdateDate = DateTime.Now;
+            _testDoc.ReferenceNumber = "StStSt";
+            _testDoc.isSigned = false;
+            _testDoc.DocumentTypeID = 1;
 
-            //IEnumerable<Document> docList = _docRepo.ListDocumentByPublishDate(testDT);
+            _docService.UploadDocument(_testDoc);
 
 
 
-            //if (IsNullOrEmpty(docList))
-            //{
-            //    Console.WriteLine("Empty");
-            //}
+            doclist = _docService.BulkRetrievingActiveDocuments();
 
 
-            
 
-            //foreach (Document item in docList)
-            //{
-            //    Console.WriteLine();
-            //    Console.WriteLine("Guid is : " + item.DocumentID);
-            //}
+            if (IsNullOrEmpty(doclist))
+            {
+                Console.WriteLine("Empty");
+            }
 
-            //Console.Read();
-            
+
+
+
+            foreach (Document item in doclist)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Guid is : " + item.DocumentID);
+            }
+
+            Console.Read();
+
         }
 
         public static bool IsNullOrEmpty<T>(this IEnumerable<T> enumerable)

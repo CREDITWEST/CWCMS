@@ -1,27 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CWCMS.Application.DocumentLogic.DocumentRetrievingRepositories;
+﻿using CWCMS.Application.DocumentLogic.DocumentRetrievingRepositories;
 using CWCMS.Application.DocumentLogic.DocumentUploadingRepositories;
 using CWCMS.Core.Models;
+using System.Collections.Generic;
 
 namespace CWCMS.Application.BLServices
 {
     public class DocumentServices
     {
-
         // Bulk retrieving repository
-        BulkDocumentRetrievingRepository _bulkRetrieving;
+        private BulkDocumentRetrievingRepository _bulkRetrieving;
+
         // Categorised retrieving repository
-        CategorisedDocumentRetrievingRepository _categorisedRetrieving;
+        private CategorisedDocumentRetrievingRepository _categorisedRetrieving;
+
         // Specific retrieving repository
-        SpecificDocumentReturnRepository _specificRetrieving;
+        private SpecificDocumentReturnRepository _specificRetrieving;
+
         // Document adding repository
-        DocumentUploadRepository _uploadRepository;
-
-
+        private DocumentUploadRepository _uploadRepository;
 
         public DocumentServices()
         {
@@ -38,7 +34,6 @@ namespace CWCMS.Application.BLServices
         /* Document Retrieving */
 
         // Retrieving uncategorised active documents
-
 
         public IEnumerable<Document> BulkRetrievingActiveDocuments()
         {
@@ -58,7 +53,6 @@ namespace CWCMS.Application.BLServices
         {
             return _bulkRetrieving.GetWholeCancelledList();
         }
-
 
         // Retrieving categorised documents
 
@@ -83,7 +77,6 @@ namespace CWCMS.Application.BLServices
             return _categorisedRetrieving.GetCancelledListByCategory(categoryCode);
         }
 
-
         /*-------------------------------------------------------------------------------------*/
 
         /* Document adding */
@@ -93,7 +86,5 @@ namespace CWCMS.Application.BLServices
         {
             _uploadRepository.UploadToServerDocument(userInput);
         }
-
-
     }
 }
