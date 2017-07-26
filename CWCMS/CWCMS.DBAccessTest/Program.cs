@@ -1,5 +1,4 @@
-﻿using CWCMS.Application.DocumentLogic.DocumentRetrievingRepositories;
-using CWCMS.Application.DocumentLogic.DocumentUploadingRepositories;
+﻿using CWCMS.Application.BLServices;
 using CWCMS.Infrastructure.Repositories;
 using CWCMS.Core.Models;
 using System;

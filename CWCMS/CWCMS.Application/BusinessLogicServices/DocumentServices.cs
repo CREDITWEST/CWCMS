@@ -9,7 +9,7 @@ using CWCMS.Core.Models;
 
 namespace CWCMS.Application.BLServices
 {
-    class DocumentServices
+    public class DocumentServices
     {
 
         // Bulk retrieving repository
