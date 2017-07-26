@@ -16,12 +16,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.Feedback feedbackRecord)
         {
-            _CWDB.Insert(feedbackRecord);
+            _CWDB.Insert("Feedback","FeedbackID",true,feedbackRecord);
         }
 
         public void Edit(Core.Models.Feedback feedbackRecord)
         {
-            _CWDB.Update(feedbackRecord);
+            _CWDB.Update("Feedback", "FeedbackID",feedbackRecord);
         }
 
         public Core.Models.Feedback FindFeedbackByID(int feedbackRecordID)

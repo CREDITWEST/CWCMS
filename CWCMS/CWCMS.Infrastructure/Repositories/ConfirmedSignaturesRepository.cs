@@ -15,12 +15,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.ConfirmedSignatures confirmedSignaturesRecord)
         {
-            _CWDB.Insert(confirmedSignaturesRecord);
+            _CWDB.Insert("ConfirmedSignatures", "ConfirmedSignatureID",true,confirmedSignaturesRecord);
         }
 
         public void Edit(Core.Models.ConfirmedSignatures confirmedSignaturesRecord)
         {
-            _CWDB.Update(confirmedSignaturesRecord);
+            _CWDB.Update("ConfirmedSignatures", "ConfirmedSignatureID",confirmedSignaturesRecord);
         }
 
         public System.Collections.Generic.IEnumerable<dynamic> FindConfirmedSignaturesByDocument(Guid documentGUID)

@@ -16,12 +16,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.EndDate endDateRecord)
         {
-            _CWDB.Insert(endDateRecord);
+            _CWDB.Insert("EndDate","EndDateID",true,endDateRecord);
         }
 
         public void Edit(Core.Models.EndDate endDateRecord)
         {
-            _CWDB.Update(endDateRecord);
+            _CWDB.Update("EndDate", "EndDateID",endDateRecord);
         }
 
         public Core.Models.EndDate FindEndDateRecordByID(int endDateRecordID)

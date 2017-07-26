@@ -27,31 +27,31 @@ namespace CWCMS.DBAccessTest
             _testDoc.PublisherID = Guid.NewGuid();
             _testDoc.PublishDate = DateTime.Now;
             _testDoc.SystemUpdateDate = DateTime.Now;
-            _testDoc.ReferenceNumber = _referencing.GenerateReferenceForAddingMainType(1, Guid.NewGuid());
+            _testDoc.ReferenceNumber = _referencing.GenerateReferenceForAddingMainType(2, Guid.NewGuid());
             _testDoc.isSigned = false;
-            _testDoc.DocumentTypeID = 1;
+            _testDoc.DocumentTypeID = 2;
 
             _docService.UploadDocument(_testDoc);
 
 
 
-            //doclist = _docService.BulkRetrievingActiveDocuments();
+            doclist = _docService.BulkRetrievingActiveDocuments();
 
 
 
-            //if (IsNullOrEmpty(doclist))
-            //{
-            //    Console.WriteLine("Empty");
-            //}
+            if (IsNullOrEmpty(doclist))
+            {
+                Console.WriteLine("Empty");
+            }
 
 
-            //foreach (Document item in doclist)
-            //{
-            //    Console.WriteLine();
-            //    Console.WriteLine("Guid is : " + item.DocumentID);
-            //}
+            foreach (Document item in doclist)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Guid is : " + item.DocumentID);
+            }
 
-            //Console.Read();
+            Console.Read();
 
 
 

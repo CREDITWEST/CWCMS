@@ -15,12 +15,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.SubFileRevisions subFileRevisionRecord)
         {
-            _CWDB.Insert(subFileRevisionRecord);
+            _CWDB.Insert("SubFileRevisions", "SubFileRevID",true,subFileRevisionRecord);
         }
 
         public void Edit(Core.Models.SubFileRevisions subFileRevisionRecord)
         {
-            _CWDB.Update(subFileRevisionRecord);
+            _CWDB.Update("SubFileRevisions", "SubFileRevID",subFileRevisionRecord);
         }
 
         public Core.Models.SubFileRevisions FindSubFileRevisionsByID(int subFileRevisionsRecordID)

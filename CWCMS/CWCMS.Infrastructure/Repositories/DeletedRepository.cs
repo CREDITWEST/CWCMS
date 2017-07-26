@@ -16,12 +16,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.Deleted deletedRecord)
         {
-            _CWDB.Insert(deletedRecord);
+            _CWDB.Insert("Deleted","DeletedID",true,deletedRecord);
         }
 
         public void Edit(Core.Models.Deleted deletedRecord)
         {
-            _CWDB.Update(deletedRecord);
+            _CWDB.Update("Deleted", "DeletedID",deletedRecord);
         }
 
         public Core.Models.Deleted FindDeletedByDocument(Guid documentGUID)

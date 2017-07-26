@@ -15,12 +15,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.Role roleRecord)
         {
-            _CWDB.Insert(roleRecord);
+            _CWDB.Insert("Role","RoleID",true,roleRecord);
         }
 
         public void Edit(Core.Models.Role roleRecord)
         {
-            _CWDB.Update(roleRecord);
+            _CWDB.Update("Role", "RoleID",roleRecord);
         }
 
         public Core.Models.Role FindRoleByID(int roleID)

@@ -16,7 +16,7 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(FileSequence fileSequenceRecord)
         {
-            _CWDB.Insert("FileSequence", "FileSeqID", true ,fileSequenceRecord);
+            _CWDB.Insert("FileSequence","FileSeqID", true ,fileSequenceRecord);
         }
 
         public void Edit(FileSequence fileSequenceRecord)

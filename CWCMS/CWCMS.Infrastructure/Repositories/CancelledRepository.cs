@@ -16,12 +16,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.Cancelled cancelledRecord)
         {
-            _CWDB.Insert(cancelledRecord);
+            _CWDB.Insert("Cancelled","CancelledID",true,cancelledRecord);
         }
 
         public void Edit(Core.Models.Cancelled cancelledRecord)
         {
-            _CWDB.Update(cancelledRecord);
+            _CWDB.Update("Cancelled", "CancelledID",cancelledRecord);
         }
 
         Core.Models.Cancelled ICancelledRepository.FindCancelledByID(int cancelledID)

@@ -16,12 +16,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.Active activeRecord)
         {
-            _CWDB.Insert(activeRecord);
+            _CWDB.Insert("Active","ActiveID",true,activeRecord);
         }
 
         public void Edit(Core.Models.Active activeRecord)
         {
-            _CWDB.Update(activeRecord);
+            _CWDB.Update("Active", "ActiveID",activeRecord);
         }
 
         void IActiveRepository.Remove(int activeRecordID)
