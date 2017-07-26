@@ -16,12 +16,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(FileSequence fileSequenceRecord)
         {
-            int a = Convert.ToInt32(_CWDB.Insert(fileSequenceRecord));
+            _CWDB.Insert("FileSequence", "FileSeqID", true ,fileSequenceRecord);
         }
 
-        public void Edit(Core.Models.FileSequence fileSequenceRecord)
+        public void Edit(FileSequence fileSequenceRecord)
         {
-            _CWDB.Update(fileSequenceRecord);
+            _CWDB.Update("FileSequence", "FileSeqID",fileSequenceRecord);
         }
 
         public FileSequence FindFileSequenceByDocumentType(string documentType)
@@ -34,6 +34,11 @@ namespace CWCMS.Infrastructure.Repositories
         {
             var record = _CWDB.Single<Core.Models.FileSequence>(fileSequenceRecordID);
             return record;
+        }
+
+        public void IncrementFileSequenceOneByOne(string documentType)
+        {
+            throw new NotImplementedException();
         }
 
         public int LastSequenceNumberOfSpecificType(string typeCode)

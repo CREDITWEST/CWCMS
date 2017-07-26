@@ -104,22 +104,22 @@ namespace CWCMS.Application.DocumentLogic.DocumentReferencingRepositories.Additi
             if(_fileSequenceRepository.LastSequenceNumberOfSpecificType(categoryLetter) == 0 )
             {
                 _sequentialNumber = "001";
-                //FileSequenceInitilizer();
-                //_fileSequenceRepository.Add(_revisionedSequence);
+                FileSequenceInitilizer();
+                _fileSequenceRepository.Add(_revisionedSequence);
             }
             else
             {
                 string numberRepresentation = "";
                 sequenceNumber = _fileSequenceRepository.LastSequenceNumberOfSpecificType(categoryLetter);
 
-                //_revisionedSequence = _fileSequenceRepository.FindFileSequenceByDocumentType(categoryLetter);
+                _revisionedSequence = _fileSequenceRepository.FindFileSequenceByDocumentType(categoryLetter);
 
-                //_revisionedSequence.SequenceNumber++;
+                _revisionedSequence.SequenceNumber++;
 
-                //_fileSequenceRepository.Edit(_revisionedSequence);
+                _fileSequenceRepository.Edit(_revisionedSequence);
 
 
-                if(sequenceNumber < 10)
+                if (sequenceNumber < 10)
                 {
                     _sequentialNumber += "00";
                     numberRepresentation = sequenceNumber.ToString();

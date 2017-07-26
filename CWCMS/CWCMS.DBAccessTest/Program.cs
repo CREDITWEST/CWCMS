@@ -16,32 +16,22 @@ namespace CWCMS.DBAccessTest
 
             AdditionReferencingMainTypeLogic _referencing = new AdditionReferencingMainTypeLogic();
 
-            FileSequenceRepository _fileSeqRepo = new FileSequenceRepository();
-
-            FileSequence newSeq = new FileSequence();
-
-
-            newSeq.FileType = "Y";
-            newSeq.SequenceNumber = 2;
-
-
-
             DocumentServices _docService = new DocumentServices();
 
             IEnumerable<Document> doclist;
 
-            //_testDoc.DocumentID = Guid.NewGuid();
-            //_testDoc.Title = "Test Doc";
-            //_testDoc.Content = "I am testing fetaure";
-            //_testDoc.FilePath = "github.com";
-            //_testDoc.PublisherID = Guid.NewGuid();
-            //_testDoc.PublishDate = DateTime.Now;
-            //_testDoc.SystemUpdateDate = DateTime.Now;
-            //_testDoc.ReferenceNumber = "testReference"; //_referencing.GenerateReferenceForAddingMainType(1, Guid.NewGuid());
-            //_testDoc.isSigned = false;
-            //_testDoc.DocumentTypeID = 1;
+            _testDoc.DocumentID = Guid.NewGuid();
+            _testDoc.Title = "Test Doc";
+            _testDoc.Content = "I am testing fetaure";
+            _testDoc.FilePath = "github.com";
+            _testDoc.PublisherID = Guid.NewGuid();
+            _testDoc.PublishDate = DateTime.Now;
+            _testDoc.SystemUpdateDate = DateTime.Now;
+            _testDoc.ReferenceNumber = _referencing.GenerateReferenceForAddingMainType(1, Guid.NewGuid());
+            _testDoc.isSigned = false;
+            _testDoc.DocumentTypeID = 1;
 
-            //_docService.UploadDocument(_testDoc);
+            _docService.UploadDocument(_testDoc);
 
 
 
@@ -54,8 +44,6 @@ namespace CWCMS.DBAccessTest
             //    Console.WriteLine("Empty");
             //}
 
-
-            //_fileSeqRepo.Add(newSeq);
 
             //foreach (Document item in doclist)
             //{
@@ -70,23 +58,7 @@ namespace CWCMS.DBAccessTest
 
 
 
-            FileSequence fileSeq = new FileSequence();
 
-            fileSeq.FileType = "T";
-            fileSeq.SequenceNumber = 45;
-
-            FileSequenceRepository repo = new FileSequenceRepository();
-
-            repo.Add(fileSeq);
-
-
-            //Active act = new Active();
-
-            //act.DocumentID = Guid.NewGuid();
-
-            //ActiveRepository asd = new ActiveRepository();
-
-            //asd.Add(act);
 
 
         }

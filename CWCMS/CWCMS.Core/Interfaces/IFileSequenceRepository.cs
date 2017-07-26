@@ -29,6 +29,7 @@ namespace CWCMS.Core.Interfaces
         // Find file sequence record by document type
         FileSequence FindFileSequenceByDocumentType(string documentType);
 
-        // Increment File Sequence One 
+        // Increment File Sequence One Value
+        void IncrementFileSequenceOneByOne(string documentType);
     }
 }

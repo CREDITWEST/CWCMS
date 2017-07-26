@@ -38,6 +38,7 @@ using System.Linq;
 using System.Web;
 using PetaPoco;
 
+
 namespace CWCMSConnSecVers
 {
 
@@ -600,8 +601,8 @@ namespace CWCMSConnSecVers
     {
 
 
-
-		[Column] public int FileSeqID { get; set; }
+        
+        [Column] public int FileSeqID { get; set; }
 
 
 
