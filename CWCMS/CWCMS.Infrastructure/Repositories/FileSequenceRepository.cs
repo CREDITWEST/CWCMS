@@ -1,5 +1,7 @@
 ﻿using CWCMS.Core.Interfaces;
+using CWCMS.Core.Models;
 using PetaPoco;
+using System;
 
 namespace CWCMS.Infrastructure.Repositories
 {
@@ -12,14 +14,20 @@ namespace CWCMS.Infrastructure.Repositories
             this._CWDB = new Database("CWCMSConnection");
         }
 
-        public void Add(Core.Models.FileSequence fileSequenceRecord)
+        public void Add(FileSequence fileSequenceRecord)
         {
-            _CWDB.Insert(fileSequenceRecord);
+            int a = Convert.ToInt32(_CWDB.Insert(fileSequenceRecord));
         }
 
         public void Edit(Core.Models.FileSequence fileSequenceRecord)
         {
             _CWDB.Update(fileSequenceRecord);
+        }
+
+        public FileSequence FindFileSequenceByDocumentType(string documentType)
+        {
+            FileSequence record = _CWDB.Single<FileSequence>("SELECT * FROM FileSequence AS fs WHERE fs.FileType = @0" , documentType);
+            return record;
         }
 
         public Core.Models.FileSequence FindFileSequenceByID(int fileSequenceRecordID)
@@ -30,7 +38,15 @@ namespace CWCMS.Infrastructure.Repositories
 
         public int LastSequenceNumberOfSpecificType(string typeCode)
         {
-            int sequenceNumber = _CWDB.ExecuteScalar<int>("SELECT fs.SequenceNumber FROM FileSequence AS fs WHERE fs.FileType = '" + typeCode + "'");
+            int sequenceNumber;
+            if (_CWDB.ExecuteScalar<Object>("SELECT fs.SequenceNumber FROM FileSequence AS fs WHERE fs.FileType = '" + typeCode + "'") == null)
+            {
+                sequenceNumber = 0;
+            }
+            else
+            {
+                sequenceNumber = _CWDB.ExecuteScalar<int>("SELECT fs.SequenceNumber FROM FileSequence AS fs WHERE fs.FileType = '" + typeCode + "'");
+            }
 
             return sequenceNumber;
         }

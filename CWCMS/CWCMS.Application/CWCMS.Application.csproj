@@ -53,6 +53,7 @@
     <Compile Include="BusinessLogicServices\RoleBasedAccessServices.cs" />
     <Compile Include="BusinessLogicServices\SignatureServices.cs" />
     <Compile Include="BusinessLogicServices\UserServices.cs" />
+    <Compile Include="DocumentLogic\DocumentReferencingRepositories\AdditionReferencing\AdditionReferencingMainTypeLogic.cs" />
     <Compile Include="DocumentLogic\DocumentRetrievingRepositories\BulkDocumentRetrievingRepository.cs" />
     <Compile Include="DocumentLogic\DocumentRetrievingRepositories\CategorisedDocumentRetrievingRepository.cs" />
     <Compile Include="DocumentLogic\DocumentRetrievingRepositories\SpecificDocumentReturnRepository.cs" />
@@ -60,7 +61,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DocumentLogic\DocumentReferencingRepositories\AdditionReferencing\" />
     <Folder Include="DocumentLogic\DocumentReferencingRepositories\EditionReferencing\" />
     <Folder Include="FeedbackLogic\" />
     <Folder Include="RolePermissionLogic\" />

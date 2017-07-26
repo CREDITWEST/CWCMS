@@ -25,5 +25,10 @@ namespace CWCMS.Core.Interfaces
 
         // Getting the last sequence number of specific type
         int LastSequenceNumberOfSpecificType(string typeCode);
+
+        // Find file sequence record by document type
+        FileSequence FindFileSequenceByDocumentType(string documentType);
+
+        // Increment File Sequence One 
     }
 }
