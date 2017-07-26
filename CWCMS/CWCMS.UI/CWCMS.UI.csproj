@@ -103,14 +103,23 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\announcement\AnnouncementFormController.js" />
+    <Content Include="Scripts\app\announcement\announcementListController.js" />
     <Content Include="Scripts\app\circular\CircularFormController.js" />
+    <Content Include="Scripts\app\circular\circularListController.js" />
     <Content Include="Scripts\app\contract\ContractFormController.js" />
+    <Content Include="Scripts\app\contract\contractListController.js" />
     <Content Include="Scripts\app\form\ForumFormController.js" />
+    <Content Include="Scripts\app\form\forumListController.js" />
     <Content Include="Scripts\app\jobdefiniton\JobdefinitionFormController.js" />
+    <Content Include="Scripts\app\jobdefiniton\jobdefinitionListController.js" />
     <Content Include="Scripts\app\legislation\LegislationFormController.js" />
+    <Content Include="Scripts\app\legislation\legislationListController.js" />
     <Content Include="Scripts\app\processcontrol\ProcesscontrolFormController.js" />
+    <Content Include="Scripts\app\processcontrol\processcontrolListController.js" />
     <Content Include="Scripts\app\userguide\UserguideFormController.js" />
+    <Content Include="Scripts\app\userguide\userguideListController.js" />
     <Content Include="Scripts\app\workflow\WorkflowFormController.js" />
+    <Content Include="Scripts\app\workflow\workflowListController.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
