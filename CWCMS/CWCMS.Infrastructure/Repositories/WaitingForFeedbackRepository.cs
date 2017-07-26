@@ -16,12 +16,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.WaitingForFeedback waitingForFeedbackRecord)
         {
-            _CWDB.Insert(waitingForFeedbackRecord);
+            _CWDB.Insert("WaitingForFeedback", "WFFID",true,waitingForFeedbackRecord);
         }
 
         public void Edit(Core.Models.WaitingForFeedback waitingForFeedbackRecord)
         {
-            _CWDB.Update(waitingForFeedbackRecord);
+            _CWDB.Update("WaitingForFeedback", "WFFID",waitingForFeedbackRecord);
         }
 
         public Core.Models.WaitingForFeedback FindWaitingForFeedbackByDocument(Guid documentGUID)

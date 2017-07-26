@@ -16,12 +16,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.ValidDate validDateRecord)
         {
-            _CWDB.Insert(validDateRecord);
+            _CWDB.Insert("ValidDate","ValidDateID",true,validDateRecord);
         }
 
         public void Edit(Core.Models.ValidDate validDateRecord)
         {
-            _CWDB.Update(validDateRecord);
+            _CWDB.Update("ValidDate", "ValidDateID",validDateRecord);
         }
 
         public Core.Models.ValidDate FindValidDateRecordByID(int validDateRecordID)

@@ -16,12 +16,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.LinkUserRole linkUserRoleRecord)
         {
-            _CWDB.Insert(linkUserRoleRecord);
+            _CWDB.Insert("LinkUserRole", "LurlID", true ,linkUserRoleRecord);
         }
 
         public void Edit(Core.Models.LinkUserRole linkUserRoleRecord)
         {
-            _CWDB.Update(linkUserRoleRecord);
+            _CWDB.Update("LinkUserRole", "LurlID", linkUserRoleRecord);
         }
 
         public Core.Models.LinkUserRole FindLinkUserRoleByID(int linkUserRoleRecordID)

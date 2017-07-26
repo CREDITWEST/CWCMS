@@ -15,12 +15,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.LinkRolePermission linkRolePermissionRecord)
         {
-            _CWDB.Insert(linkRolePermissionRecord);
+            _CWDB.Insert("LinkRolePermission", "LinkRolePermissionID",true,linkRolePermissionRecord);
         }
 
         public void Edit(Core.Models.LinkRolePermission linkRolePermissionRecord)
         {
-            _CWDB.Update(linkRolePermissionRecord);
+            _CWDB.Update("LinkRolePermission", "LinkRolePermissionID",linkRolePermissionRecord);
         }
 
         public Core.Models.LinkRolePermission FindLinkRolePermissionByID(int linkRolePermissionRecordID)

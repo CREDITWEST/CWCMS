@@ -16,12 +16,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.PreCheck preCheckRecord)
         {
-            _CWDB.Insert(preCheckRecord);
+            _CWDB.Insert("PreCheck", "PrecheckID",true,preCheckRecord);
         }
 
         public void Edit(Core.Models.PreCheck preCheckRecord)
         {
-            _CWDB.Update(preCheckRecord);
+            _CWDB.Update("PreCheck", "PrecheckID",preCheckRecord);
         }
 
         public Core.Models.PreCheck FindPreCheckByDocument(Guid documentGUID)

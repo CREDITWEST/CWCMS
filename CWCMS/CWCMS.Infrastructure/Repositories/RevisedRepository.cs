@@ -16,12 +16,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.Revised revisedRecord)
         {
-            _CWDB.Insert(revisedRecord);
+            _CWDB.Insert("Revised","RevisedID",true,revisedRecord);
         }
 
         public void Edit(Core.Models.Revised revisedRecord)
         {
-            _CWDB.Update(revisedRecord);
+            _CWDB.Update("Revised", "RevisedID", revisedRecord);
         }
 
         public Core.Models.Revised FindRevisedByDocument(Guid documentGUID)

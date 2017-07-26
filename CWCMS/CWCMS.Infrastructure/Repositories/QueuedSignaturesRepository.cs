@@ -16,12 +16,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.QueuedSignatures queuedSignaturesRecord)
         {
-            _CWDB.Insert(queuedSignaturesRecord);
+            _CWDB.Insert("QueuedSignatures", "QueuedSignatureID",true,queuedSignaturesRecord);
         }
 
         public void Edit(Core.Models.QueuedSignatures queuedSignaturesRecord)
         {
-            _CWDB.Update(queuedSignaturesRecord);
+            _CWDB.Update("QueuedSignatures", "QueuedSignatureID",queuedSignaturesRecord);
         }
 
         public IEnumerable<dynamic> FindQueuedSignaturesByDocument(Guid documentGUID)

@@ -16,12 +16,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.Dependency dependencyRecord)
         {
-            _CWDB.Insert(dependencyRecord);
+            _CWDB.Insert("Dependency","DependID",true,dependencyRecord);
         }
 
         public void Edit(Core.Models.Dependency dependencyRecord)
         {
-            _CWDB.Update(dependencyRecord);
+            _CWDB.Update("Dependency","DependID",dependencyRecord);
         }
 
         public Core.Models.Dependency FindRecordByID(int dependencyId)

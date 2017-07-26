@@ -16,12 +16,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.LinkUserFile linkUserFileRecord)
         {
-            _CWDB.Insert(linkUserFileRecord);
+            _CWDB.Insert("LinkUserFile", "LinkUserFileID" ,true, linkUserFileRecord);
         }
 
         public void Edit(Core.Models.LinkUserFile linkUserFileRecord)
         {
-            _CWDB.Update(linkUserFileRecord);
+            _CWDB.Update("LinkUserFile", "LinkUserFileID",linkUserFileRecord);
         }
 
         public Core.Models.LinkUserFile FindLinkUserFileByID(int linkUserFileRecordID)
