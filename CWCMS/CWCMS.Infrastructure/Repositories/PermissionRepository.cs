@@ -15,12 +15,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.Permission permissionRecord)
         {
-            _CWDB.Insert(permissionRecord);
+            _CWDB.Insert("Permission","PermissionID",true,permissionRecord);
         }
 
         public void Edit(Core.Models.Permission permissionRecord)
         {
-            _CWDB.Update(permissionRecord);
+            _CWDB.Update("Permission","PermissionID",permissionRecord);
         }
 
         public Core.Models.Permission FindPermissionByID(int permissionID)

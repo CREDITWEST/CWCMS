@@ -14,44 +14,48 @@ namespace CWCMS.DBAccessTest
         {
             Document _testDoc = new Document();
 
+            //Tests
+
             AdditionReferencingMainTypeLogic _referencing = new AdditionReferencingMainTypeLogic();
 
             DocumentServices _docService = new DocumentServices();
 
+            Active actREc = new Active();
+            ActiveRepository repoAct = new ActiveRepository();
+
             IEnumerable<Document> doclist;
 
-            _testDoc.DocumentID = Guid.NewGuid();
+            //_testDoc.DocumentID = Guid.NewGuid();
             _testDoc.Title = "Test Doc";
             _testDoc.Content = "I am testing fetaure";
             _testDoc.FilePath = "github.com";
-            _testDoc.PublisherID = Guid.NewGuid();
-            _testDoc.PublishDate = DateTime.Now;
-            _testDoc.SystemUpdateDate = DateTime.Now;
-            _testDoc.ReferenceNumber = _referencing.GenerateReferenceForAddingMainType(1, Guid.NewGuid());
-            _testDoc.isSigned = false;
-            _testDoc.DocumentTypeID = 1;
+            //_testDoc.PublisherID = Guid.NewGuid();
+            //_testDoc.PublishDate = DateTime.Now;
+            //_testDoc.SystemUpdateDate = DateTime.Now;
+           //_testDoc.ReferenceNumber = _referencing.GenerateReferenceForAddingMainType(2, Guid.NewGuid());
+           //_testDoc.isSigned = false;
+            _testDoc.DocumentTypeID = 2;
 
             _docService.UploadDocument(_testDoc);
 
 
-
-            //doclist = _docService.BulkRetrievingActiveDocuments();
-
+            doclist = _docService.BulkRetrievingActiveDocuments();
 
 
-            //if (IsNullOrEmpty(doclist))
-            //{
-            //    Console.WriteLine("Empty");
-            //}
+
+            if (IsNullOrEmpty(doclist))
+            {
+                Console.WriteLine("Empty");
+            }
 
 
-            //foreach (Document item in doclist)
-            //{
-            //    Console.WriteLine();
-            //    Console.WriteLine("Guid is : " + item.DocumentID);
-            //}
+            foreach (Document item in doclist)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Guid is : " + item.DocumentID);
+            }
 
-            //Console.Read();
+            Console.Read();
 
 
 

@@ -15,12 +15,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.IncompletedFeedback incompletedFeedbackRecord)
         {
-            _CWDB.Insert(incompletedFeedbackRecord);
+            _CWDB.Insert("IncompletedFEedback", "IncFeedID",true,incompletedFeedbackRecord);
         }
 
         public void Edit(Core.Models.IncompletedFeedback incompletedFeedbackRecord)
         {
-            _CWDB.Update(incompletedFeedbackRecord);
+            _CWDB.Update("IncompletedFeedback","IncFeedID",incompletedFeedbackRecord);
         }
 
         public Core.Models.IncompletedFeedback FindIncompletedRecordByID(int incompletedFeedbackID)

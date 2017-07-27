@@ -15,12 +15,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.CompletedFeedback completedFeedbackRecord)
         {
-            _CWDB.Insert(completedFeedbackRecord);
+            _CWDB.Insert("CompletedFeedback", "CompFeedID",true,completedFeedbackRecord);
         }
 
         public void Edit(Core.Models.CompletedFeedback completedFeedbackRecord)
         {
-            _CWDB.Update(completedFeedbackRecord);
+            _CWDB.Update("CompletedFeedback", "CompFeedID",completedFeedbackRecord);
         }
 
         public Core.Models.CompletedFeedback FindCompletedRecordByID(int completedFeedbackID)

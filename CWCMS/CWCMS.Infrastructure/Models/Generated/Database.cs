@@ -38,7 +38,6 @@ using System.Linq;
 using System.Web;
 using PetaPoco;
 
-
 namespace CWCMSConnSecVers
 {
 
@@ -142,7 +141,7 @@ namespace CWCMSConnSecVers
 
 
 
-	[PrimaryKey("AcitveID")]
+	[PrimaryKey("ActiveID")]
 
 
 
@@ -154,7 +153,7 @@ namespace CWCMSConnSecVers
 
 
 
-		[Column] public int AcitveID { get; set; }
+		[Column] public int ActiveID { get; set; }
 
 
 
@@ -601,8 +600,8 @@ namespace CWCMSConnSecVers
     {
 
 
-        
-        [Column] public int FileSeqID { get; set; }
+
+		[Column] public int FileSeqID { get; set; }
 
 
 

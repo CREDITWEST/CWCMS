@@ -16,12 +16,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.PostCheck postCheckRecord)
         {
-            _CWDB.Insert(postCheckRecord);
+            _CWDB.Insert("PostCheck", "PostID",true,postCheckRecord);
         }
 
         public void Edit(Core.Models.PostCheck postCheckRecord)
         {
-            _CWDB.Update(postCheckRecord);
+            _CWDB.Update("PostCheck", "PostID", postCheckRecord);
         }
 
         public Core.Models.PostCheck FindPostCheckByDocument(Guid documentGUID)

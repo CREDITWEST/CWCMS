@@ -15,12 +15,12 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Add(Core.Models.SubFileSequence subFileSequenceRecord)
         {
-            _CWDB.Insert(subFileSequenceRecord);
+            _CWDB.Insert("SubFileSequence", "SubFileSeqID",true,subFileSequenceRecord);
         }
 
         public void Edit(Core.Models.SubFileSequence subFileSequenceRecord)
         {
-            _CWDB.Insert(subFileSequenceRecord);
+            _CWDB.Insert("SubFileSequence", "SubFileSeqID",subFileSequenceRecord);
         }
 
         public Core.Models.SubFileSequence FindSubFileSequenceByID(int subFileSequenceRecordID)
