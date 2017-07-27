@@ -20,21 +20,23 @@ namespace CWCMS.DBAccessTest
 
             DocumentServices _docService = new DocumentServices();
 
+            Active actREc = new Active();
+            ActiveRepository repoAct = new ActiveRepository();
+
             IEnumerable<Document> doclist;
 
-            _testDoc.DocumentID = Guid.NewGuid();
+            //_testDoc.DocumentID = Guid.NewGuid();
             _testDoc.Title = "Test Doc";
             _testDoc.Content = "I am testing fetaure";
             _testDoc.FilePath = "github.com";
-            _testDoc.PublisherID = Guid.NewGuid();
-            _testDoc.PublishDate = DateTime.Now;
-            _testDoc.SystemUpdateDate = DateTime.Now;
-            _testDoc.ReferenceNumber = _referencing.GenerateReferenceForAddingMainType(2, Guid.NewGuid());
-            _testDoc.isSigned = false;
+            //_testDoc.PublisherID = Guid.NewGuid();
+            //_testDoc.PublishDate = DateTime.Now;
+            //_testDoc.SystemUpdateDate = DateTime.Now;
+           //_testDoc.ReferenceNumber = _referencing.GenerateReferenceForAddingMainType(2, Guid.NewGuid());
+           //_testDoc.isSigned = false;
             _testDoc.DocumentTypeID = 2;
 
             _docService.UploadDocument(_testDoc);
-
 
 
             doclist = _docService.BulkRetrievingActiveDocuments();

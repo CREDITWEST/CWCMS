@@ -101,16 +101,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\document\documentFormController.js" />
     <Content Include="Scripts\app\document\documentListController.js" />
-    <Content Include="Scripts\app\document\documentResource.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Api\DocumentsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DTO\DocumentDTO.cs" />
+    <Compile Include="DTO\GetDocumentDto.cs" />
+    <Compile Include="DTO\Success.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -119,6 +127,13 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -128,14 +143,25 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CWCMS.Application\CWCMS.Application.csproj">
+      <Project>{204eb834-7350-4462-9c3b-699fbc1b5fd6}</Project>
+      <Name>CWCMS.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CWCMS.Core\CWCMS.Core.csproj">
       <Project>{00a2068d-2ca4-4a69-be2b-9a397b1516cf}</Project>
       <Name>CWCMS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CWCMS.DBAccessTest\CWCMS.DBAccessTest.csproj">
+      <Project>{39265124-cc16-41f4-bb6b-1ff5eb436122}</Project>
+      <Name>CWCMS.DBAccessTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CWCMS.Infrastructure\CWCMS.Infrastructure.csproj">
+      <Project>{36df5f0d-3e47-413a-848c-0207c3f14efe}</Project>
+      <Name>CWCMS.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
