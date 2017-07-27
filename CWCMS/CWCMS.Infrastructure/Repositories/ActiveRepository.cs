@@ -21,7 +21,7 @@ namespace CWCMS.Infrastructure.Repositories
 
         public void Edit(Core.Models.Active activeRecord)
         {
-            _CWDB.Update("Active", "ActiveID",activeRecord);
+            _CWDB.Update(activeRecord);
         }
 
         void IActiveRepository.Remove(int activeRecordID)
