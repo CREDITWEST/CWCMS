@@ -1,0 +1,234 @@
+﻿@using System.Security.Policy
+@using System.Web.Optimization
+@using System.Linq
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Pages
+{
+    <!--Start Breadcrumb-->
+    <div class="row">
+        <div id="breadcrumb" class="col-xs-12">
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index","Home")">Ana Sayfa</a></li>
+            </ol>
+        </div>
+    </div>
+    <!--End Breadcrumb-->
+    <!--Start Dashboard 1-->
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-file fa-2x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div><strong>Yönetmelikler</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <a href="@Url.Action("Legislation","Home")">
+                    <div class="panel-footer">
+                        <span class="pull-left">Yönetmelikler İçin Tıklayınız</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="panel panel-orange">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-clipboard fa-2x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div><strong>Genelgeler</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <a href="@Url.Action("Circular","Home")">
+                    <div class="panel-footer">
+                        <span class="pull-left">Genelgeler İçin Tıklayınız</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="panel panel-purple">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-bullhorn fa-2x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div><strong>Duyurular</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <a href="@Url.Action("Announcement","Home")">
+                    <div class="panel-footer">
+                        <span class="pull-left">Duyurular İçin Tıklayınız</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-list fa-2x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div><strong>İş Akışları</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <a href="@Url.Action("WorkflowDiagram","Home")">
+                    <div class="panel-footer">
+                        <span class="pull-left">İş Akışları İçin Tıklayınız</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="panel panel-black">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-check-square fa-2x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div><strong>İşlem Kontrol Listeleri</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <a href="@Url.Action("ProcessControlList","Home")">
+                    <div class="panel-footer">
+                        <span class="pull-left">İşlem Kontrol Listeleri İçin Tıklayınız</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="panel panel-lightblue">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-list-alt fa-2x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div><strong>Formlar</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <a href="@Url.Action("Form","Home")">
+                    <div class="panel-footer">
+                        <span class="pull-left">Formlar İçin Tıklayınız</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="panel panel-pink">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-info-circle fa-2x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div><strong>Kullanıcı Kılavuzları</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <a href="@Url.Action("UserGuide","Home")">
+                    <div class="panel-footer">
+                        <span class="pull-left">Kullanıcı Kılavuzları İçin Tıklayınız</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="panel panel-dblue">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-users fa-2x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div><strong>Görev Tanımları</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <a href="@Url.Action("JobDefiniton","Home")">
+                    <div class="panel-footer">
+                        <span class="pull-left">Görev Tanımları İçin Tıklayınız</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="panel panel-red">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-file-text fa-2x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div><strong>Sözleşmeler</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <a href="@Url.Action("Contract","Home")">
+                    <div class="panel-footer">
+                        <span class="pull-left">Sözleşmeler İçin Tıklayınız</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--End Dashboard 1-->
+    <!--Start Dashboard 2-->
+    <!--End Dashboard 2 -->
+    <div style="height: 40px;"></div>
+    <script type="text/javascript">
+// Array for random data for Sparkline
+        var sparkline_arr_1 = SparklineTestData();
+        var sparkline_arr_2 = SparklineTestData();
+        var sparkline_arr_3 = SparklineTestData();
+        $(document).ready(function() {
+            // Make all JS-activity for dashboard
+            DashboardTabChecker();
+            // Load Knob plugin and run callback for draw Knob charts for dashboard(tab-servers)
+            LoadKnobScripts(DrawKnobDashboard);
+            // Load Sparkline plugin and run callback for draw Sparkline charts for dashboard(top of dashboard + plot in tables)
+            LoadSparkLineScript(DrawSparklineDashboard);
+            // Load Morris plugin and run callback for draw Morris charts for dashboard
+            LoadMorrisScripts(MorrisDashboard);
+            // Make beauty hover in table
+            $("#ticker-table").beautyHover();
+        });
+    </script>
+}
