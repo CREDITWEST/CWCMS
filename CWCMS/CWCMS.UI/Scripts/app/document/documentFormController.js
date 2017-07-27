@@ -1,4 +1,4 @@
-﻿app.controller("documanFormController", ["$scope", "$http", "$location", '$timeout', '$window', function ($scope, $http, $location, $timeout, $window) {
+﻿app.controller("documanFormController", ["$scope", "resDocuman", "$http", "$location", '$timeout', '$window', function ($scope, $resDocuman, $http, $location, $timeout, $window) {
 
     $scope.documanData = '';
     $scope.Documan = {
