@@ -16,6 +16,7 @@ namespace CWCMS.Application.DocumentLogic.DocumentUploadingRepositories
 
         // 28/07 demonstration constraint we assume all documents published when they added to the system
         private Active _activeRecord;
+
         private ActiveRepository _activeRepository;
 
         /* Normally this part contains much more detail
@@ -41,17 +42,16 @@ namespace CWCMS.Application.DocumentLogic.DocumentUploadingRepositories
             // 28/07 demonstration constraint we assume all documents published when they added to the system
             this._activeRecord = new Active();
             this._activeRepository = new ActiveRepository();
-
         }
 
-        public void UploadToServerDocument(Document createdRecord)
+        public Guid UploadToServerDocument(Document createdRecord)
         {
             // Adding GUID to the Document as a primary key
             createdRecord.DocumentID = Guid.NewGuid();
 
             // This part will be come from API but for now we add GUID also PublisherID
             createdRecord.PublisherID = Guid.NewGuid();
-            // We reference to the necessary logic part for generating logic 
+            // We reference to the necessary logic part for generating logic
             _refCodeFileSeqObject = _additionMaintypeReferencing.GenerateReferenceForAddingMainType(createdRecord.DocumentTypeID, createdRecord.PublisherID);
 
             createdRecord.ReferenceNumber = (string)_refCodeFileSeqObject[0];
@@ -65,23 +65,32 @@ namespace CWCMS.Application.DocumentLogic.DocumentUploadingRepositories
             // 28/07 demonstration constraint we assume all documents published when they added to the system
             _activeRecord.DocumentID = createdRecord.DocumentID;
 
-
+            // In these part we add our document to the DocumentTable
             _documentRepository.Add(createdRecord);
+
+            // 28/07 demonstration constraint we assume all documents published when they added to the system
             _activeRepository.Add(_activeRecord);
 
-            if(_fileSequenceGeneratedReferance.SequenceNumber == 2)
+            /* This part is the required modification for referencing logic that prevents increasing
+             * the SequenceNumber when unsuccessful file upload occured
+             */
+
+            // If Sequence number is two that means there is no record exist in DB for these type
+            // Then we create initial one for that
+            if (_fileSequenceGeneratedReferance.SequenceNumber == 1)
             {
+                _fileSequenceGeneratedReferance.SequenceNumber++;
                 _fileSequenceRepository.Add(_fileSequenceGeneratedReferance);
             }
+
+            // If it is more than two we should add it to the increment one
             else
             {
                 _fileSequenceGeneratedReferance.SequenceNumber++;
                 _fileSequenceRepository.Edit(_fileSequenceGeneratedReferance);
             }
 
-            
-
-
+            return createdRecord.DocumentID;
         }
     }
 }

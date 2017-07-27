@@ -35,13 +35,14 @@ namespace CWCMS.DBAccessTest
             //_testDoc.SystemUpdateDate = DateTime.Now;
            //_testDoc.ReferenceNumber = _referencing.GenerateReferenceForAddingMainType(2, Guid.NewGuid());
            //_testDoc.isSigned = false;
-            _testDoc.DocumentTypeID = 1;
+            _testDoc.DocumentTypeID = 3;
 
             _docService.UploadDocument(_testDoc);
 
 
             doclist = _docService.CategorisedRetrievingActiveDocuments(1);
 
+            Console.WriteLine(repoAct.LastSequenceNumberOfSpecificType("G") + " Geliyor");
  
             if (IsNullOrEmpty(doclist))
             {

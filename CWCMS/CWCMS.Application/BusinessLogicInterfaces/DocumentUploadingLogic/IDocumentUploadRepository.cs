@@ -10,6 +10,6 @@ namespace CWCMS.Application.BusinessLogicInterfaces.DocumentUploadingLogic
 {
     public interface IDocumentUploadRepository
     {
-        void UploadToServerDocument(Document createdRecord);
+        Guid UploadToServerDocument(Document createdRecord);
     }
 }
