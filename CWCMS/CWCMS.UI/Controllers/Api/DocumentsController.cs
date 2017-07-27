@@ -49,8 +49,11 @@ namespace CWCMS.UI.Controllers.Api
             var tempDoc = new DocumentDTO();
             tempDoc.Content = getDocument.Content;
             tempDoc.Title = getDocument.Title;
+            Application.BLServices.DocumentServices x=new Application.BLServices.DocumentServices();
+            x.UploadDocument(getDocument);
             //tempDoc.FilePath = getDocument.FilePath;
-           // tempDoc.DocumentTypeID = getDocument.DocumentTypeID;
+           //tempDoc.DocumentTypeID = getDocument.DocumentTypeID;
+
             return tempDoc;
         }
 
