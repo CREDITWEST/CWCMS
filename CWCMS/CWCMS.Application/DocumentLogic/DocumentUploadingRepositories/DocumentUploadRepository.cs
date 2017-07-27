@@ -61,7 +61,7 @@ namespace CWCMS.Application.DocumentLogic.DocumentUploadingRepositories
 
             createdRecord.SystemUpdateDate = DateTime.Now;
             /* Thats Bug*/
-            createdRecord.PublishDate = System.Data.SqlTypes.SqlDateTime.MinValue.Value;
+            createdRecord.PublishDate = DateTime.Now;
             // 28/07 demonstration constraint we assume all documents published when they added to the system
             _activeRecord.DocumentID = createdRecord.DocumentID;
 
