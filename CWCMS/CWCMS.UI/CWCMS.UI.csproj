@@ -108,6 +108,8 @@
     <Content Include="Scripts\app\circular\circularListController.js" />
     <Content Include="Scripts\app\contract\ContractFormController.js" />
     <Content Include="Scripts\app\contract\contractListController.js" />
+    <Content Include="Scripts\app\document\documentFormController.js" />
+    <Content Include="Scripts\app\document\documentListController.js" />
     <Content Include="Scripts\app\form\ForumFormController.js" />
     <Content Include="Scripts\app\form\forumListController.js" />
     <Content Include="Scripts\app\jobdefiniton\JobdefinitionFormController.js" />
