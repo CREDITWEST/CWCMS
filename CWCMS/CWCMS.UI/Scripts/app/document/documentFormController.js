@@ -1,64 +1,48 @@
-app.controller("processcontrolFormController", ["$scope", "$http", "$location", '$timeout', '$window', function ($scope, $http, $location, $timeout, $window) {
+﻿app.controller("documanFormController", ["$scope", "$http", "$location", '$timeout', '$window', function ($scope, $http, $location, $timeout, $window) {
 
-
-	$scope.processcontrolData = '';
-	$scope.Processcontrol = {
-        ProcesscontrolId: '',
-        ProcesscontrolName: '',
-		Text: '',
-		FileName: '',
-		FilePath: '',
-		DateExpireTime: '',
-		DateExpireTimepri: '',
-		DepartmentCode: '',
-		DepartmentName: '',
-		SignId: '',
-        Signatory: '',
-        
-    };
-	
-	$scope.Department = {
-        DepartmentName: '',
-        DepartmentCode: ''
-
+    $scope.documanData = '';
+    $scope.Documan = {
+        DocumanID: '',
+        Title: '',
+        Content: '',
+        FilePath: '',
+        PublisherID: '',
+        PublishDate: '',
+        SystemUpdateDate: '',
+        ReferenceNumber: '',
+        isSigned: '',
+        DocumanTypeID: ''
 
     };
-    $scope.SignList = {
-        StaffNo: '',
-        Name: '',
-        Surname: '',
-        personalInfoId: ''
-    };
-    
+
     $scope.modalclear = function () {
-        $scope.Processcontrol.ProcesscontrolName = '';
-        $scope.Processcontrol.Text = '';
-        $scope.Processcontrol.DepartmentCode= '';
-        $scope.Processcontrol.SignId='';
-        $scope.linkedUserguide = '';
-        $scope.matchedtext ='';
+        $scope.Documan.Title = '';
+        $scope.Documan.Content = '';
+        //$scope.Documan.isSigned = '';
+        $scope.linkedDocuman = '';
+        $scope.matchedcontent = '';
 
     }
-	
-	
+
+
     $scope.diffanycompareclear = function () {
-        $scope.comparedtext = "";
-        $scope.processcontrol.LinkerId = "";
-        $scope.processcontrol.ProcesscontrolId = "";
+        $scope.comparedcontent = "";
+        $scope.documan.LinkerId = "";
+        $scope.documan.DocumanID = "";
 
     }
 
 
 
-	$scope.processcontrols = [];
-    //$http.get('/api/announcement/search').success(function (data) {
-    //    $scope.announcements = data;
-    //    $scope.loading = false;
-    //})
-    // .error(function () {
-    //     $scope.error = "An Error has occured while loading posts!";
-    //     $scope.loading = false;
-    // });
+    $scope.documans = [];
+    $http.get('/api/documan/search').success(function (data) {
+        $scope.documans = data;
+        $scope.loading = false;
+    })
+        .error(function () {
+            $scope.error = "An Error has occured while loading posts!";
+            $scope.loading = false;
+        });
 
 
     ////
@@ -79,69 +63,69 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
     //listingmode == 3 ---> content search 
 
     //Getting total data
-    $scope.countAnnouncements = function () {
-        if ($scope.listingMode == 1) {
-            $http.get('api/processcontrol/getcount').success(function (data) {
-                $scope.totalData = data;
-                $scope.loading = false;
-            })
-        .error(function () {
-              $scope.error = "An Error has occured while loading posts!";
-              $scope.loading = false;
-          });
-        }
-        else if ($scope.listingMode == 2) {
-            //There will be header count
-            $http.get('api/processcontrol/HeaderGetCount/' + $scope.search).success(function (data) {
-                $scope.totalData = data;
-                $scope.loading = false;
-            })
-		.error(function () {
-            $scope.error = "An Error has occured while loading posts!";
-            $scope.loading = false;
-        });
-        }
-        else {
-            //There will be content count
-            $http.get('api/processcontrol/ContentGetCount/' + $scope.search).success(function (data) {
-                $scope.totalData = data;
-                $scope.loading = false;
-            })
-        .error(function () {
-            $scope.error = "An Error has occured while loading posts!";
-            $scope.loading = false;
-        });
-        }
+    //$scope.countAnnouncements = function () {
+    //    if ($scope.listingMode == 1) {
+    //        $http.get('api/legislation/getcount').success(function (data) {
+    //            $scope.totalData = data;
+    //            $scope.loading = false;
+    //        })
+    //            .error(function () {
+    //                $scope.error = "An Error has occured while loading posts!";
+    //                $scope.loading = false;
+    //            });
+    //    }
+    //    else if ($scope.listingMode == 2) {
+    //        //There will be header count
+    //        $http.get('api/legislation/HeaderGetCount/' + $scope.search).success(function (data) {
+    //            $scope.totalData = data;
+    //            $scope.loading = false;
+    //        })
+    //            .error(function () {
+    //                $scope.error = "An Error has occured while loading posts!";
+    //                $scope.loading = false;
+    //            });
+    //    }
+    //    else {
+    //        //There will be content count
+    //        $http.get('api/legislation/ContentGetCount/' + $scope.search).success(function (data) {
+    //            $scope.totalData = data;
+    //            $scope.loading = false;
+    //        })
+    //            .error(function () {
+    //                $scope.error = "An Error has occured while loading posts!";
+    //                $scope.loading = false;
+    //            });
+    //    }
 
-    }
+    //}
 
-    $scope.countAnnouncements();
-    // For calculating max page
-    $scope.calculateMaxPage = function () {
-        $scope.countAnnouncements();
-        $scope.maxPage = Math.ceil($scope.totalData / $scope.itemsperpage);
-    }
-    // page link
-    $scope.recalculate = function () {
+    //$scope.countAnnouncements();
+    //// For calculating max page
+    //$scope.calculateMaxPage = function () {
+    //    $scope.countAnnouncements();
+    //    $scope.maxPage = Math.ceil($scope.totalData / $scope.itemsperpage);
+    //}
+    //// page link
+    //$scope.recalculate = function () {
 
-        var pagelink = window.location.href;
-        var pageLinkSize = pagelink.split('-');
-
-
-        if (typeof pageLinkSize[2] == 'undefined') {
-            $scope.locationPath("-PageNumber-1");
-            $scope.pagenum = 1;
+    //    var pagelink = window.location.href;
+    //    var pageLinkSize = pagelink.split('-');
 
 
-        } else {
-
-            $scope.pagenum = parseInt(pageLinkSize[2]);
-
-        }
+    //    if (typeof pageLinkSize[2] == 'undefined') {
+    //        $scope.locationPath("-PageNumber-1");
+    //        $scope.pagenum = 1;
 
 
+    //    } else {
 
-    }
+    //        $scope.pagenum = parseInt(pageLinkSize[2]);
+
+    //    }
+
+
+
+    //}
 
     //Will be calculate index
     $scope.calculateIndexes = function () {
@@ -164,9 +148,9 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
 
     $scope.getJsonFromUrl = function () {
         $scope.stringnumcomb = $scope.firstIndex + "-" + $scope.itemsperpage;
-        $http.get('api/processcontrol/search/' + $scope.stringnumcomb).success(function (data) {
+        $http.get('api/documan/search/' + $scope.stringnumcomb).success(function (data) {
 
-            $scope.processcontrols = data;
+            $scope.documans = data;
 
             //*****Tree View ******
             $scope.list = data;
@@ -179,20 +163,20 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
             $scope.search = "";
 
         })
-         .error(function () {
-             $scope.error = "An Error has occured while loading posts!";
-             $scope.loading = false;
-         });
+            .error(function () {
+                $scope.error = "An Error has occured while loading posts!";
+                $scope.loading = false;
+            });
 
     };
     $scope.showSubnodes = function (item) {
         item.active = !item.active;
     };
-    $scope.allprocesscontroldata = function () {
+    $scope.alldocumandata = function () {
         $scope.stringnumcomb = $scope.firstIndex + "-" + $scope.itemsperpage;
-        $http.get('api/processcontrol/search/' + $scope.stringnumcomb).success(function (data) {
+        $http.get('api/documan/search/' + $scope.stringnumcomb).success(function (data) {
 
-            $scope.processcontrols = data;
+            $scope.documans = data;
             $scope.list = data;
             //*****Tree View ******
 
@@ -201,71 +185,71 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
             $scope.search = "";
 
         })
-         .error(function () {
-             $scope.error = "An Error has occured while loading posts!";
-             $scope.loading = false;
-         });
+            .error(function () {
+                $scope.error = "An Error has occured while loading posts!";
+                $scope.loading = false;
+            });
     }
 
 
     //******** Tree View Data *******
     //**** Other Process List <Outlist> ****//
-    $scope.CircularList = function () {
-        $http.get('api/processcontrol/Outlist').success(function (data) {
-            $scope.Circular = data;
-            $scope.loading = false;
-        }).error(function () {
-            $scope.error = "An Error has occured while loading posts!"
-            $scope.loading = false;
-        })
-    }
-	
-	
-	
+    //$scope.CircularList = function () {
+    //    $http.get('api/legislation/Outlist').success(function (data) {
+    //        $scope.Circular = data;
+    //        $scope.loading = false;
+    //    }).error(function () {
+    //        $scope.error = "An Error has occured while loading posts!"
+    //        $scope.loading = false;
+    //    })
+    //}
 
-    //**** Other Process List ****//
-    //**** Take Sign List ****//
-    $scope.signList = function () {
-        $http.get('api/processcontrol/takeSign').success(function (data) {
-            $scope.signList = data;
-            $scope.SignList = data;
-            $scope.loading = false;
 
-        }).error(function () {
-            $scope.error = "An Error has occured while loading posts!";
-            $scope.loading = false;
-        })
-    }
-    $scope.refreshSignList = function () {
-        $http.get('api/processcontrol/takeSign')
-        .success(function (data) {
-            $scope.SignList = data;
-        });
-    }
 
-    //**** Take Sign List ****//
-    //**** Take Department *****//
-    $scope.departmentList = function () {
-        $http.get('api/processcontrol/takeDepartment').success(function (data) {
 
-            $scope.departmentList = data;
-            $scope.Department = data;
-            $scope.loading = false;
+    ////**** Other Process List ****//
+    ////**** Take Sign List ****//
+    //$scope.signList = function () {
+    //    $http.get('api/legislation/takeSign').success(function (data) {
+    //        $scope.signList = data;
+    //        $scope.SignList = data;
+    //        $scope.loading = false;
 
-        })
-        .error(function () {
-            $scope.error = "An Error has occured while loading posts!";
-            $scope.loading = false;
+    //    }).error(function () {
+    //        $scope.error = "An Error has occured while loading posts!";
+    //        $scope.loading = false;
+    //    })
+    //}
+    //$scope.refreshSignList = function () {
+    //    $http.get('api/legislation/takeSign')
+    //        .success(function (data) {
+    //            $scope.SignList = data;
+    //        });
+    //}
 
-        })
+    ////**** Take Sign List ****//
+    ////**** Take Department *****//
+    //$scope.departmentList = function () {
+    //    $http.get('api/legislation/takeDepartment').success(function (data) {
 
-    }
-    $scope.refreshDepartment = function () {
-        $http.get('api/processcontrol/takeDepartment')
-              .success(function (data) {
-                  $scope.Department = data;
-              });
-    }
+    //        $scope.departmentList = data;
+    //        $scope.Department = data;
+    //        $scope.loading = false;
+
+    //    })
+    //        .error(function () {
+    //            $scope.error = "An Error has occured while loading posts!";
+    //            $scope.loading = false;
+
+    //        })
+
+    //}
+    //$scope.refreshDepartment = function () {
+    //    $http.get('api/legislation/takeDepartment')
+    //        .success(function (data) {
+    //            $scope.Department = data;
+    //        });
+    //}
     //**** Take Department *****//
 
 
@@ -282,11 +266,11 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
             $scope.calculateIndexes();
 
             $scope.stringnumcomb = $scope.firstIndex + "-" + $scope.itemsperpage;
-            $http.get('api/processcontrol/search/' + $scope.stringnumcomb).success(function (data) {
+            $http.get('api/documan/search/' + $scope.stringnumcomb).success(function (data) {
 
-                $scope.processcontrols = data;
-                $scope.refreshDepartment();
-                $scope.refreshSignList();
+                $scope.documans = data;
+                //$scope.refreshDepartment();
+                //$scope.refreshSignList();
                 //*****Tree View ******
 
                 //*****Tree View ******
@@ -294,10 +278,10 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
                 $scope.search = "";
 
             })
-             .error(function () {
-                 $scope.error = "An Error has occured while loading posts!";
-                 $scope.loading = false;
-             });
+                .error(function () {
+                    $scope.error = "An Error has occured while loading posts!";
+                    $scope.loading = false;
+                });
             /////***********************               ***********************/////
         } else if (typeof pageLinkSize[2] != 'undefined' && typeof pageLinkSize[4] != 'undefined' && typeof pageLinkSize[6] != 'undefined') {
 
@@ -309,8 +293,8 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
                 $scope.locationPath("-PageNumber-" + $scope.pagenum + "-&HeaderSearch-" + $scope.query1 + "-&Type-1");
 
                 //$scope.searchHeaderControl($scope.query1, $scope.searchType);
-                $scope.processcontrols = []; $http.get('api/processcontrol/searchheader/' + $scope.query1).success(function (data) {
-                    $scope.processcontrols = data;
+                $scope.documans = []; $http.get('api/documan/searchheader/' + $scope.query1).success(function (data) {
+                    $scope.documans = data;
                     $scope.total_count = data.total_count;
 
 
@@ -323,8 +307,8 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
                 $scope.searchType2 = '2';
                 $scope.locationPath("-PageNumber-" + $scope.pagenum + "-&ContentSearch-" + $scope.query2 + "-&Type-2");
                 //$scope.searchContentControl($scope.searchType2, $scope.query2);
-                $scope.processcontrols = []; $http.get('api/processcontrol/searchcontent/' + $scope.query2).success(function (data) {
-                    $scope.processcontrols = data;
+                $scope.documans = []; $http.get('api/documan/searchcontent/' + $scope.query2).success(function (data) {
+                    $scope.documans = data;
                     $scope.total_count = data.total_count;
 
                     $scope.loading = false;
@@ -380,8 +364,8 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
         $scope.locationPath("-PageNumber-" + $scope.pagenum + "-&HeaderSearch-" + $scope.query1 + "-&Type-1");
 
         $scope.searchHeaderControl($scope.query1, $scope.searchType);
-        $scope.processcontrols = []; $http.get('api/processcontrol/searchheader/' + $scope.query1).success(function (data) {
-            $scope.processcontrols = data;
+        $scope.documans = []; $http.get('api/documan/searchheader/' + $scope.query1).success(function (data) {
+            $scope.documans = data;
             $scope.total_count = data.total_count;
 
 
@@ -399,8 +383,8 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
         $scope.searchType2 = '2';
         $scope.locationPath("-PageNumber-" + $scope.pagenum + "-&ContentSearch-" + $scope.query2 + "-&Type-2");
         $scope.searchContentControl($scope.searchType2, $scope.query2);
-        $scope.processcontrols = []; $http.get('api/processcontrol/searchcontent/' + $scope.query2).success(function (data) {
-            $scope.processcontrols = data;
+        $scope.documans = []; $http.get('api/documan/searchcontent/' + $scope.query2).success(function (data) {
+            $scope.documans = data;
             $scope.total_count = data.total_count;
 
             $scope.loading = false;
@@ -451,7 +435,7 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
 
 
         $scope.calculateMaxPage();
-        $scope.processcontrols = [];
+        $scope.documans = [];
         if ($scope.pagenum < $scope.maxPage) {
             $scope.pagenum++;
             //$scope.listrefresh() // Edit this method with get
@@ -487,7 +471,7 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
     //$scope.listrefresh();
     // Seeing previous page
     $scope.getPreviousPage = function () {
-        $scope.processcontrols = [];
+        $scope.documans = [];
         if ($scope.pagenum > 1) {
             $scope.pagenum--;
             //$scope.listrefresh()// Edit this method with get
@@ -524,55 +508,56 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
         }
 
     }
-    
-	/////////////////////////////////////////////////////////////////////////////
+
+
+    /////////////////////////////////////////////////////////////////////////////
 
 
     //// for linking
 
-    $scope.addtothelink = function (ProcesscontrolId) {
+    $scope.addtothelink = function (DocumanID) {
 
-        $http.get('api/processcontrol/getprocesscontrolname/' + ProcesscontrolId).success(function (data) {
-            $scope.linkedProcesscontrolName = data.ProcesscontrolName;
-            $scope.linkedProcesscontrolId = data.ProcesscontrolId;
-            $scope.linkedProcesscontrolText = data.Text;
-            //$scope.linkedannouncementPath = data.FilePath;
-            $
+        $http.get('api/documan/getTitle/' + DocumanID).success(function (data) {
+            $scope.linkedTitle = data.Title;
+            $scope.linkedDocumanID = data.DocumanID;
+            $scope.linkedContent = data.Content;
+            $scope.linkedDocumanPath = data.FilePath;
+
             $scope.loading = false;
         })
     }
 
 
     ////
-	
-	// Viewing Circular
-    $scope.viewProcesscontrol = function (ProcesscontrolId) {
-        $http.get('api/processcontrol/getprocesscontrolname/' + ProcesscontrolId).success(function (data) {
-            $scope.viewedProcesscontrol = data;
+
+    // Viewing Another Documan
+    $scope.viewDocuman = function (DocumanID) {
+        $http.get('api/documan/getTitlr/' + DocumanID).success(function (data) {
+            $scope.viewedDocuman = data;
             $scope.loading = false;
         })
     }
     ///
     //**** Take Department *****//
-    $scope.departmentList = function () {
+    //$scope.departmentList = function () {
 
 
-    }
-	
-	//**** Take Department *****//
+    //}
+
+    //**** Take Department *****//
     /////For Determinig Relation Type
 
     $scope.selectedRelation = 'İlişkilendirildi'
 
     $scope.relateTypes = [
-        { types: 'İşlem Kontrol Listesinin Kapsamı Genişletildi' },
-        { types: 'İşlem Kontrol Listesi Geçerliliğini Yitirdi' },
+        { types: 'Dokümanın Kapsamı Genişletildi' },
+        { types: 'Doküman Geçerliliğini Yitirdi' },
 
     ];
 
     ///////////
-	
-	//Old refresh
+
+    //Old refresh
 
     //$scope.listrefresh = function () {
     //    $http.get('/api/announcement/search').success(function (data) {
@@ -597,60 +582,60 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
     //    $scope.loading = false;
     //});
     //}
-	
-	$scope.clear = function () {
-        $scope.Processcontrol.SignId = '';
-        $scope.Processcontrol.ProcesscontrolName = '';
-        $scope.Processcontrol.Text = '';
-        $scope.Processcontrol.FilePath = '';
-        $scope.Processcontrol.DepartmentCode = '';
+
+    $scope.clear = function () {
+        $scope.Documan.isSigned = '';
+        $scope.Documan.Title = '';
+        $scope.Documan.Content = '';
+        $scope.Documan.FilePath = '';
+        //$scope.Documan.DepartmentCode = '';
     }
     $scope.refresh = function () {
-        $http.get('api/processcontrol/search')
-              .success(function (data) {
-                  $scope.Processcontrol = data;
-              });
+        $http.get('api/documan/search')
+            .success(function (data) {
+                $scope.Documan = data;
+            });
     }
-	
-	$scope.dateFix = function () {
-        var date = $scope.Processcontrol.DateExpireTime;
+
+    $scope.dateFix = function () {
+        var date = $scope.Documan.PublishDate;
         date = date.substring(1, 10);
         alert(date);
         //$scope.Announcement.DateExpireTime = date;
     }
-	
-	$scope.save = function () {
+
+    $scope.save = function () {
         {
-            if ($scope.Processcontrol.ProcesscontrolName == "" || $scope.Processcontrol.Text == "") {
-                alert("Lütfen İşlem Kontrol Listesi Bölümünü Boş Bırakmayınız.");
+            if ($scope.Documan.Title == "" || $scope.Documan.Content == "") {
+                alert("Lütfen Doküman Bölümünü Boş Bırakmayınız.");
             } else {
-                $scope.Processcontrol.DepartmentName = $scope.departmentList;
-                $scope.Processcontrol.Signatory = $scope.signList;
+                //$scope.Documan.DepartmentName = $scope.departmentList;
+                //$scope.Documan.Signatory = $scope.signList;
                 $http({
                     method: 'POST',
-                    url: 'api/processcontrol/save',
-                    data: $scope.Processcontrol
+                    url: 'api/documan/save',
+                    data: $scope.Documan
                 }).then(function successCallback(response) {
-                    $scope.processcontrolData = response.data;
+                    $scope.documanData = response.data;
 
                     //////////////
-					
-					$scope.Link = {
+
+                    $scope.Link = {
 
                         LinkId: '',
-                        LinkedId: $scope.linkedProcesscontrolId,
-                        LinkerId: $scope.processcontrolData.ProcesscontrolId,
-                        LinkedCategoryCode: 'İ',
-                        LinkerCategoryCode: 'İ',
-                        LinkPath: $scope.Processcontrol.FilePath,
+                        LinkedId: $scope.linkedDocumanID,
+                        LinkerId: $scope.documanData.DocumanID,
+                        LinkedDocumanTypeID: '',
+                        LinkedDocumanTypeID: '',
+                        LinkPath: $scope.Documan.FilePath,
                         LinkedSituation: $scope.selectedRelation,
-                        LinkerAnnouncementName: $scope.Processcontrol.ProcesscontrolName
+                        LinkerTitle: $scope.Documan.Title
                     }
 
                     //////////////
                     $scope.clear();
-                    alert(response.data.ProcesscontrolId + " No'lu İşlem Kontrol Listesi " + "Başarıyla Eklendi !");
-                    if ($scope.linkedProcesscontrolId > 0) {
+                    alert(response.data.DocumanID + " No'lu Doküman " + "Başarıyla Eklendi !");
+                    if ($scope.linkedDocumanID > 0) {
                         $scope.linksave();
                     }
                     location.reload();
@@ -661,20 +646,20 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
             }
         }
     };
-	
-	/// Sorting
+
+    /// Sorting
     $scope.sort = function (keyname) {
         $scope.sortKey = keyname;   //set the sortKey to the param passed
         $scope.reverse = !$scope.reverse; //if true make it false and vice versa
     }
 
     ///
-	
-	$scope.linksave = function () {
+
+    $scope.linksave = function () {
         {
             $http({
                 method: 'POST',
-                url: 'api/processcontrol/LinkSave',
+                url: 'api/documan/LinkSave',
                 data: $scope.Link
             }).then(function successCallback(response) {
                 //$scope.announcementData.push(response.data);
@@ -689,21 +674,21 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
 
         }
     };
-	
-	// Html difference comparison try
-    $scope.matchedtext = '';
+
+    // Html difference comparison try
+    $scope.matchedcontent = '';
     $scope.diffcompare = function () {
 
-        var text1 = $scope.linkedProcesscontrolText;
-        var text2 = $scope.Processcontrol.Text;
+        var content1 = $scope.linkedDocumanContent;
+        var content2 = $scope.Documan.Content;
 
         $http({
             method: 'POST',
-            url: 'api/processcontrol/diff',
+            url: 'api/documan/diff',
             contentType: "application/json",
-            data: JSON.stringify({ Text1: text1, Text2: text2 })
+            data: JSON.stringify({ Content1: content1, Content2: content2 })
         }).then(function successCallback(response) {
-            $scope.matchedtext = response.data;
+            $scope.matchedcontent = response.data;
             alert("Karşılaştırıldı!");
         }, function errorCallback(response) {
             alert("Error");
@@ -713,83 +698,83 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
 
 
     /////////////////////////////////////
-	
-	$scope.comparedtext = "";
 
-    $scope.getLinkedText = function (id1) {
-        $http.get('api/processcontrol/getprocesscontroltext/' + id1).success(function (data) {
-            $scope.comparedtext = "";
-            $scope.linkedtext = data;
+    $scope.comparedcontent = "";
+
+    $scope.getLinkedContent = function (id1) {
+        $http.get('api/documan/getdocumancontent/' + id1).success(function (data) {
+            $scope.comparedcontent = "";
+            $scope.linkedcontent = data;
             $scope.loading = false;
         })
     }
-	
-	$scope.getLinkerText = function (id2) {
-        $http.get('api/processcontrol/getprocesscontroltext/' + id2).success(function (data) {
 
-            $scope.linkertext = data;
+    $scope.getLinkerContent = function (id2) {
+        $http.get('api/documan/getdocumancontent/' + id2).success(function (data) {
+
+            $scope.linkercontent = data;
             $scope.loading = false;
         })
     }
-	
-	// Announcement difference view try
+
+    // Announcement difference view try
     $scope.diffcompareview = function (combination) {
         var str = combination;
         var idArr = str.split("~");
         if (idArr[1] == null) {
-            alert("İşlem Kontrol Listesi Bağlı Değil İçerik Karşılaştırılamadı !");
+            alert("Doküman Bağlı Değil İçerik Karşılaştırılamadı!");
         }
         else {
 
             //var str = combination;
             //var idArr = str.split("~");
 
-            $scope.getLinkedText(idArr[0])
-            $scope.getLinkerText(idArr[1])
+            $scope.getLinkedContent(idArr[0])
+            $scope.getLinkerContent(idArr[1])
 
-            //var text1 = $scope.linkedtext;
-            //var text2 = $scope.linkertext;
+            //var content1 = $scope.linkedcontent;
+            //var content2 = $scope.linkercontent;
 
 
         }
     }
-	
-	$scope.calculateDiff = function () {
+
+    $scope.calculateDiff = function () {
 
         $http({
             method: 'POST',
-            url: 'api/processcontrol/diffcompare',
+            url: 'api/documan/diffcompare',
             contentType: "application/json",
-            data: JSON.stringify({ Text3: $scope.linkedtext, Text4: $scope.linkertext })
+            data: JSON.stringify({ Content3: $scope.linkedcontent, Content4: $scope.linkercontent })
         }).then(function successCallback(response) {
-            $scope.comparedtext = response.data;
-            $scope.linkedtext = "";
-            $scope.linkertext = "";
+            $scope.comparedcontent = response.data;
+            $scope.linkedcontent = "";
+            $scope.linkercontent = "";
         }, function errorCallback(response) {
             alert("Error");
         });
     }
     /////////////////////////////////////
-	
-	// Removes the files but not from the database just change its visibilty
-    $scope.remove = function (ProcesscontrolId) {
+
+    // Removes the files but not from the database just change its visibilty
+    $scope.remove = function (DocumanID) {
         $scope.loading = true;
         //var Id = this.Announcement.AnnouncementId;
         $http({
             method: 'PUT',
-            url: 'api/processcontrol/remove/' + ProcesscontrolId,
-            data: { data: ProcesscontrolId }
+            url: 'api/documan/remove/' + DocumanID,
+            data: { data: DocumanID }
         }).then(function successCallback(response) {
             //$scope.announcementData.push(response.data);
 
-            alert("İşlem Kontrol Listesi Başarıyla Silindi !");
+            alert("Doküman Başarıyla Silindi !");
 
             location.reload();
         }
-      );
+            );
     };
-	
-	//upload
+
+    //upload
     var formdata = new FormData();
     $scope.getTheFiles = function ($files) {
         angular.forEach($files, function (value, key) {
@@ -802,7 +787,7 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
     $scope.uploadFiles = function () {
         var request = {
             method: 'POST',
-            url: 'api/processcontrol/fileupload',
+            url: 'api/documan/fileupload',
             data: formdata,
 
             headers: {
@@ -810,28 +795,28 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
                 'Content-Type': undefined
             }
         };
-		
-		// SEND THE FILES.
+
+        // SEND THE FILES.
 
         $http(request)
             .success(function (d) {
 
 
                 alert(d.FileName + " Dosyası Başarıyla Yüklendi.");
-                $scope.Processcontrol.FilePath = d.FileName;
+                $scope.Documan.FilePath = d.FileName;
 
             })
             .error(function () {
                 alert("Yüklenirken Bir Hata Oluştu");
             });
     }
-	
-	// File Download Try
 
-    $scope.downloadFile = function (name, ProcesscontrolId) {
+    // File Download Try
+
+    $scope.downloadFile = function (name, DocumanID) {
         $http({
             method: 'GET',
-            url: 'api/processcontrol/download' + ProcesscontrolId,
+            url: 'api/documan/download' + DocumanID,
             params: {
                 name: name,
                 AnnId: AnnId
@@ -863,6 +848,26 @@ app.controller("processcontrolFormController", ["$scope", "$http", "$location", 
             console.log(data);
         });
     };
-	
-	
+
+
 }]);
+
+//upload
+
+app.directive('ngFiles', ['$parse', function ($parse) {
+
+    function fn_link(scope, element, attrs) {
+        var onChange = $parse(attrs.ngFiles);
+        element.on('change', function (event) {
+            onChange(scope, { $files: event.target.files });
+        });
+    };
+
+    return {
+        link: fn_link
+    }
+}])
+    .controller('fupController', function ($scope, $http) {
+
+
+    });

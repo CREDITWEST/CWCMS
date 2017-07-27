@@ -102,15 +102,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Scripts\app\announcement\AnnouncementFormController.js" />
-    <Content Include="Scripts\app\circular\CircularFormController.js" />
-    <Content Include="Scripts\app\contract\ContractFormController.js" />
-    <Content Include="Scripts\app\form\ForumFormController.js" />
-    <Content Include="Scripts\app\jobdefiniton\JobdefinitionFormController.js" />
-    <Content Include="Scripts\app\legislation\LegislationFormController.js" />
-    <Content Include="Scripts\app\processcontrol\ProcesscontrolFormController.js" />
-    <Content Include="Scripts\app\userguide\UserguideFormController.js" />
-    <Content Include="Scripts\app\workflow\WorkflowFormController.js" />
+    <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\document\documentFormController.js" />
+    <Content Include="Scripts\app\document\documentListController.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

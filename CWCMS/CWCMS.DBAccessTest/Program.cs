@@ -14,6 +14,8 @@ namespace CWCMS.DBAccessTest
         {
             Document _testDoc = new Document();
 
+            //Tests
+
             AdditionReferencingMainTypeLogic _referencing = new AdditionReferencingMainTypeLogic();
 
             DocumentServices _docService = new DocumentServices();
