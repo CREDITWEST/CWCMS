@@ -41,7 +41,7 @@ namespace CWCMS.Application.DocumentLogic.DocumentReferencingRepositories.Additi
         
         public void FileSequenceInitilizer()
         {
-            _revisionedSequence.SequenceNumber = 2;
+            _revisionedSequence.SequenceNumber = 1;
 
             switch (_categoryCode)
             {
@@ -54,7 +54,7 @@ namespace CWCMS.Application.DocumentLogic.DocumentReferencingRepositories.Additi
                     break;
 
                 default:
-                    _revisionedSequence.FileType = "G";
+                    _revisionedSequence.FileType = "D";
                     break;
             }
         }

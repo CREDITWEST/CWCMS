@@ -77,8 +77,9 @@ namespace CWCMS.Application.DocumentLogic.DocumentUploadingRepositories
 
             // If Sequence number is two that means there is no record exist in DB for these type
             // Then we create initial one for that
-            if (_fileSequenceGeneratedReferance.SequenceNumber == 2)
+            if (_fileSequenceGeneratedReferance.SequenceNumber == 1)
             {
+                _fileSequenceGeneratedReferance.SequenceNumber++;
                 _fileSequenceRepository.Add(_fileSequenceGeneratedReferance);
             }
 
