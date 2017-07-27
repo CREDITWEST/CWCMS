@@ -109,6 +109,7 @@
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\document\documentFormController.js" />
     <Content Include="Scripts\app\document\documentListController.js" />
+    <Content Include="Scripts\app\document\documentResource.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
