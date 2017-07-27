@@ -5,7 +5,7 @@ namespace CWCMS.Application.BusinessLogicInterfaces.DocumentReferencingLogic.Add
     public interface IAdditionReferencingMainTypeLogic
     {
         // Generation of Reference Code while Adding New Document in these types -> Legislation , Circular , Announcement
-        string GenerateReferenceForAddingMainType(int categoryCode, Guid userGuid);
+        object[] GenerateReferenceForAddingMainType(int categoryCode, Guid userGuid);
 
         // For generating 3-digit departmen code from User Info
         string GenerateDepartmentCode(Guid userGuid);
