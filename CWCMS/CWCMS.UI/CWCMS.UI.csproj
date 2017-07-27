@@ -102,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\document\documentFormController.js" />
     <Content Include="Scripts\app\document\documentListController.js" />
     <Content Include="Web.config" />
