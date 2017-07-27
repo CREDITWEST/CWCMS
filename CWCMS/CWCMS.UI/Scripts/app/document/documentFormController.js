@@ -15,6 +15,14 @@
 
     };
 
+
+    DocumansResource.getdocumanid($scope.DocumanID).then(function (successResponse) {
+        console.log(successResponse);
+    }, function (errorResponse) {
+        // console.log(errorResponse);
+    });
+
+
     $scope.modalclear = function () {
         $scope.Documan.Title = '';
         $scope.Documan.Content = '';
