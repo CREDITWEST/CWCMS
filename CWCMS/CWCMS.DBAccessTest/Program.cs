@@ -20,8 +20,9 @@ namespace CWCMS.DBAccessTest
 
             DocumentServices _docService = new DocumentServices();
 
-            Active actREc = new Active();
-            ActiveRepository repoAct = new ActiveRepository();
+            object[] arrayObj = new object[2];
+
+            FileSequenceRepository repoAct = new FileSequenceRepository();
 
             IEnumerable<Document> doclist;
 
@@ -34,15 +35,14 @@ namespace CWCMS.DBAccessTest
             //_testDoc.SystemUpdateDate = DateTime.Now;
            //_testDoc.ReferenceNumber = _referencing.GenerateReferenceForAddingMainType(2, Guid.NewGuid());
            //_testDoc.isSigned = false;
-            _testDoc.DocumentTypeID = 2;
+            _testDoc.DocumentTypeID = 1;
 
             _docService.UploadDocument(_testDoc);
 
 
-            doclist = _docService.BulkRetrievingActiveDocuments();
+            doclist = _docService.CategorisedRetrievingActiveDocuments(1);
 
-
-
+ 
             if (IsNullOrEmpty(doclist))
             {
                 Console.WriteLine("Empty");
@@ -52,7 +52,7 @@ namespace CWCMS.DBAccessTest
             foreach (Document item in doclist)
             {
                 Console.WriteLine();
-                Console.WriteLine("Guid is : " + item.DocumentID);
+                Console.WriteLine("Guid is : " + item.DocumentID + " Reference Code is : " + item.ReferenceNumber);
             }
 
             Console.Read();

@@ -12,6 +12,7 @@ namespace CWCMS.Application.DocumentLogic.DocumentReferencingRepositories.Additi
         private FileSequence _revisionedSequence;
         private int _categoryCode;
         private FileSequenceRepository _fileSequenceRepository;
+        private object[] _returnArray;
 
         public AdditionReferencingMainTypeLogic()
         {
@@ -19,6 +20,7 @@ namespace CWCMS.Application.DocumentLogic.DocumentReferencingRepositories.Additi
             this._revisionedSequence = new FileSequence();
             this._categoryCode = 0;
             this._fileSequenceRepository = new FileSequenceRepository();
+            this._returnArray = new object[2];
         }
 
 
@@ -70,7 +72,7 @@ namespace CWCMS.Application.DocumentLogic.DocumentReferencingRepositories.Additi
             return "11";
         }
 
-        public string GenerateReferenceForAddingMainType(int docType, Guid userGuid)
+        public object[] GenerateReferenceForAddingMainType(int docType, Guid userGuid)
         {
 
             _categoryCode = docType;
@@ -86,7 +88,10 @@ namespace CWCMS.Application.DocumentLogic.DocumentReferencingRepositories.Additi
 
             _referenceCode += GenerateRevisionCode();
 
-            return _referenceCode;
+            _returnArray[0] = _referenceCode;
+            _returnArray[1] = _revisionedSequence;
+
+            return _returnArray;
 
 
         }
@@ -105,7 +110,6 @@ namespace CWCMS.Application.DocumentLogic.DocumentReferencingRepositories.Additi
             {
                 _sequentialNumber = "001";
                 FileSequenceInitilizer();
-                _fileSequenceRepository.Add(_revisionedSequence);
             }
             else
             {
@@ -113,10 +117,6 @@ namespace CWCMS.Application.DocumentLogic.DocumentReferencingRepositories.Additi
                 sequenceNumber = _fileSequenceRepository.LastSequenceNumberOfSpecificType(categoryLetter);
 
                 _revisionedSequence = _fileSequenceRepository.FindFileSequenceByDocumentType(categoryLetter);
-
-                _revisionedSequence.SequenceNumber++;
-
-                _fileSequenceRepository.Edit(_revisionedSequence);
 
 
                 if (sequenceNumber < 10)

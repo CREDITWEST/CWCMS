@@ -10,6 +10,9 @@ namespace CWCMS.Application.DocumentLogic.DocumentUploadingRepositories
     {
         private DocumentRepository _documentRepository;
         private AdditionReferencingMainTypeLogic _additionMaintypeReferencing;
+        private object[] _refCodeFileSeqObject;
+        private FileSequence _fileSequenceGeneratedReferance;
+        private FileSequenceRepository _fileSequenceRepository;
 
         // 28/07 demonstration constraint we assume all documents published when they added to the system
         private Active _activeRecord;
@@ -31,6 +34,9 @@ namespace CWCMS.Application.DocumentLogic.DocumentUploadingRepositories
             this._documentRepository = new DocumentRepository();
             this._document = new Document();
             this._additionMaintypeReferencing = new AdditionReferencingMainTypeLogic();
+            this._refCodeFileSeqObject = new object[2];
+            this._fileSequenceGeneratedReferance = new FileSequence();
+            this._fileSequenceRepository = new FileSequenceRepository();
 
             // 28/07 demonstration constraint we assume all documents published when they added to the system
             this._activeRecord = new Active();
@@ -46,7 +52,10 @@ namespace CWCMS.Application.DocumentLogic.DocumentUploadingRepositories
             // This part will be come from API but for now we add GUID also PublisherID
             createdRecord.PublisherID = Guid.NewGuid();
             // We reference to the necessary logic part for generating logic 
-            createdRecord.ReferenceNumber = _additionMaintypeReferencing.GenerateReferenceForAddingMainType(createdRecord.DocumentTypeID, createdRecord.PublisherID);
+            _refCodeFileSeqObject = _additionMaintypeReferencing.GenerateReferenceForAddingMainType(createdRecord.DocumentTypeID, createdRecord.PublisherID);
+
+            createdRecord.ReferenceNumber = (string)_refCodeFileSeqObject[0];
+            _fileSequenceGeneratedReferance = (FileSequence)_refCodeFileSeqObject[1];
             // Initially we do it false
             createdRecord.isSigned = false;
 
@@ -59,6 +68,20 @@ namespace CWCMS.Application.DocumentLogic.DocumentUploadingRepositories
 
             _documentRepository.Add(createdRecord);
             _activeRepository.Add(_activeRecord);
+
+            if(_fileSequenceGeneratedReferance.SequenceNumber == 2)
+            {
+                _fileSequenceRepository.Add(_fileSequenceGeneratedReferance);
+            }
+            else
+            {
+                _fileSequenceGeneratedReferance.SequenceNumber++;
+                _fileSequenceRepository.Edit(_fileSequenceGeneratedReferance);
+            }
+
+            
+
+
         }
     }
 }
