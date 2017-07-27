@@ -7,13 +7,28 @@ namespace CWCMS.Application.DocumentLogic.DocumentReferencingRepositories.Additi
 {
     public class AdditionReferencingMainTypeLogic : IAdditionReferencingMainTypeLogic
     {
-
+        // These will be our final reference code and will be returned in _returnArray with 0 index
         private string _referenceCode;
+
+        // This is the record considered as a reference
         private FileSequence _revisionedSequence;
+
+        /* This is the category of the reference number requesting document
+         * 1 = > Legislation
+         * 2 = > Circular
+         * 3 = > Announcement
+        */
+
         private int _categoryCode;
+
+        // For doing operations about reference choosen FileSequence record
         private FileSequenceRepository _fileSequenceRepository;
+
+        // This is the return array for carrying FileSequence object and reference code
         private object[] _returnArray;
 
+
+        // Constructor
         public AdditionReferencingMainTypeLogic()
         {
             this._referenceCode = "";
@@ -23,25 +38,24 @@ namespace CWCMS.Application.DocumentLogic.DocumentReferencingRepositories.Additi
             this._returnArray = new object[2];
         }
 
-
+        
         public void FileSequenceInitilizer()
         {
             _revisionedSequence.SequenceNumber = 2;
-
 
             switch (_categoryCode)
             {
                 case 1:
                     _revisionedSequence.FileType = "Y";
                     break;
+
                 case 2:
                     _revisionedSequence.FileType = "G";
                     break;
+
                 default:
                     _revisionedSequence.FileType = "G";
                     break;
-
-
             }
         }
 
@@ -74,7 +88,6 @@ namespace CWCMS.Application.DocumentLogic.DocumentReferencingRepositories.Additi
 
         public object[] GenerateReferenceForAddingMainType(int docType, Guid userGuid)
         {
-
             _categoryCode = docType;
 
             _referenceCode += GenerateDepartmentCode(userGuid);
@@ -92,8 +105,6 @@ namespace CWCMS.Application.DocumentLogic.DocumentReferencingRepositories.Additi
             _returnArray[1] = _revisionedSequence;
 
             return _returnArray;
-
-
         }
 
         public string GenerateRevisionCode()
@@ -104,9 +115,9 @@ namespace CWCMS.Application.DocumentLogic.DocumentReferencingRepositories.Additi
         public string GenerateSequentialLineNumber(string categoryLetter)
         {
             int sequenceNumber;
-            string _sequentialNumber="";
+            string _sequentialNumber = "";
 
-            if(_fileSequenceRepository.LastSequenceNumberOfSpecificType(categoryLetter) == 0 )
+            if (_fileSequenceRepository.LastSequenceNumberOfSpecificType(categoryLetter) == 0)
             {
                 _sequentialNumber = "001";
                 FileSequenceInitilizer();
@@ -118,14 +129,13 @@ namespace CWCMS.Application.DocumentLogic.DocumentReferencingRepositories.Additi
 
                 _revisionedSequence = _fileSequenceRepository.FindFileSequenceByDocumentType(categoryLetter);
 
-
                 if (sequenceNumber < 10)
                 {
                     _sequentialNumber += "00";
                     numberRepresentation = sequenceNumber.ToString();
                     _sequentialNumber += numberRepresentation;
-
-                }else if(sequenceNumber < 100)
+                }
+                else if (sequenceNumber < 100)
                 {
                     _sequentialNumber += "0";
                     numberRepresentation = sequenceNumber.ToString();
@@ -139,7 +149,5 @@ namespace CWCMS.Application.DocumentLogic.DocumentReferencingRepositories.Additi
 
             return _sequentialNumber;
         }
-
-        
     }
 }
