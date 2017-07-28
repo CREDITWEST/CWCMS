@@ -7,7 +7,7 @@ namespace CWCMS.UI
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            var cssBundle = new StyleBundle("~/css/");
+            var cssBundle = new  ScriptBundle("~/css/");
             cssBundle.Include("~/plugins/bootstrap/bootstrap.css");
             cssBundle.Include("~/plugins/jquery-ui/jquery-ui.min.css");
             cssBundle.Include("~/plugins/fancybox/jquery.fancybox.css");
@@ -19,6 +19,7 @@ namespace CWCMS.UI
 
             var scriptBundler = new ScriptBundle("~/jsplg/");
             scriptBundler.Include("~/plugins/jquery/jquery-2.1.0.min.js");
+            scriptBundler.Include("~/plugins/jquery-ui/jquery-ui.min.js");
             scriptBundler.Include("~/plugins/bootstrap/bootstrap.min.js");
             scriptBundler.Include("~/plugins/justified-gallery/jquery.justifiedgallery.min.js");
             scriptBundler.Include("~/plugins/tinymce/tinymce.min.js");

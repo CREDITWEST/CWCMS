@@ -42,6 +42,7 @@ namespace CWCMS.DBAccessTest
 
             doclist = _docService.CategorisedRetrievingActiveDocuments(1);
 
+            Console.WriteLine(repoAct.LastSequenceNumberOfSpecificType("G") + " Geliyor");
  
             if (IsNullOrEmpty(doclist))
             {

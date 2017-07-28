@@ -1,6 +1,7 @@
 ﻿using CWCMS.Application.DocumentLogic.DocumentRetrievingRepositories;
 using CWCMS.Application.DocumentLogic.DocumentUploadingRepositories;
 using CWCMS.Core.Models;
+using System;
 using System.Collections.Generic;
 
 namespace CWCMS.Application.BLServices
@@ -82,9 +83,9 @@ namespace CWCMS.Application.BLServices
         /* Document adding */
 
         // Uploading document to the system
-        public void UploadDocument(Document userInput)
+        public Guid UploadDocument(Document userInput)
         {
-            _uploadRepository.UploadToServerDocument(userInput);
+            return _uploadRepository.UploadToServerDocument(userInput);
         }
     }
 }
